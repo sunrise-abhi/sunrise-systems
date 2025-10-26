@@ -1,0 +1,52 @@
+import React from 'react'
+import type { ProcessBlock as ProcessBlockType } from '@/payload-types'
+import { Section, Container, Grid, Column } from '@/components/layout'
+
+export const ProcessBlockComponent: React.FC<ProcessBlockType> = ({
+  headline,
+  subhead,
+  steps,
+  backgroundColor = 'white',
+}) => {
+  if (!steps || steps.length === 0) return null
+
+  return (
+    <Section backgroundColor={backgroundColor}>
+      <Container>
+        <Grid cols={12} gap="standard">
+          {/* Left column: Headline & Subhead */}
+          <Column span={{ mobile: 4, desktop: 6 }}>
+            {headline && (
+              <h2 className="mb-4">
+                {headline}
+              </h2>
+            )}
+            {subhead && <p className="body-1 mb-8">{subhead}</p>}
+          </Column>
+          
+          {/* Right column: Process steps */}
+          <Column span={{ mobile: 4, desktop: 6 }}>
+            <div className="space-y-8">
+              {steps.map((step, index) => (
+                <div key={index} className="flex gap-8">
+                  {step.number && (
+                    <div className="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-mono">
+                      {step.number}
+                    </div>
+                  )}
+                  <div className="flex-grow">
+                    <h3 className="mb-2">{step.title}</h3>
+                    {step.description && (
+                      <p>{step.description}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Column>
+        </Grid>
+      </Container>
+    </Section>
+  )
+}
+

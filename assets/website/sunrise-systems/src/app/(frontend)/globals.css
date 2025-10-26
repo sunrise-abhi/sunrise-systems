@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    background-color: #FFFFFF;
+    color: #111111;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-dm-sans), sans-serif;
+    font-weight: 600;
+    font-size: unset;
+    color: #111111;
+    letter-spacing: -2px;
+  }
+  
+  body {
+    font-family: var(--font-inter), sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 6.7%;
+
+    --card: 240 5% 96%;
+    --card-foreground: 0 0% 6.7%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 6.7%;
+
+    --primary: 16 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 0 0% 6.7%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 16 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 6% 80%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 16 100% 50%;
+
+    --radius: 5px;
+
+    --success: 196 52% 74%;
+    --warning: 34 89% 85%;
+    --error: 10 100% 86%;
+  }
+
+  [data-theme='dark'] {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 4%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 16 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 16 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0, 0%, 15%, 0.8;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 16 100% 50%;
+
+    --success: 196 100% 14%;
+    --warning: 34 51% 25%;
+    --error: 10 39% 43%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply min-h-[100vh] flex flex-col;
+  }
+}
+
+@layer components {
+  /* Typography System */
+  
+  /* Headings - DM Sans, #111111 */
+  h1 {
+    font-size: 4rem;      /* 64px */
+    line-height: 1.25;    /* 80px = 10×8 baseline */
+    letter-spacing: -2px;
+  }
+  
+  h2 {
+    font-size: 3rem;      /* 48px */
+    line-height: 1.333;   /* 64px = 8×8 baseline */
+    letter-spacing: -2px;
+  }
+  
+  h3 {
+    font-size: 1.75rem;   /* 28px */
+    line-height: 1.429;   /* 40px = 5×8 baseline */
+    letter-spacing: -1px;
+  }
+  
+  h4 {
+    font-size: 2rem;      /* 32px */
+    line-height: 1.5;     /* 48px = 6×8 baseline */
+    letter-spacing: -2px;
+  }
+  
+  /* Body Styles */
+  .body-1 {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #111111;
+  }
+  
+  .body-2 {
+    font-family: 'Inter', var(--font-inter), sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #999999;
+  }
+  
+  /* Accent - IBM Plex Mono */
+  .accent {
+    font-family: var(--font-ibm-plex-mono), monospace;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #111111;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  
+  /* Paragraph default */
+  p {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #111111;
+  }
+}
+
+html {
+  opacity: 0;
+}
+
+html[data-theme='dark'],
+html[data-theme='light'] {
+  opacity: initial;
+}

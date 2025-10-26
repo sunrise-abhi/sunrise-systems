@@ -1,0 +1,1939 @@
+import type { CaseStudy } from '@/payload-types'
+
+export const caseStudiesSeedData: Omit<CaseStudy, 'id' | 'createdAt' | 'updatedAt'>[] = [
+  {
+    clientName: 'Delta Construction & Electric Co.',
+    headline: '$15.55MM in pipeline + $550K closed for a design-build GC in 8 months',
+    slug: 'delta',
+    industry: 'design-build-gc',
+    campaignDuration: '8 months',
+    investment: 10675,
+    keyMetrics: {
+      pipelineValue: 15550000,
+      closedRevenue: 550000,
+      pipelineROI: 1457,
+      realizedROI: 51.5,
+      relationships: 112,
+      bidRequests: 21,
+      repeatClients: 25,
+    },
+    testimonial: {
+      quote:
+        "Sunrise have been crushing it. We're super excited about the work they're doing, and I think we'll continue to work together for a long time.",
+      authorName: 'Aaron Baggaley',
+      authorTitle: 'CEO, Delta Family Companies',
+    },
+    content: [
+      {
+        blockType: 'heroBlock',
+        variant: 'default',
+        headline: 'Delta Construction & Electric Co.',
+        subheadline:
+          '$15.55MM in pipeline + $550K closed for a design-build GC in 8 months',
+      },
+      {
+        blockType: 'statsRowBlock',
+        stats: [
+          { value: '$15.55MM', label: 'total pipeline value' },
+          { value: '$550K', label: 'in closed revenue' },
+          { value: '1,457:1', label: 'pipeline ROI' },
+          { value: '112', label: 'decision-maker relationships' },
+        ],
+      },
+      {
+        blockType: 'testimonialBlock',
+        quote:
+          "Sunrise have been crushing it. We're super excited about the work they're doing, and I think we'll continue to work together for a long time.",
+        authorName: 'Aaron Baggaley',
+        authorTitle: 'CEO',
+        companyName: 'Delta Family Companies',
+      },
+      {
+        blockType: 'statementBlock',
+        headline: 'The Challenge',
+        content: {
+          root: {
+            type: 'root',
+            version: 1,
+            children: [
+              {
+                type: 'heading',
+                tag: 'h3',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'A design-build GC wanted predictable pipeline beyond referrals',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Delta Construction & Electric Co. is a design-build general contractor with a strong reputation in their market. Like many successful contractors, they built their business on relationships and referrals.',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'But referrals aren\'t scalable. They wanted:',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• Consistent flow of qualified opportunities alongside their existing relationships',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• Direct access to developers, architects, property managers, and business owners',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• Pre-positioning on high-value projects before bid lists closed',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• Long-term relationships that turn into repeat business',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• Measurable, systematic business development they could track and scale',
+                  },
+                ],
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            version: 1,
+          },
+        },
+      },
+      {
+        blockType: 'statementBlock',
+        headline: 'The Results',
+        content: {
+          root: {
+            type: 'root',
+            version: 1,
+            children: [
+              {
+                type: 'heading',
+                tag: 'h3',
+                children: [
+                  {
+                    type: 'text',
+                    text: '$15.55MM in pipeline, $550K closed, and 10.3X break-even in 8 months',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Pipeline generation:',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• $15MM+ in qualified bid opportunities identified and pursued',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• $550K in closed revenue (to date)',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 1,457:1 pipeline ROI',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 51.5:1 realized ROI on closed work',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Relationship development:',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 112 decision-maker relationships established from 3,910 contacts',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 2.86% overall conversion rate',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 25+ identified as ideal repeat client relationships',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Immediate opportunities:',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 21 explicit bid/quote requests delivered',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 6 discovery/qualification calls booked',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 1 bid list pre-qualification secured',
+                  },
+                ],
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            version: 1,
+          },
+        },
+      },
+      {
+        blockType: 'statementBlock',
+        headline: 'Peak Performance: September surge',
+        content: {
+          root: {
+            type: 'root',
+            version: 1,
+            children: [
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '34 relationships and 11 bid requests in 30 days',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'During September\'s focused outreach campaign, coordinated targeting across multiple channels produced exceptional results:',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Dodge Owners Campaign: 195 contacts → 25 relationships (12.82% conversion), 9 direct bid/quote requests',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'ConstructConnect Architects Campaign: 15 contacts → 2 relationships (13.33% conversion)',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'This month demonstrated the explosive potential of multi-channel, project-based prospecting when executed with precision timing and stakeholder coordination.',
+                  },
+                ],
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            version: 1,
+          },
+        },
+      },
+      {
+        blockType: 'statementBlock',
+        headline: 'What Made This Work',
+        content: {
+          root: {
+            type: 'root',
+            version: 1,
+            children: [
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Systematic, not random: Every contact was researched. Every message was personalized. Every follow-up was tracked.',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Multi-stakeholder diversification: By targeting developers, architects, property managers, and business owners simultaneously, we created multiple paths into projects.',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Project-based intelligence: Using ConstructConnect and Dodge gave us early visibility into active projects, allowing us to position Delta before final decisions were made.',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Long-term focus: We identified 25+ repeat client relationships that will generate recurring opportunities for years.',
+                    bold: true,
+                  },
+                ],
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            version: 1,
+          },
+        },
+      },
+      {
+        blockType: 'cta',
+        headline: 'Ready to generate qualified pipeline for your GC business?',
+        subhead: 'If you\'re a design-build contractor or general contractor looking for predictable project flow beyond referrals, let\'s talk about how this systematic approach can work for your market.',
+        links: [
+          {
+            link: {
+              type: 'custom',
+              url: '/contact',
+              label: 'Schedule your pipeline audit',
+            },
+          },
+        ],
+      },
+    ],
+    publishedAt: new Date('2025-01-01').toISOString(),
+    _status: 'published',
+  },
+  {
+    clientName: 'Breakthrough Lighting',
+    headline: '$10MM in pipeline for a commercial lighting distributor in 9 months',
+    slug: 'breakthrough-lighting',
+    industry: 'distributor',
+    campaignDuration: '9 months',
+    investment: 13500,
+    keyMetrics: {
+      pipelineValue: 10000000,
+      closedRevenue: 20000,
+      pipelineROI: 740,
+    },
+    testimonial: {
+      quote:
+        "Sunrise are very thorough in their methods—they're not going to leave any stone unturned so that they can craft the best possible message for your target customers. It's a really good process that they have, and so far, the results they've delivered for me have been right on point. I can't say enough good things about these guys.",
+      authorName: 'Joe Pineda',
+      authorTitle: 'Principal, Breakthrough Lighting',
+    },
+    content: [
+      {
+        blockType: 'heroBlock',
+        variant: 'default',
+        headline: 'Breakthrough Lighting',
+        subheadline: '$10MM in pipeline for a commercial lighting distributor in 9 months',
+      },
+      {
+        blockType: 'statsRowBlock',
+        stats: [
+          { value: '$10MM', label: 'qualified pipeline' },
+          { value: '$20K', label: 'closed revenue' },
+          { value: '740:1', label: 'pipeline ROI' },
+          { value: '$2MM', label: 'YoY growth despite market challenges' },
+        ],
+      },
+      {
+        blockType: 'testimonialBlock',
+        quote:
+          "Sunrise are very thorough in their methods—they're not going to leave any stone unturned so that they can craft the best possible message for your target customers. It's a really good process that they have, and so far, the results they've delivered for me have been right on point. I can't say enough good things about these guys.",
+        authorName: 'Joe Pineda',
+        authorTitle: 'Principal',
+        companyName: 'Breakthrough Lighting',
+      },
+      {
+        blockType: 'statementBlock',
+        headline: 'The Challenge',
+        content: {
+          root: {
+            type: 'root',
+            version: 1,
+            children: [
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Breakthrough Lighting is a commercial lighting distribution and procurement specialist serving electrical contractors, designers, and architects across California.',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'They wanted:',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 25-30% increase in new relationships beyond organic baseline',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 20% more project opportunities to bid on',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• Access to larger design-build firms and bigger general contractors',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• Strategic partnership, not just vendor relationship',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• Growth despite 2025 market uncertainty (tariffs, projects on hold, market volatility)',
+                  },
+                ],
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            version: 1,
+          },
+        },
+      },
+      {
+        blockType: 'statementBlock',
+        headline: '$10MM in pipeline and growth despite market turmoil',
+        content: {
+          root: {
+            type: 'root',
+            version: 1,
+            children: [
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Pipeline generation:',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• $10MM in qualified opportunities directly attributed to systematic outreach',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• $15.67MM total opportunities quoted in 2025 vs. $13.7MM in 2024',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• $2MM year-over-year growth (+14.6%)',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 740:1 pipeline ROI',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Relationship and opportunity growth:',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 25-30% more new relationships generated vs. organic/referral baseline',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 20% more project opportunities vs. pre-engagement period',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• Access to larger players: Getting on vendor lists with bigger design-build firms',
+                  },
+                ],
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            version: 1,
+          },
+        },
+      },
+      {
+        blockType: 'statementBlock',
+        headline: 'Growth achieved despite 2025\'s unprecedented challenges',
+        content: {
+          root: {
+            type: 'root',
+            version: 1,
+            children: [
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '2025 brought tariffs, uncertainty, and jobs on hold. Despite facing:',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• Tariff uncertainty halting purchasing decisions',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• Projects on hold waiting for market clarity',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• Interest rate volatility',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• Overall market nervousness',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Breakthrough Lighting still achieved $2MM growth.',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Why? Because systematic outreach doesn\'t stop when markets freeze. When competitors pull back on business development spending, that\'s exactly when you should maintain presence.',
+                  },
+                ],
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            version: 1,
+          },
+        },
+      },
+      {
+        blockType: 'statementBlock',
+        headline: 'What Made This Work',
+        content: {
+          root: {
+            type: 'root',
+            version: 1,
+            children: [
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Quality over quantity: Fewer emails, better targeting, higher conversion.',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Multi-channel coordination: Combining ConstructConnect project intelligence, Dodge targeting, and persona-based campaigns created multiple paths to opportunities.',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Persistent follow-up: Many prospects didn\'t engage until the 3rd touchpoint. Systematic persistence captured opportunities others would have missed.',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Partnership mindset: Joe viewed us as part of his growth infrastructure (the "three-legged stool"), not a replaceable vendor.',
+                    bold: true,
+                  },
+                ],
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            version: 1,
+          },
+        },
+      },
+      {
+        blockType: 'cta',
+        headline: 'Ready to generate qualified pipeline for your distribution business?',
+        subhead: 'If you\'re a construction supplier, distributor, or specialty provider looking for systematic relationship development with contractors, designers, and architects, let\'s talk.',
+        links: [
+          {
+            link: {
+              type: 'custom',
+              url: '/contact',
+              label: 'Schedule your partnership consultation',
+            },
+          },
+        ],
+      },
+    ],
+    publishedAt: new Date('2025-01-01').toISOString(),
+    _status: 'published',
+  },
+  {
+    clientName: 'Kings Drywall LLC',
+    headline: '$3MM in pipeline for a drywall subcontractor in 4 months',
+    slug: 'kings-drywall',
+    industry: 'specialty-contractor',
+    campaignDuration: '4 months',
+    investment: 7500,
+    keyMetrics: {
+      pipelineValue: 3000000,
+      pipelineROI: 400,
+      relationships: 58,
+      bidRequests: 6,
+      bidLists: 7,
+      repeatClients: 10,
+    },
+    testimonial: {
+      quote:
+        "Sunrise really gets the feeling of who we are and what we're doing. They're really going to have a long-term impact with getting us those bigger, more profitable commercial projects, and that's why I went with them over other short-term options. I know it's money well spent… and in reality they should be charging a lot more.",
+      authorName: 'Ernesto Fuentes',
+      authorTitle: 'CEO, Kings Drywall LLC',
+    },
+    content: [
+      {
+        blockType: 'heroBlock',
+        variant: 'default',
+        headline: 'Kings Drywall LLC',
+        subheadline: '$3MM in pipeline for a drywall subcontractor in 4 months',
+      },
+      {
+        blockType: 'statsRowBlock',
+        stats: [
+          { value: '$3MM', label: 'qualified pipeline' },
+          { value: '400:1', label: 'pipeline ROI' },
+          { value: '58', label: 'decision-maker relationships' },
+          { value: '23.40%', label: 'peak month conversion rate' },
+        ],
+      },
+      {
+        blockType: 'testimonialBlock',
+        quote:
+          "Sunrise really gets the feeling of who we are and what we're doing. They're really going to have a long-term impact with getting us those bigger, more profitable commercial projects, and that's why I went with them over other short-term options. I know it's money well spent… and in reality they should be charging a lot more.",
+        authorName: 'Ernesto Fuentes',
+        authorTitle: 'CEO',
+        companyName: 'Kings Drywall LLC',
+      },
+      {
+        blockType: 'statementBlock',
+        headline: 'The Challenge',
+        content: {
+          root: {
+            type: 'root',
+            version: 1,
+            children: [
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Kings Drywall is a California-based drywall subcontractor with strong capabilities but limited access to larger commercial GCs and residential developers.',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'They wanted:',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• Access to bigger, more profitable commercial projects beyond their current scope',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• Relationships with commercial GCs and residential developers in their market',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• Predictable project flow beyond referrals and existing relationships',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• Long-term repeat client relationships that generate consistent work',
+                  },
+                ],
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            version: 1,
+          },
+        },
+      },
+      {
+        blockType: 'statementBlock',
+        headline: '$3MM in pipeline from $7,500 investment in just 4 months',
+        content: {
+          root: {
+            type: 'root',
+            version: 1,
+            children: [
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Pipeline generation:',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• $3MM+ in qualified bid opportunities',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 400:1 pipeline ROI',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• Generated across commercial and residential markets',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Relationship development:',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 58 decision-maker relationships established',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 6.11% overall conversion rate',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 10+ identified as ideal repeat client relationships',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Immediate opportunities:',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 6 explicit bid/quote requests',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 7 bid list pre-qualifications',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 24% opportunity conversion rate',
+                  },
+                ],
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            version: 1,
+          },
+        },
+      },
+      {
+        blockType: 'statementBlock',
+        headline: 'April surge: 23.40% conversion rate on ConstructConnect targeting',
+        content: {
+          root: {
+            type: 'root',
+            version: 1,
+            children: [
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'April 2025 ConstructConnect Campaign Performance:',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 47 contacts made',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 11 relationships established',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 23.40% conversion rate (nearly 1 in 4 contacted responded positively)',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 3 bid/quote requests delivered',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 4 bid list additions secured',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'This is elite performance for drywall contractor outreach.',
+                    bold: true,
+                  },
+                ],
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            version: 1,
+          },
+        },
+      },
+      {
+        blockType: 'statementBlock',
+        headline: 'Project-based targeting crushes general outreach',
+        content: {
+          root: {
+            type: 'root',
+            version: 1,
+            children: [
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'ConstructConnect (Project-Based): 17.65% conversion',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 119 contacts → 21 relationships',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 4 bid requests (3.36% bid request rate)',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 5 bid lists (4.20% bid list rate)',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'General Campaign (Residential Developers): 4.45% conversion',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 831 contacts → 37 relationships',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 2 bid requests (0.24% bid request rate)',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Key Insight: Project-based ConstructConnect outperformed general residential outreach by 4X on conversion and 14X on bid request rate.',
+                    bold: true,
+                  },
+                ],
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            version: 1,
+          },
+        },
+      },
+      {
+        blockType: 'statementBlock',
+        headline: 'What Made This Work',
+        content: {
+          root: {
+            type: 'root',
+            version: 1,
+            children: [
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Precision targeting beats volume: 17.65% conversion on ConstructConnect vs. 4.45% on general outreach.',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Dual-market diversification: Commercial GCs provide larger projects. Residential developers provide volume. Together, they create balanced pipeline.',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Bid list additions = recurring value: 7 bid list pre-qualifications mean Kings now gets recurring bid invitations without additional outreach cost.',
+                    bold: true,
+                  },
+                ],
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            version: 1,
+          },
+        },
+      },
+      {
+        blockType: 'cta',
+        headline: 'Ready to access bigger, more profitable projects?',
+        subhead: 'If you\'re a specialty trade contractor looking for systematic access to commercial GCs and developers on active projects, let\'s talk about how project-based targeting can fill your pipeline.',
+        links: [
+          {
+            link: {
+              type: 'custom',
+              url: '/contact',
+              label: 'Schedule your pipeline audit',
+            },
+          },
+        ],
+      },
+    ],
+    publishedAt: new Date('2025-01-01').toISOString(),
+    _status: 'published',
+  },
+  {
+    clientName: 'EFI',
+    headline: '21 decision-maker relationships from 365 contacts',
+    slug: 'efi',
+    industry: 'specialty-contractor',
+    campaignDuration: 'Multi-channel campaign',
+    investment: 0,
+    keyMetrics: {
+      pipelineValue: 0,
+      relationships: 21,
+      bidRequests: 1,
+      bidLists: 2,
+    },
+    testimonial: {
+      quote: 'Project-based targeting delivered exceptional results for our specialty contracting business.',
+      authorName: 'EFI Leadership',
+      authorTitle: 'Specialty Contractor',
+    },
+    content: [
+      {
+        blockType: 'heroBlock',
+        variant: 'default',
+        headline: 'EFI',
+        subheadline: '21 decision-maker relationships from 365 contacts',
+      },
+      {
+        blockType: 'statsRowBlock',
+        stats: [
+          { value: '21', label: 'decision-maker relationships' },
+          { value: '5.75%', label: 'overall conversion rate' },
+          { value: '9.83%', label: 'peak month conversion' },
+          { value: '4.5X', label: 'project-based vs general outreach' },
+        ],
+      },
+      {
+        blockType: 'statementBlock',
+        headline: 'The Challenge',
+        content: {
+          root: {
+            type: 'root',
+            version: 1,
+            children: [
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'EFI is a specialty contractor looking to expand their pipeline beyond referrals and existing relationships. They needed a systematic approach to connect with GCs, developers, and project owners on active projects in their market.',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'The challenge: How do you generate qualified relationships efficiently when you\'re competing against dozens of other contractors for attention?',
+                  },
+                ],
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            version: 1,
+          },
+        },
+      },
+      {
+        blockType: 'statementBlock',
+        headline: 'Project-based intelligence delivers 4.5X better conversion',
+        content: {
+          root: {
+            type: 'root',
+            version: 1,
+            children: [
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Overall performance:',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 21 total decision-maker relationships established',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 365 total contacts made',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 5.75% overall conversion rate',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 1 direct bid/quote request',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 2 bid list additions',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Channel comparison:',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Combined Project-Based (ConstructConnect + Dodge):',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 247 contacts → 19 relationships',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 7.69% conversion rate',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 1 bid request + 2 bid lists',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'General Outreach (Engineering Firms):',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 118 contacts → 2 relationships',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• 1.69% conversion rate',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '• No tangible outcomes',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Key Finding: Project-based targeting delivered 4.5X better conversion (7.69% vs 1.69%)',
+                    bold: true,
+                  },
+                ],
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            version: 1,
+          },
+        },
+      },
+      {
+        blockType: 'statementBlock',
+        headline: 'August surge: 9.83% combined conversion from dual-channel coordination',
+        content: {
+          root: {
+            type: 'root',
+            version: 1,
+            children: [
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'ConstructConnect Campaign: 108 contacts → 11 relationships (10.19% conversion), 1 direct bid request',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Dodge Campaign: 65 contacts → 6 relationships (9.23% conversion), 2 bid list additions',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Combined August Results: 173 total contacts, 17 total relationships, 9.83% combined conversion rate',
+                    bold: true,
+                  },
+                ],
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            version: 1,
+          },
+        },
+      },
+      {
+        blockType: 'statementBlock',
+        headline: 'What This Proves',
+        content: {
+          root: {
+            type: 'root',
+            version: 1,
+            children: [
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Project intelligence matters more than volume: 7.69% conversion with project context vs. 1.69% without it.',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Dual-channel coordination amplifies results: Running ConstructConnect and Dodge simultaneously increased conversion rates.',
+                    bold: true,
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: '',
+                  },
+                ],
+              },
+              {
+                type: 'paragraph',
+                children: [
+                  {
+                    type: 'text',
+                    text: 'Bid lists create recurring value: The 2 bid list additions secured during this campaign give EFI ongoing access to future opportunities without additional outreach cost.',
+                    bold: true,
+                  },
+                ],
+              },
+            ],
+            direction: 'ltr',
+            format: '',
+            indent: 0,
+            version: 1,
+          },
+        },
+      },
+      {
+        blockType: 'cta',
+        headline: 'Ready to generate qualified relationships on active projects?',
+        subhead: 'If you\'re a specialty contractor looking for systematic access to decision-makers on projects that need your specific scope, let\'s talk about how project-based targeting can build your pipeline.',
+        links: [
+          {
+            link: {
+              type: 'custom',
+              url: '/contact',
+              label: 'Schedule your pipeline audit',
+            },
+          },
+        ],
+      },
+    ],
+    publishedAt: new Date('2025-01-01').toISOString(),
+    _status: 'published',
+  },
+]
+
