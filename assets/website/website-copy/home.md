@@ -1,157 +1,216 @@
-# Home
+# Home Page Copy
 
-## Hero Section
+---
+
+## Section 1: Hero
 
 **Headline:**
-Real bid invites delivered to your estimating team
+Growth Engineered
 
-**Subheadline:**
-We help contractors find and win more projects they actually want.
-Get bid invites on active ideal projects in your area every day.
-0% commission on projects you win.
-
-**CTA:**
-Send me projects
+**Subhead:**
+We deliver systematic sales outreach, premium brand positioning, and custom technology working together to grow your pipeline.
 
 ---
 
-## Trusted By
+## Section 2: Results Intro
 
-Breakthrough Lighting
-Delta Construction & Electric Co.
-Solar Connection Construction
-Kings Drywall
+**Headline:**
+Real results for contractors like you
 
----
-
-## Case Studies Section
-
-**Section Headline:**
-Results
-
-### $15.55MM in pipeline + $550K closed for a design-build GC in 8 months
-
-"Sunrise have been crushing it. We're super excited about the work they're doing, and I think we'll continue to work together for a long time."
-
-**Aaron Baggaley, CEO**
-Delta Family Companies
-
-[View case study]
+**Subhead:**
+Design-build GCs, specialty contractors, and suppliers generating qualified pipeline through systematic business development.
 
 ---
 
-### $10MM in pipeline for a commercial lighting distributor in 9 months
+## Section 3: Case Study Preview – Delta Construction
 
-"Sunrise are very thorough in their methods—they're not going to leave any stone unturned so that they can craft the best possible message for your target customers.
+**Headline:**
+$15.55MM pipeline in 8 months
 
-It's a really good process that they have, and so far, the results they've delivered for me have been right on point. I can't say enough good things about these guys."
+**Subhead:**
+A design-build GC generated 112 decision-maker relationships, secured 21 bid requests, and closed $550K in revenue through project-based targeting and multi-stakeholder outreach.
 
-**Joe Pineda, Principal**
-Breakthrough Lighting
-
-[View case study]
-
----
-
-### $3MM in pipeline for a drywall subcontractor in 4 months
-
-"Sunrise really gets the feeling of who we are and what we're doing. They're really going to have a long-term impact with getting us those bigger, more profitable commercial projects, and that's why I went with them over other short-term options.
-
-They're doing a great thing and I'm happy to be working with them because I know it's money well spent… and in reality they should be charging a lot more."
-
-**Ernesto Fuentes, CEO**
-Kings Drywall LLC
-
-[View case study]
+**Key Metrics:**
+- **Pipeline Value:** $15.55MM
+- **Closed Revenue:** $550K  
+- **Pipeline ROI:** 1,457:1
+- **Relationships:** 112 in 8 months
 
 ---
 
-## What We Do Section
+## Section 4: Case Study Preview – Breakthrough Lighting
 
-**Section Headline:**
-Business development built for commercial construction
+**Headline:**
+$10MM pipeline despite market turmoil
 
-**Intro:**
-Word of mouth isn't scalable. We help commercial contractors, design-build firms, and specialty trades build predictable pipelines alongside their existing relationships—so you choose the projects you want, not just what comes along.
+**Subhead:**
+A lighting distributor grew $2MM year-over-year in qualified opportunities during 2025's tariff uncertainty through strategic partnership and systematic outreach to GCs, electrical contractors, and designers.
 
-### Sales
+**Key Metrics:**
+- **Pipeline Value:** $10MM attributed
+- **Closed Revenue:** $20K (with active pipeline)
+- **Relationship Growth:** 25-30% increase
+- **Market Context:** $2MM growth during tariff uncertainty
 
-**Your outbound business development team**
+---
 
-Proactive outreach to GCs, developers, and owners on active projects that match your capabilities and local market.
+## Section 5: Case Study Preview – Kings Drywall
 
+**Headline:**
+$3MM pipeline from $7,500 investment
+
+**Subhead:**
+A drywall subcontractor achieved 400:1 pipeline ROI in just 4 months by targeting active projects with drywall scope, reaching 23.40% conversion during peak performance.
+
+**Key Metrics:**
+- **Pipeline Value:** $3MM
+- **Investment:** $7,500 over 4 months
+- **Pipeline ROI:** 400:1
+- **Peak Conversion:** 23.40% in April
+
+---
+
+## Section 6: Services Intro
+
+**Headline:**
+Three departments. One growth engine.
+
+**Subhead:**
+Our sales team finds the opportunities, our marketing team positions you for them, and our software team makes it systematic and scalable. Choose what works for your needs and budget—together, they create predictable pipeline.
+
+---
+
+## Section 7: Sales Services Overview
+
+**Title:**
+Lead Generation
+
+**Description:**
+Proactive outreach to decision-makers on active projects that match your capabilities, market, and ideal client profile.
+
+**Key Benefits/Deliverables:**
+- Pre-positioning before contractor selection
+- Project-based targeting using ConstructConnect and Dodge
 - Qualified bid invites delivered weekly
-- Warm introductions to decision-makers
-- Pre-positioning on high-value projects
-- Account-based relationship building
-
-[Learn more about sales]
 
 ---
 
-### Marketing
+## Section 8: Marketing Services Overview
 
-**Brand positioning that gets you noticed**
+**Title:**
+Brand Positioning
 
-Build a premium digital presence that reflects the quality of your work. We develop your brand voice, create compelling content, and position you as the contractor GCs and developers want to work with.
+**Description:**
+Premium brand presence that reflects the quality of your work and makes you the contractor GCs choose, not just another bid.
 
-- Brand refresh and messaging that differentiates you
-- LinkedIn strategy and newsletter for relationship building
-- Website redesign that builds immediate credibility
-- Digital presence that attracts the right opportunities
-
-[Learn more about marketing]
-
----
-
-### Software
-
-**Custom technology built for construction operations**
-
-We don't just set up off-the-shelf CRM systems. We build custom software that solves your specific operational problems—from modernizing legacy databases to creating centralized portals that replace your entire tech stack.
-
-- Custom operational software tailored to your workflows
-- Data extraction and modernization from legacy systems
-- Centralized dashboards that connect your tech stack
-- Automated processes for sales, marketing, and project management
-- AI-powered tools that boost efficiency across operations
-
-[Learn more about software]
+**Key Benefits/Deliverables:**
+- Professional website and positioning strategy
+- LinkedIn presence and email campaigns
+- Content that builds credibility with decision-makers
 
 ---
 
-## How It Works Section
+## Section 9: Software Services Overview
 
-**Section Headline:**
-Get started with Sunrise Systems
+**Title:**
+Custom Technology
 
-### 1. Discovery Call
+**Description:**
+Operational software built for your specific workflows—from legacy database rescue to centralized dashboards you own.
 
-Book a call with our construction business development team. We'll assess your current pipeline, identify opportunities in your market, and show you exactly how we can help you grow.
-
----
-
-### 2. Custom Strategy
-
-We build a tailored plan combining sales outreach, marketing positioning, and technology solutions specific to your trade, region, and growth goals.
+**Key Benefits/Deliverables:**
+- Real-time visibility into pipeline and outreach
+- Legacy system modernization and data recovery
+- Custom dashboards (not SaaS subscriptions)
 
 ---
 
-### 3. Launch & Results
-
-Our team gets to work immediately—building relationships with local GCs and developers, positioning your brand, and setting up systems that deliver consistent opportunities.
-
----
-
-## Final CTA Section
+## Section 10: How It Works
 
 **Headline:**
-Get bid invites delivered to your inbox
+Three steps to predictable pipeline
 
-**Subheadline:**
-We're here to help you grow.
-One quick meeting is all it takes to get started.
+**Subhead:**
+No complicated onboarding. No long-term commitment required to start. Just a clear path from discovery to results.
 
-**CTA:**
-Schedule a call
+**Step 1:**
+**Title:** Discovery call  
+**Description:** We assess your current pipeline, identify market opportunities, and show you exactly how systematic business development fits your trade and region.
+
+**Step 2:**
+**Title:** Custom strategy  
+**Description:** We build a plan combining sales outreach, brand positioning, and technology—specific to your capabilities, target GCs, and growth goals.
+
+**Step 3:**
+**Title:** Launch and track  
+**Description:** We execute the system, build relationships with decision-makers, and deliver bid invites you can track in real time through your dashboard.
+
+---
+
+## Section 11: Built for Commercial Construction
+
+**Headline:**
+Built for commercial construction
+
+**Subhead:**
+We don't work with residential contractors or serve every industry—we focus exclusively on commercial construction. Our process, targeting strategies, and technology are built specifically for GCs, specialty contractors, and suppliers who understand how projects actually get bid and won.
+
+---
+
+## Section 12: CTA
+
+**Headline:**
+Ready to scale your pipeline?
+
+**Subhead:**
+One call is all it takes to see how systematic business development works for your company.
+
+---
+
+## Copy Annotations
+
+**How each section ties to "Growth, engineered":**
+
+**Hero:** The headline IS the BIG IDEA made explicit. Subhead immediately reinforces it by describing the systematic, integrated approach (sales + marketing + technology working together).
+
+**Results Intro:** Sets up proof with language emphasizing systematic approach ("systematic business development"). Frames case studies as evidence the engineering works across different contractor types.
+
+**Case Studies:** Each demonstrates precision through specific metrics. Delta shows multi-stakeholder engineering. Breakthrough shows resilience through systematic consistency. Kings shows efficiency through targeted intelligence (23.40% conversion = precision, not volume).
+
+**Services Intro:** Explicitly positions as engineered system ("Three departments. One growth engine."). Shows how teams work together while giving flexibility to choose what fits their needs. Maintains integration message while removing barrier to entry.
+
+**Individual Services:** Each described functionally (what it does) with engineering language. Sales = "project-based targeting." Marketing = "positioning strategy." Software = "systematic and scalable."
+
+**How It Works:** Shows the engineering of the process itself. Three clear steps = methodical approach. "Track in real time" = measurable, visible, controlled.
+
+**Built for Commercial Construction:** Establishes specialization and expertise. Reinforces that the engineering is construction-specific (not generic marketing adapted for construction). "How projects actually get bid and won" = insider understanding of the industry.
+
+**CTA:** Low-friction invitation that emphasizes seeing "how systematic business development works"—reinforcing the engineered approach one final time.
+
+---
+
+## Page Flow Summary
+
+The page builds a complete narrative:
+
+1. **Open with the BIG IDEA** (Growth Engineered headline + systematic approach)
+2. **Prove it works** (three case studies with specific metrics)
+3. **Show the system** (three departments working together, with flexibility)
+4. **Clarify the path** (three steps to start)
+5. **Establish specialization** (built for commercial construction)
+6. **Invite action** (one call to see how it works for you)
+
+Every section reinforces that growth here is:
+- **Deliberate** (project-based targeting, not spray-and-pray)
+- **Measurable** (specific pipeline values, conversion rates, ROI multiples)
+- **Systematic** (three services working as integrated architecture)
+- **Achievable** (real contractors, recent timeframes, clear process)
+
+The language throughout avoids marketing clichés and speaks contractor-to-contractor. Numbers are specific. Claims are verifiable. The voice is confident but never boastful. The BIG IDEA ("Growth, engineered") leads as the hero headline, then is reinforced implicitly through every section that follows.
+
+The new "Built for Commercial Construction" section addresses a key differentiator: this isn't generic marketing adapted for construction—it's business development engineered specifically for how commercial projects get bid and won.
+
+A skeptical contractor reading this page should walk away thinking: "These people understand business development as a system built for my industry. They have proof it works. I can choose what fits my needs. The next step is clear."
+
+That's the engineering of the copy itself.
 

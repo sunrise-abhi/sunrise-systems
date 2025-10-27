@@ -309,6 +309,49 @@ export default buildConfig({
 
 There is also a simplified [one click deploy](https://github.com/payloadcms/payload/tree/templates/with-vercel-postgres) to Vercel should you need it.
 
+### Deploying to Railway
+
+This template is fully configured for Railway deployment with Docker. Railway is a modern hosting platform that makes deployment simple.
+
+#### Quick Deploy
+
+1. **Connect Repository:**
+   - Create a new project in Railway
+   - Connect your GitHub repository
+   - Railway auto-detects the Dockerfile
+
+2. **Configure Environment Variables:**
+   ```bash
+   DATABASE_URI=mongodb://mongo:PASSWORD@HOST.proxy.rlwy.net:PORT
+   PAYLOAD_SECRET=your-secure-secret-key-32-chars-minimum
+   NEXT_PUBLIC_SERVER_URL=https://your-app.up.railway.app
+   CRON_SECRET=your-cron-secret
+   ```
+
+3. **Deploy:**
+   - Railway automatically deploys on git push
+   - Or trigger manual deployment from dashboard
+   - Build takes ~2-3 minutes
+
+#### Important Notes
+
+- **`NEXT_PUBLIC_SERVER_URL` must include `https://` protocol**
+- Environment variables are passed to Docker build automatically
+- MongoDB service can be added via Railway's database addons
+- See [RAILWAY-DEPLOYMENT.md](./RAILWAY-DEPLOYMENT.md) for complete guide
+- See [RAILWAY-QUICK-FIX.md](./RAILWAY-QUICK-FIX.md) for quick reference
+
+#### Railway Features
+
+- ✅ Automatic SSL/TLS certificates
+- ✅ Private networking between services
+- ✅ Automatic MongoDB backups
+- ✅ Zero-downtime deployments
+- ✅ Built-in monitoring and logs
+- ✅ Environment variable management
+
+For detailed troubleshooting and configuration, see the Railway deployment documentation files in the project root.
+
 ### Self-hosting
 
 Before deploying your app, you need to:
