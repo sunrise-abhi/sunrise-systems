@@ -60,7 +60,7 @@ export const ServicesCollectionBlockComponent: React.FC<ServicesCollectionBlockT
                       {service.benefits.slice(0, 3).map((benefit, benefitIndex) => (
                         <li key={benefitIndex} className="flex items-start gap-2">
                           <span className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                          <span>{benefit.text}</span>
+                          <span className="body-3">{benefit.text}</span>
                         </li>
                       ))}
                     </ul>

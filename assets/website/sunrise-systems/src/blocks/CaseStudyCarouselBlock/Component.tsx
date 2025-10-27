@@ -128,10 +128,10 @@ export const CaseStudyCarouselBlockComponent: React.FC<CaseStudyCarouselBlockTyp
                 )}
               <div>
                 {caseStudy.testimonial.authorName && (
-                  <p className="font-semibold text-sm">{caseStudy.testimonial.authorName}</p>
+                  <p className="body-3 font-semibold">{caseStudy.testimonial.authorName}</p>
                 )}
                 {caseStudy.testimonial.authorTitle && (
-                  <p className="text-sm accent">{caseStudy.testimonial.authorTitle}</p>
+                  <p className="accent text-[#999999]">{caseStudy.testimonial.authorTitle}</p>
                 )}
               </div>
             </div>

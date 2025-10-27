@@ -52,7 +52,7 @@ export const CaseStudyPreviewBlockComponent: React.FC<CaseStudyPreviewBlockType>
         {headline && <h2 className="mb-4 text-center">{headline}</h2>}
         {subhead && <p className="mb-16 text-center body-1 max-w-3xl mx-auto">{subhead}</p>}
 
-        <Grid cols={12} gap="wide" className="gap-y-12">
+        <Grid cols={12} gap="wide" className="!gap-y-16">
           {caseStudies.map((item, index) => {
             const caseStudy =
               typeof item?.caseStudy === 'object' ? (item.caseStudy as CaseStudy) : null
@@ -90,7 +90,7 @@ export const CaseStudyPreviewBlockComponent: React.FC<CaseStudyPreviewBlockType>
                   href={`/case-studies/${caseStudy.slug}`}
                   className="mt-auto inline-flex items-center justify-center h-10 px-3 py-3 rounded-[5px] text-base border border-primary bg-transparent text-primary hover:bg-primary hover:text-white font-mono uppercase transition-colors w-fit"
                 >
-                  View full case study
+                  Read the case study
                 </Link>
               </div>
             )
@@ -123,12 +123,12 @@ export const CaseStudyPreviewBlockComponent: React.FC<CaseStudyPreviewBlockType>
                           )}
                         <div>
                           {caseStudy.testimonial.authorName && (
-                            <p className="font-semibold text-sm">
+                            <p className="body-3 font-semibold">
                               {caseStudy.testimonial.authorName}
                             </p>
                           )}
                           {caseStudy.testimonial.authorTitle && (
-                            <p className="text-sm accent">{caseStudy.testimonial.authorTitle}</p>
+                            <p className="accent text-[#999999]">{caseStudy.testimonial.authorTitle}</p>
                           )}
                         </div>
                       </div>

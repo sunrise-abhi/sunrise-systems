@@ -33,7 +33,7 @@ export const TestimonialBlockComponent: React.FC<TestimonialBlockType> = ({
       <Container>
         <Grid cols={12}>
           <Column span={{ mobile: 4, desktop: span }} start={{ desktop: start }}>
-            <blockquote className="body-1 mb-8">
+            <blockquote className="body-2 mb-8">
               &ldquo;{quote}&rdquo;
             </blockquote>
             
@@ -50,8 +50,8 @@ export const TestimonialBlockComponent: React.FC<TestimonialBlockType> = ({
               )}
               
               <div>
-                <p className="font-heading font-semibold">{authorName}</p>
-                <p className="body-2">
+                <p className="body-3 font-semibold">{authorName}</p>
+                <p className="accent text-[#999999]">
                   {authorTitle}
                   {companyName && `, ${companyName}`}
                 </p>

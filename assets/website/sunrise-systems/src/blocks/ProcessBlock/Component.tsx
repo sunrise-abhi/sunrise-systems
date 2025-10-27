@@ -37,9 +37,9 @@ export const ProcessBlockComponent: React.FC<ProcessBlockType> = ({
                     </div>
                   )}
                   <div className="flex-grow">
-                    <h3 className="mb-2">{step.title}</h3>
+                    <h4 className="mb-2">{step.title}</h4>
                     {step.description && (
-                      <p>{step.description}</p>
+                      <p className="body-3">{step.description}</p>
                     )}
                   </div>
                 </div>
