@@ -22,7 +22,8 @@
     "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts",
     "backup": "bash backup-restore/backup.sh",
     "backup:restore": "bash backup-restore/restore.sh",
-    "seed:case-studies": "cross-env NODE_OPTIONS=--no-deprecation node scripts/seed-case-studies.mjs"
+    "seed:case-studies": "cross-env NODE_OPTIONS=--no-deprecation node scripts/seed-case-studies.mjs",
+    "upload:media": "cross-env NODE_OPTIONS=--no-deprecation node scripts/upload-media-to-production.mjs"
   },
   "dependencies": {
     "@payloadcms/admin-bar": "3.61.0",

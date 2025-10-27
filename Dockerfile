@@ -54,11 +54,27 @@ RUN chown nextjs:nodejs .next
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-USER nextjs
+# Create entrypoint script to handle volume permissions
+RUN echo '#!/bin/sh' > /entrypoint.sh && \
+    echo 'set -e' >> /entrypoint.sh && \
+    echo '# Remove lost+found directory if it exists (created by Railway volume)' >> /entrypoint.sh && \
+    echo 'if [ -d /app/public/media/lost+found ]; then' >> /entrypoint.sh && \
+    echo '  rm -rf /app/public/media/lost+found 2>/dev/null || true' >> /entrypoint.sh && \
+    echo 'fi' >> /entrypoint.sh && \
+    echo '# Ensure media directory exists and has correct permissions' >> /entrypoint.sh && \
+    echo 'mkdir -p /app/public/media' >> /entrypoint.sh && \
+    echo 'chown -R nextjs:nodejs /app/public/media 2>/dev/null || true' >> /entrypoint.sh && \
+    echo '# Switch to nextjs user and start the app' >> /entrypoint.sh && \
+    echo 'exec su-exec nextjs:nodejs sh -c "HOSTNAME=0.0.0.0 node server.js"' >> /entrypoint.sh && \
+    chmod +x /entrypoint.sh
+
+# Install su-exec for dropping privileges
+RUN apk add --no-cache su-exec
 
 EXPOSE 3000
 
 ENV PORT=3000
 
-CMD HOSTNAME="0.0.0.0" node server.js
+# Run as root initially to handle volume permissions, then drop to nextjs user
+ENTRYPOINT ["/entrypoint.sh"]
 
