@@ -22,10 +22,10 @@ This document outlines the complete typography system for the Sunrise Systems Pa
 
 | Element | Size | Line Height | Usage |
 |---------|------|-------------|-------|
-| H1 | 3rem (48px) | 1.2 | Page titles, hero headlines |
-| H2 | 2.25rem (36px) | 1.3 | Section titles |
-| H3 | 1.875rem (30px) | 1.3 | Sub-section titles |
-| H4 | 1.5rem (24px) | 1.4 | Card titles, smaller headings |
+| H1 | 4rem (64px) | 1.25 (80px = 10×8) | Page titles, hero headlines |
+| H2 | 3rem (48px) | 1.333 (64px = 8×8) | Section titles |
+| H3 | 2.5rem (40px) | 1.2 (48px = 6×8) | Sub-section titles, case study card headlines |
+| H4 | 2rem (32px) | 1.5 (48px = 6×8) | Metric values, smaller headings |
 
 **Usage in Code**:
 ```tsx
@@ -148,13 +148,15 @@ const ibmPlexMono = IBM_Plex_Mono({ weight: ['400', '500', '600'], ... })
 ## Design Guidelines
 
 ### Hierarchy
-1. Use H1 for page/hero headlines (1 per page)
-2. Use H2 for major section titles
-3. Use H3 for subsection titles
-4. Use H4 for card titles and smaller headings
-5. Use Body 1 for primary content
-6. Use Body 2 for supporting/secondary content
-7. Use Accent for labels and tags
+1. Use H1 (64px) for page/hero headlines (1 per page)
+2. Use H2 (48px) for major section titles
+3. Use H3 (40px) for subsection titles and case study card headlines
+4. Use H4 (32px) for metric values and smaller headings
+5. Use Body 1 (24px) for primary content and block subheadlines
+6. Use Body 2 (16px) for supporting/secondary content
+7. Use Accent (16px) for labels and tags
+
+**Note:** All heading sizes and line-heights align to the 8px baseline grid for consistent vertical rhythm.
 
 ### Color Usage
 - **#111111**: Default for headings, primary body text, accent text
@@ -207,6 +209,35 @@ const ibmPlexMono = IBM_Plex_Mono({ weight: ['400', '500', '600'], ... })
   </Grid>
 </section>
 ```
+
+### Example: Case Study Preview & Carousel Blocks
+```tsx
+<section className="py-16 bg-white">
+  {/* Section-level headline */}
+  <h2 className="mb-4 text-center">{headline}</h2>
+  {subhead && <p className="mb-12 text-center body-1 max-w-3xl mx-auto">{subhead}</p>}
+  
+  {/* Individual case study card */}
+  <div className="case-study-card">
+    {/* Case study headline */}
+    <h3 className="mb-4">{caseStudy.headline}</h3>
+    <p className="mb-8">{caseStudy.subheadline}</p>
+    
+    {/* Key metrics */}
+    <div className="metrics">
+      <h4 className="mb-2">{metricValue}</h4>
+      <p className="accent text-sm">{metricLabel}</p>
+    </div>
+  </div>
+</section>
+```
+
+**Heading Hierarchy for Case Study Blocks:**
+- **H2 (48px)**: Section-level headline (e.g., "Our Work", "Case Studies")
+- **H3 (40px)**: Individual case study headline within each card
+- **H4 (32px)**: Key metric values (pipeline generated, ROI, relationships, etc.)
+
+This maintains proper semantic hierarchy (48px → 40px → 32px) where the block's main headline is H2, each case study card uses H3, and metrics within cards use H4. All sizes align to the 8px baseline grid.
 
 ## Migration Notes
 

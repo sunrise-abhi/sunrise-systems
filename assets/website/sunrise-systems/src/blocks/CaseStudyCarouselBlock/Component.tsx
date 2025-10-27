@@ -70,7 +70,7 @@ export const CaseStudyCarouselBlockComponent: React.FC<CaseStudyCarouselBlockTyp
 
   const metricsSection = (
     <div className="w-full md:w-1/2 p-8 bg-[#F5F5F5] rounded-[5px] md:rounded-none flex flex-col">
-      {caseStudy.headline && <h2 className="mb-4">{caseStudy.headline}</h2>}
+      {caseStudy.headline && <h3 className="mb-4">{caseStudy.headline}</h3>}
       {caseStudy.subheadline && <p className="mb-8">{caseStudy.subheadline}</p>}
 
       {currentItem.displayMetrics && currentItem.displayMetrics.length > 0 && (

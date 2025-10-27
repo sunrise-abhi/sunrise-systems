@@ -1,8 +1,7 @@
 import React from 'react'
-import Image from 'next/image'
 import type { LogoStripBlock as LogoStripBlockType } from '@/payload-types'
-import type { Media } from '@/payload-types'
 import { Section, Container } from '@/components/layout'
+import { Media } from '@/components/Media'
 
 export const LogoStripBlockComponent: React.FC<LogoStripBlockType> = ({
   headline,
@@ -24,19 +23,18 @@ export const LogoStripBlockComponent: React.FC<LogoStripBlockType> = ({
         
         <div className="flex flex-wrap justify-center items-center gap-12">
           {logos.map((logo, index) => {
-            const imageUrl = typeof logo.image === 'object' && logo.image !== null
-              ? (logo.image as Media).url
+            const imageResource = typeof logo.image === 'object' && logo.image !== null
+              ? logo.image
               : null
 
-            return imageUrl ? (
-              <Image
-                key={index}
-                src={imageUrl}
-                alt={logo.altText}
-                width={200}
-                height={48}
-                className="h-12 object-contain"
-              />
+            return imageResource ? (
+              <div key={index} className="h-12 w-[200px]">
+                <Media
+                  resource={imageResource}
+                  alt={logo.altText}
+                  imgClassName="h-12 w-auto object-contain"
+                />
+              </div>
             ) : null
           })}
         </div>

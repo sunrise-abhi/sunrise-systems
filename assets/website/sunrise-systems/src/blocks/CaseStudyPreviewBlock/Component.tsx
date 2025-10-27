@@ -64,7 +64,7 @@ export const CaseStudyPreviewBlockComponent: React.FC<CaseStudyPreviewBlockType>
             const metricsSection = (
               <div className="w-full md:w-1/2 p-8 flex flex-col justify-between">
                 <div>
-                  {caseStudy.headline && <h2 className="mb-4">{caseStudy.headline}</h2>}
+                  {caseStudy.headline && <h3 className="mb-4">{caseStudy.headline}</h3>}
                   {caseStudy.subheadline && <p className="mb-8">{caseStudy.subheadline}</p>}
 
                   {item.displayMetrics && item.displayMetrics.length > 0 && caseStudy.keyMetrics && (
