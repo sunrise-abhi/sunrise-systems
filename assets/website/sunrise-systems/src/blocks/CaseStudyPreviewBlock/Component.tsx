@@ -99,7 +99,7 @@ export const CaseStudyPreviewBlockComponent: React.FC<CaseStudyPreviewBlockType>
               <div className="w-full md:w-1/2 p-8 flex items-center">
                 <div className="bg-white rounded-[5px] p-8 w-full h-full flex flex-col justify-center">
                   {caseStudy.testimonial?.logo && typeof caseStudy.testimonial.logo === 'object' && (
-                    <div className="mb-6">
+                    <div className="mb-8">
                       <Media resource={caseStudy.testimonial.logo} imgClassName="h-12 w-auto" />
                     </div>
                   )}

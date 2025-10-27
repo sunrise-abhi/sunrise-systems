@@ -21,14 +21,14 @@ export const LogoStripBlockComponent: React.FC<LogoStripBlockType> = ({
           </h3>
         )}
         
-        <div className="flex flex-wrap justify-center items-center gap-12">
+        <div className="flex justify-evenly items-center">
           {logos.map((logo, index) => {
             const imageResource = typeof logo.image === 'object' && logo.image !== null
               ? logo.image
               : null
 
             return imageResource ? (
-              <div key={index} className="h-12 w-[200px]">
+              <div key={index} className="h-12 flex-shrink-0">
                 <Media
                   resource={imageResource}
                   alt={logo.altText}
