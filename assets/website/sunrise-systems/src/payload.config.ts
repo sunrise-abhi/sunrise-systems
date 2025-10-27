@@ -13,6 +13,7 @@ import { Posts } from './collections/Posts'
 import { Users } from './collections/Users'
 import { Services } from './collections/Services'
 import { CaseStudies } from './collections/CaseStudies'
+import { Clients } from './collections/Clients'
 import { Footer } from './Footer/config'
 import { Header } from './Header/config'
 import { plugins } from './plugins'
@@ -26,11 +27,7 @@ export default buildConfig({
   admin: {
     components: {
       // The `BeforeLogin` component renders a message that you see while logging into your admin panel.
-      // Feel free to delete this at any time. Simply remove the line below.
       beforeLogin: ['@/components/BeforeLogin'],
-      // The `BeforeDashboard` component renders the 'welcome' block that you see after logging into your admin panel.
-      // Feel free to delete this at any time. Simply remove the line below.
-      beforeDashboard: ['@/components/BeforeDashboard'],
     },
     importMap: {
       baseDir: path.resolve(dirname),
@@ -64,7 +61,7 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
   }),
-  collections: [Pages, Posts, Services, CaseStudies, Media, Categories, Users],
+  collections: [Pages, Posts, Services, CaseStudies, Media, Categories, Users, Clients],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   plugins: [

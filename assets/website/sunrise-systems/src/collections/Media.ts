@@ -37,6 +37,16 @@ export const Media: CollectionConfig = {
         },
       }),
     },
+    {
+      name: 'client',
+      type: 'relationship',
+      relationTo: 'clients',
+      label: 'Client',
+      required: false,
+      admin: {
+        position: 'sidebar',
+      },
+    },
   ],
   upload: {
     // Upload to the public/media directory in Next.js making them publicly accessible even outside of Payload
