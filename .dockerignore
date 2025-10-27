@@ -1,0 +1,33 @@
+# Ignore everything except the app directory
+*
+!assets/
+assets/*
+!assets/website/
+assets/website/*
+!assets/website/sunrise-systems/
+
+# But ignore these within the app
+assets/website/sunrise-systems/node_modules
+assets/website/sunrise-systems/.next
+assets/website/sunrise-systems/.git
+assets/website/sunrise-systems/.env*
+!assets/website/sunrise-systems/.env.example
+assets/website/sunrise-systems/*.log
+assets/website/sunrise-systems/.DS_Store
+assets/website/sunrise-systems/coverage
+assets/website/sunrise-systems/backups
+assets/website/sunrise-systems/backup-restore
+assets/website/sunrise-systems/tests
+assets/website/sunrise-systems/playwright-report
+assets/website/sunrise-systems/test-results
+assets/website/sunrise-systems/*.md
+!assets/website/sunrise-systems/README.md
+
+# Ignore other project directories
+clients/
+src/
+systems/
+*.md
+.git/
+.github/
+
