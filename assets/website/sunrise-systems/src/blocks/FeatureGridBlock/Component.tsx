@@ -1,6 +1,7 @@
 import React from 'react'
 import type { FeatureGridBlock as FeatureGridBlockType } from '@/payload-types'
 import { Section, Container, Grid, Column } from '@/components/layout'
+import { Media } from '@/components/Media'
 
 export const FeatureGridBlockComponent: React.FC<FeatureGridBlockType> = ({
   headline,
@@ -8,6 +9,8 @@ export const FeatureGridBlockComponent: React.FC<FeatureGridBlockType> = ({
   features,
   columns,
   backgroundColor = 'white',
+  paddingTop,
+  paddingBottom,
 }) => {
   if (!features || features.length === 0) return null
 
@@ -28,7 +31,7 @@ export const FeatureGridBlockComponent: React.FC<FeatureGridBlockType> = ({
   const columnSpan = getColumnSpan(columns || '3')
 
   return (
-    <Section backgroundColor={backgroundColor}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
       <Container>
         {headline && (
           <h2 className="mb-4 text-center">
@@ -38,19 +41,29 @@ export const FeatureGridBlockComponent: React.FC<FeatureGridBlockType> = ({
         {subhead && <p className="mb-12 text-center body-1 max-w-3xl mx-auto">{subhead}</p>}
         
         <Grid cols={12} gap="standard">
-          {features.map((feature, index) => (
-            <Column key={index} span={columnSpan}>
-              <div className="bg-[#F5F5F5] rounded-[5px] p-8">
-                {feature.icon && (
-                  <div className="mb-4 text-4xl" aria-hidden="true">{feature.icon}</div>
-                )}
-                <h4 className="mb-2">{feature.title}</h4>
-                {feature.description && (
-                  <p>{feature.description}</p>
-                )}
-              </div>
-            </Column>
-          ))}
+          {features.map((feature, index) => {
+            const imageResource = typeof feature.image === 'object' ? feature.image : null
+            
+            return (
+              <Column key={index} span={columnSpan}>
+                <div className="bg-[#F5F5F5] rounded-[5px] p-8">
+                  {imageResource && (
+                    <div className="mb-4 relative w-full aspect-video overflow-hidden rounded-[5px]">
+                      <Media 
+                        resource={imageResource} 
+                        fill 
+                        imgClassName="object-cover"
+                      />
+                    </div>
+                  )}
+                  <h4 className="mb-2">{feature.title}</h4>
+                  {feature.description && (
+                    <p>{feature.description}</p>
+                  )}
+                </div>
+              </Column>
+            )
+          })}
         </Grid>
       </Container>
     </Section>

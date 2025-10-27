@@ -17,6 +17,7 @@ export const HeroBlock: Block = {
         { label: 'Default', value: 'default' },
         { label: 'Image Right', value: 'imageRight' },
         { label: 'Background Image', value: 'backgroundImage' },
+        { label: 'Case Study Hero', value: 'caseStudyHero' },
       ],
     },
     {
@@ -75,6 +76,25 @@ export const HeroBlock: Block = {
       },
     },
     {
+      name: 'heroImage',
+      type: 'upload',
+      relationTo: 'media',
+      admin: {
+        condition: (_, blockData) => blockData?.variant === 'caseStudyHero',
+        description: 'Large full-width image displayed below headline and subhead',
+      },
+    },
+    {
+      name: 'services',
+      type: 'relationship',
+      relationTo: 'services',
+      hasMany: true,
+      admin: {
+        condition: (_, blockData) => blockData?.variant === 'caseStudyHero',
+        description: 'Services to display as tags in the hero',
+      },
+    },
+    {
       name: 'overlayOpacity',
       type: 'number',
       defaultValue: 50,
@@ -111,6 +131,40 @@ export const HeroBlock: Block = {
       ],
       admin: {
         condition: (_, blockData) => blockData?.variant !== 'backgroundImage',
+      },
+    },
+    {
+      name: 'paddingTop',
+      type: 'select',
+      defaultValue: 'none',
+      options: [
+        { label: 'None (0px)', value: 'none' },
+        { label: 'XS (32px)', value: 'xs' },
+        { label: 'SM (48px)', value: 'sm' },
+        { label: 'MD (64px)', value: 'md' },
+        { label: 'LG (96px)', value: 'lg' },
+        { label: 'XL (128px)', value: 'xl' },
+        { label: 'XXL (160px)', value: 'xxl' },
+      ],
+      admin: {
+        description: 'Top padding of the section',
+      },
+    },
+    {
+      name: 'paddingBottom',
+      type: 'select',
+      defaultValue: 'lg',
+      options: [
+        { label: 'None (0px)', value: 'none' },
+        { label: 'XS (32px)', value: 'xs' },
+        { label: 'SM (48px)', value: 'sm' },
+        { label: 'MD (64px)', value: 'md' },
+        { label: 'LG (96px)', value: 'lg' },
+        { label: 'XL (128px)', value: 'xl' },
+        { label: 'XXL (160px)', value: 'xxl' },
+      ],
+      admin: {
+        description: 'Bottom padding of the section',
       },
     },
   ],

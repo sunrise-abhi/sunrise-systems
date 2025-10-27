@@ -7,13 +7,15 @@ import { Section, Container, Grid, Column } from '@/components/layout'
 export const CaseStudySummaryBlockComponent: React.FC<CaseStudySummaryBlockType> = ({
   caseStudy,
   backgroundColor = 'white',
+  paddingTop,
+  paddingBottom,
 }) => {
   if (!caseStudy || typeof caseStudy === 'string') return null
 
   const caseStudyData = caseStudy as CaseStudy
 
   return (
-    <Section backgroundColor={backgroundColor}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
       <Container>
         <Grid cols={12}>
           <Column span={{ mobile: 4, desktop: 8 }}>

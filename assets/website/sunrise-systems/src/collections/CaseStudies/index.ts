@@ -52,14 +52,15 @@ export const CaseStudies: CollectionConfig<'case-studies'> = {
     slug: true,
     keyMetrics: true,
     testimonial: true,
+    services: true,
   },
   admin: {
     defaultColumns: ['clientName', 'industry', 'campaignDuration', 'updatedAt'],
     livePreview: {
       url: ({ data, req }) =>
         generatePreviewPath({
-          slug: data?.slug ? `/case-studies/${data.slug}` : '/case-studies',
-          collection: 'pages',
+          slug: data?.slug as string,
+          collection: 'case-studies',
           req,
         }),
     },
@@ -136,6 +137,15 @@ export const CaseStudies: CollectionConfig<'case-studies'> = {
         { name: 'authorImage', type: 'upload', relationTo: 'media' },
         { name: 'logo', type: 'upload', relationTo: 'media', admin: { description: 'Client logo' } },
       ],
+    },
+    {
+      name: 'services',
+      type: 'relationship',
+      relationTo: 'services',
+      hasMany: true,
+      admin: {
+        description: 'Services associated with this case study',
+      },
     },
     {
       type: 'tabs',

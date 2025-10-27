@@ -11,6 +11,7 @@ import type { Service } from '@/payload-types'
 
 import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
+import { LivePreviewListener } from '@/components/LivePreviewListener'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -29,6 +30,7 @@ export async function generateStaticParams() {
 }
 
 export default async function Service({ params: paramsPromise }: { params: Promise<{ slug?: string }> }) {
+  const { isEnabled: draft } = await draftMode()
   const { slug = '' } = await paramsPromise
   const url = '/services/' + slug
   const service = await queryServiceBySlug({ slug })
@@ -40,6 +42,9 @@ export default async function Service({ params: paramsPromise }: { params: Promi
   return (
     <article className="pb-24">
       <PageClient />
+      <PayloadRedirects disableNotFound url={url} />
+
+      {draft && <LivePreviewListener />}
 
       {/* Render blocks from service content */}
       <RenderBlocks blocks={service?.content || []} />

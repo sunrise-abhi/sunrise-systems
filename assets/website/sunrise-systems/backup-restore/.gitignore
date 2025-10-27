@@ -1,0 +1,23 @@
+# Ignore all backup files - these should be stored externally
+# DO NOT commit backups to git repository
+
+# All backup directories
+backups/
+*.backup/
+*.bak
+
+# Compressed backups
+*.tar.gz
+*.zip
+*.7z
+
+# Database dumps
+*.dump
+*.sql
+*.bson
+*.bson.gz
+
+# Temporary backup files
+*.tmp
+.backup_*
+

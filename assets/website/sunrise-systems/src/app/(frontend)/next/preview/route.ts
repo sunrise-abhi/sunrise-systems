@@ -25,6 +25,16 @@ export async function GET(req: NextRequest): Promise<Response> {
     return new Response('Insufficient search params', { status: 404 })
   }
 
+  if (path.includes('undefined')) {
+    payload.logger.error(
+      `Preview path contains 'undefined'. Collection: ${collection}, Slug: ${slug}, Path: ${path}. Check collectionPrefixMap in generatePreviewPath.ts`,
+    )
+    return new Response(
+      `Invalid preview path for collection '${collection}'. Check server logs for details.`,
+      { status: 500 },
+    )
+  }
+
   if (!path.startsWith('/')) {
     return new Response('This endpoint can only be used for relative previews', { status: 500 })
   }

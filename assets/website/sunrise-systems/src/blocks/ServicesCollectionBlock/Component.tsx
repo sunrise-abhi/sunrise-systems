@@ -11,6 +11,8 @@ export const ServicesCollectionBlockComponent: React.FC<ServicesCollectionBlockT
   services,
   columns,
   backgroundColor = 'white',
+  paddingTop,
+  paddingBottom,
 }) => {
   if (!services || services.length === 0) return null
 
@@ -31,7 +33,7 @@ export const ServicesCollectionBlockComponent: React.FC<ServicesCollectionBlockT
   const columnSpan = getColumnSpan(columns || '3')
 
   return (
-    <Section backgroundColor={backgroundColor}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
       <Container>
         {headline && <h2 className="mb-4 text-center">{headline}</h2>}
         {subhead && <p className="mb-12 text-center body-1 max-w-3xl mx-auto">{subhead}</p>}

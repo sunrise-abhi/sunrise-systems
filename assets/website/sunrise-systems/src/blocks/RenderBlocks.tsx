@@ -67,11 +67,8 @@ export const RenderBlocks: React.FC<{
             const Block = blockComponents[blockType]
 
             if (Block) {
-              // Remove top margin from first block to eliminate gap with header
-              const marginClass = index === 0 ? '' : 'my-8'
-              
               return (
-                <div className={marginClass} key={index}>
+                <div key={index}>
                   {/* @ts-expect-error there may be some mismatch between the expected types here */}
                   <Block {...block} disableInnerContainer />
                 </div>

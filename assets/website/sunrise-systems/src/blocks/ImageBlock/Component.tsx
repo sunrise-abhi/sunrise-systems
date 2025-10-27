@@ -10,6 +10,8 @@ export const ImageBlockComponent: React.FC<ImageBlockType> = ({
   labelAlignment = 'left',
   position,
   backgroundColor = 'white',
+  paddingTop,
+  paddingBottom,
 }) => {
   const getPositionConfig = (pos: string) => {
     const configs: Record<string, { span: number; start: number }> = {
@@ -29,7 +31,7 @@ export const ImageBlockComponent: React.FC<ImageBlockType> = ({
   if (!imageResource) return null
 
   return (
-    <Section backgroundColor={backgroundColor}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
       <Container>
         <Grid cols={12}>
           <Column span={{ mobile: 4, desktop: span }} start={{ desktop: start }}>

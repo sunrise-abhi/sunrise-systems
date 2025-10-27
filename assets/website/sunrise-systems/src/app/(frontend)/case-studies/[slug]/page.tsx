@@ -11,6 +11,7 @@ import type { CaseStudy } from '@/payload-types'
 
 import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
+import { LivePreviewListener } from '@/components/LivePreviewListener'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -33,6 +34,7 @@ export default async function CaseStudy({
 }: {
   params: Promise<{ slug?: string }>
 }) {
+  const { isEnabled: draft } = await draftMode()
   const { slug = '' } = await paramsPromise
   const url = '/case-studies/' + slug
   const caseStudy = await queryCaseStudyBySlug({ slug })
@@ -41,12 +43,27 @@ export default async function CaseStudy({
     return <PayloadRedirects url={url} />
   }
 
+  // Inject services from case study into the first hero block if it's a caseStudyHero variant
+  const blocks = caseStudy?.content || []
+  const enrichedBlocks = blocks.map((block, index) => {
+    if (index === 0 && block.blockType === 'heroBlock' && block.variant === 'caseStudyHero') {
+      return {
+        ...block,
+        services: caseStudy.services || block.services,
+      }
+    }
+    return block
+  })
+
   return (
     <article className="pb-24">
       <PageClient />
+      <PayloadRedirects disableNotFound url={url} />
+
+      {draft && <LivePreviewListener />}
 
       {/* Render blocks from case study content */}
-      <RenderBlocks blocks={caseStudy?.content || []} />
+      <RenderBlocks blocks={enrichedBlocks} />
     </article>
   )
 }
@@ -72,6 +89,7 @@ const queryCaseStudyBySlug = cache(async ({ slug }: { slug: string }) => {
     draft,
     limit: 1,
     overrideAccess: draft,
+    depth: 2,
     where: {
       slug: {
         equals: slug,

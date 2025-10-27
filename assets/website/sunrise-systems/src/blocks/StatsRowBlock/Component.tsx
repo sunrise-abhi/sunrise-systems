@@ -2,7 +2,7 @@ import React from 'react'
 import type { StatsRowBlock as StatsRowBlockType } from '@/payload-types'
 import { Section, Container, Grid, Column } from '@/components/layout'
 
-export const StatsRowBlockComponent: React.FC<StatsRowBlockType> = ({ stats, backgroundColor = 'white' }) => {
+export const StatsRowBlockComponent: React.FC<StatsRowBlockType> = ({ stats, backgroundColor = 'white', paddingTop, paddingBottom }) => {
   if (!stats || stats.length === 0) return null
 
   // Map stat count to column spans
@@ -22,7 +22,7 @@ export const StatsRowBlockComponent: React.FC<StatsRowBlockType> = ({ stats, bac
   const columnSpan = getColumnSpan(stats.length)
 
   return (
-    <Section backgroundColor={backgroundColor}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
       <Container>
         <Grid cols={12} gap="standard">
           {stats.map((stat, index) => (

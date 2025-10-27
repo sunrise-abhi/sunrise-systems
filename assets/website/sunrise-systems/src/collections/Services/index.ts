@@ -59,8 +59,8 @@ export const Services: CollectionConfig<'services'> = {
     livePreview: {
       url: ({ data, req }) =>
         generatePreviewPath({
-          slug: data?.slug ? `/services/${data.slug}` : '/services',
-          collection: 'pages',
+          slug: data?.slug as string,
+          collection: 'services',
           req,
         }),
     },

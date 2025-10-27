@@ -433,7 +433,7 @@ export interface User {
  * via the `definition` "HeroBlock".
  */
 export interface HeroBlock {
-  variant: 'default' | 'imageRight' | 'backgroundImage';
+  variant: 'default' | 'imageRight' | 'backgroundImage' | 'caseStudyHero';
   /**
    * Small text above headline (optional)
    */
@@ -457,6 +457,14 @@ export interface HeroBlock {
    */
   backgroundImage?: (string | null) | Media;
   /**
+   * Large full-width image displayed below headline and subhead
+   */
+  heroImage?: (string | null) | Media;
+  /**
+   * Services to display as tags in the hero
+   */
+  services?: (string | Service)[] | null;
+  /**
    * Dark overlay opacity (0-100)
    */
   overlayOpacity?: number | null;
@@ -465,361 +473,17 @@ export interface HeroBlock {
    */
   objectPosition?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
   backgroundColor?: ('white' | 'offwhite') | null;
+  /**
+   * Top padding of the section
+   */
+  paddingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Bottom padding of the section
+   */
+  paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'heroBlock';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "StatsRowBlock".
- */
-export interface StatsRowBlock {
-  stats?:
-    | {
-        /**
-         * e.g., "$29MM+" or "865:1"
-         */
-        value: string;
-        /**
-         * e.g., "total pipeline generated"
-         */
-        label: string;
-        id?: string | null;
-      }[]
-    | null;
-  backgroundColor?: ('white' | 'offwhite') | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'statsRowBlock';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "TestimonialBlock".
- */
-export interface TestimonialBlock {
-  quote: string;
-  authorName: string;
-  authorTitle: string;
-  companyName?: string | null;
-  authorImage?: (string | null) | Media;
-  position?: ('center' | 'left' | 'right') | null;
-  backgroundColor?: ('white' | 'offwhite') | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'testimonialBlock';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "StatementBlock".
- */
-export interface StatementBlock {
-  headline: string;
-  content?: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  alignment?: ('left' | 'center' | 'right') | null;
-  ctaButton?: {
-    label?: string | null;
-    url?: string | null;
-  };
-  backgroundColor?: ('white' | 'offwhite') | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'statementBlock';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "FeatureGridBlock".
- */
-export interface FeatureGridBlock {
-  headline?: string | null;
-  /**
-   * Optional subheadline below the headline
-   */
-  subhead?: string | null;
-  features?:
-    | {
-        title: string;
-        description?: string | null;
-        /**
-         * Icon name or emoji
-         */
-        icon?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  columns?: ('2' | '3' | '4') | null;
-  backgroundColor?: ('white' | 'offwhite') | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'featureGridBlock';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ProcessBlock".
- */
-export interface ProcessBlock {
-  headline?: string | null;
-  /**
-   * Optional subheadline below the headline
-   */
-  subhead?: string | null;
-  steps?:
-    | {
-        /**
-         * e.g., "1" or "01"
-         */
-        number?: string | null;
-        title: string;
-        description?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  backgroundColor?: ('white' | 'offwhite') | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'processBlock';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "LogoStripBlock".
- */
-export interface LogoStripBlock {
-  headline?: string | null;
-  logos?:
-    | {
-        image: string | Media;
-        altText: string;
-        id?: string | null;
-      }[]
-    | null;
-  backgroundColor?: ('white' | 'offwhite') | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'logoStripBlock';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CaseStudySummaryBlock".
- */
-export interface CaseStudySummaryBlock {
-  caseStudy: string | CaseStudy;
-  /**
-   * Select which metrics to highlight
-   */
-  displayMetrics?:
-    | {
-        label?: string | null;
-        value?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  backgroundColor?: ('white' | 'offwhite') | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'caseStudySummaryBlock';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "case-studies".
- */
-export interface CaseStudy {
-  id: string;
-  clientName: string;
-  /**
-   * Primary headline for case study previews
-   */
-  headline: string;
-  /**
-   * Subheadline displayed under the headline in case study previews
-   */
-  subheadline?: string | null;
-  industry: 'design-build-gc' | 'specialty-contractor' | 'distributor';
-  campaignDuration: string;
-  investment: number;
-  keyMetrics: {
-    pipelineValue: number;
-    closedRevenue?: number | null;
-    pipelineROI?: number | null;
-    realizedROI?: number | null;
-    relationships?: number | null;
-    bidRequests?: number | null;
-    bidLists?: number | null;
-    repeatClients?: number | null;
-  };
-  testimonial: {
-    quote: string;
-    authorName: string;
-    authorTitle: string;
-    authorImage?: (string | null) | Media;
-    /**
-     * Client logo
-     */
-    logo?: (string | null) | Media;
-  };
-  content: (
-    | HeroBlock
-    | StatementBlock
-    | StatsRowBlock
-    | TestimonialBlock
-    | FeatureGridBlock
-    | ProcessBlock
-    | LogoStripBlock
-    | CaseStudySummaryBlock
-    | CaseStudyPreviewBlock
-    | CaseStudyCarouselBlock
-    | ServiceSummaryBlock
-    | ServicesCollectionBlock
-    | GalleryBlock
-    | ImageBlock
-    | SplitBlock
-    | CarouselBlock
-    | CallToActionBlock
-    | ContentBlock
-    | MediaBlock
-    | ArchiveBlock
-    | FormBlock
-    | CalendlyBlock
-  )[];
-  meta?: {
-    title?: string | null;
-    /**
-     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
-     */
-    image?: (string | null) | Media;
-    description?: string | null;
-  };
-  publishedAt?: string | null;
-  /**
-   * When enabled, the slug will auto-generate from the title field on save and autosave.
-   */
-  generateSlug?: boolean | null;
-  slug: string;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CaseStudyPreviewBlock".
- */
-export interface CaseStudyPreviewBlock {
-  /**
-   * Section headline
-   */
-  headline?: string | null;
-  /**
-   * Section subhead
-   */
-  subhead?: string | null;
-  caseStudies?:
-    | {
-        caseStudy: string | CaseStudy;
-        /**
-         * Choose which side to display the metrics vs testimonial
-         */
-        layout?: ('metricsLeft' | 'metricsRight') | null;
-        /**
-         * Select up to 2 metrics to display for this case study
-         */
-        displayMetrics?:
-          | {
-              metricKey:
-                | 'pipelineValue'
-                | 'closedRevenue'
-                | 'pipelineROI'
-                | 'realizedROI'
-                | 'relationships'
-                | 'bidRequests'
-                | 'bidLists'
-                | 'repeatClients';
-              /**
-               * Custom label for this metric (e.g., "Pipeline Generated")
-               */
-              label: string;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-      }[]
-    | null;
-  backgroundColor?: ('white' | 'offwhite') | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'caseStudyPreviewBlock';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CaseStudyCarouselBlock".
- */
-export interface CaseStudyCarouselBlock {
-  /**
-   * Section headline
-   */
-  headline?: string | null;
-  /**
-   * Section subhead
-   */
-  subhead?: string | null;
-  caseStudies?:
-    | {
-        caseStudy: string | CaseStudy;
-        /**
-         * Choose which side to display the metrics vs testimonial
-         */
-        layout?: ('metricsLeft' | 'metricsRight') | null;
-        /**
-         * Select up to 4 metrics to display for this case study
-         */
-        displayMetrics?:
-          | {
-              metricKey:
-                | 'pipelineValue'
-                | 'closedRevenue'
-                | 'pipelineROI'
-                | 'realizedROI'
-                | 'relationships'
-                | 'bidRequests'
-                | 'bidLists'
-                | 'repeatClients';
-              /**
-               * Custom label for this metric (e.g., "Pipeline Generated")
-               */
-              label: string;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-      }[]
-    | null;
-  backgroundColor?: ('white' | 'offwhite') | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'caseStudyCarouselBlock';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ServiceSummaryBlock".
- */
-export interface ServiceSummaryBlock {
-  service: string | Service;
-  displayStyle?: ('card' | 'inline' | 'detailed') | null;
-  backgroundColor?: ('white' | 'offwhite') | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'serviceSummaryBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -897,6 +561,442 @@ export interface Service {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "StatementBlock".
+ */
+export interface StatementBlock {
+  headline: string;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  alignment?: ('left' | 'center' | 'right') | null;
+  ctaButton?: {
+    label?: string | null;
+    url?: string | null;
+  };
+  backgroundColor?: ('white' | 'offwhite') | null;
+  /**
+   * Top padding of the section
+   */
+  paddingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Bottom padding of the section
+   */
+  paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'statementBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "StatsRowBlock".
+ */
+export interface StatsRowBlock {
+  stats?:
+    | {
+        /**
+         * e.g., "$29MM+" or "865:1"
+         */
+        value: string;
+        /**
+         * e.g., "total pipeline generated"
+         */
+        label: string;
+        id?: string | null;
+      }[]
+    | null;
+  backgroundColor?: ('white' | 'offwhite') | null;
+  /**
+   * Top padding of the section
+   */
+  paddingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Bottom padding of the section
+   */
+  paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'statsRowBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TestimonialBlock".
+ */
+export interface TestimonialBlock {
+  quote: string;
+  authorName: string;
+  authorTitle: string;
+  companyName?: string | null;
+  authorImage?: (string | null) | Media;
+  position?: ('center' | 'left' | 'right') | null;
+  backgroundColor?: ('white' | 'offwhite') | null;
+  /**
+   * Top padding of the section
+   */
+  paddingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Bottom padding of the section
+   */
+  paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'testimonialBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FeatureGridBlock".
+ */
+export interface FeatureGridBlock {
+  headline?: string | null;
+  /**
+   * Optional subheadline below the headline
+   */
+  subhead?: string | null;
+  features?:
+    | {
+        /**
+         * Optional image displayed above the title
+         */
+        image?: (string | null) | Media;
+        title: string;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  columns?: ('2' | '3' | '4') | null;
+  backgroundColor?: ('white' | 'offwhite') | null;
+  /**
+   * Top padding of the section
+   */
+  paddingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Bottom padding of the section
+   */
+  paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'featureGridBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProcessBlock".
+ */
+export interface ProcessBlock {
+  headline?: string | null;
+  /**
+   * Optional subheadline below the headline
+   */
+  subhead?: string | null;
+  steps?:
+    | {
+        /**
+         * e.g., "1" or "01"
+         */
+        number?: string | null;
+        title: string;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  backgroundColor?: ('white' | 'offwhite') | null;
+  /**
+   * Top padding of the section
+   */
+  paddingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Bottom padding of the section
+   */
+  paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'processBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "LogoStripBlock".
+ */
+export interface LogoStripBlock {
+  headline?: string | null;
+  logos?:
+    | {
+        image: string | Media;
+        altText: string;
+        id?: string | null;
+      }[]
+    | null;
+  backgroundColor?: ('white' | 'offwhite') | null;
+  /**
+   * Top padding of the section
+   */
+  paddingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Bottom padding of the section
+   */
+  paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'logoStripBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CaseStudySummaryBlock".
+ */
+export interface CaseStudySummaryBlock {
+  caseStudy: string | CaseStudy;
+  /**
+   * Select which metrics to highlight
+   */
+  displayMetrics?:
+    | {
+        label?: string | null;
+        value?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  backgroundColor?: ('white' | 'offwhite') | null;
+  /**
+   * Top padding of the section
+   */
+  paddingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Bottom padding of the section
+   */
+  paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'caseStudySummaryBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "case-studies".
+ */
+export interface CaseStudy {
+  id: string;
+  clientName: string;
+  /**
+   * Primary headline for case study previews
+   */
+  headline: string;
+  /**
+   * Subheadline displayed under the headline in case study previews
+   */
+  subheadline?: string | null;
+  industry: 'design-build-gc' | 'specialty-contractor' | 'distributor';
+  campaignDuration: string;
+  investment: number;
+  keyMetrics: {
+    pipelineValue: number;
+    closedRevenue?: number | null;
+    pipelineROI?: number | null;
+    realizedROI?: number | null;
+    relationships?: number | null;
+    bidRequests?: number | null;
+    bidLists?: number | null;
+    repeatClients?: number | null;
+  };
+  testimonial: {
+    quote: string;
+    authorName: string;
+    authorTitle: string;
+    authorImage?: (string | null) | Media;
+    /**
+     * Client logo
+     */
+    logo?: (string | null) | Media;
+  };
+  /**
+   * Services associated with this case study
+   */
+  services?: (string | Service)[] | null;
+  content: (
+    | HeroBlock
+    | StatementBlock
+    | StatsRowBlock
+    | TestimonialBlock
+    | FeatureGridBlock
+    | ProcessBlock
+    | LogoStripBlock
+    | CaseStudySummaryBlock
+    | CaseStudyPreviewBlock
+    | CaseStudyCarouselBlock
+    | ServiceSummaryBlock
+    | ServicesCollectionBlock
+    | GalleryBlock
+    | ImageBlock
+    | SplitBlock
+    | CarouselBlock
+    | CallToActionBlock
+    | ContentBlock
+    | MediaBlock
+    | ArchiveBlock
+    | FormBlock
+    | CalendlyBlock
+  )[];
+  meta?: {
+    title?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (string | null) | Media;
+    description?: string | null;
+  };
+  publishedAt?: string | null;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CaseStudyPreviewBlock".
+ */
+export interface CaseStudyPreviewBlock {
+  /**
+   * Section headline
+   */
+  headline?: string | null;
+  /**
+   * Section subhead
+   */
+  subhead?: string | null;
+  caseStudies?:
+    | {
+        caseStudy: string | CaseStudy;
+        /**
+         * Choose which side to display the metrics vs testimonial
+         */
+        layout?: ('metricsLeft' | 'metricsRight') | null;
+        /**
+         * Select up to 4 metrics to display for this case study
+         */
+        displayMetrics?:
+          | {
+              metricKey:
+                | 'pipelineValue'
+                | 'closedRevenue'
+                | 'pipelineROI'
+                | 'realizedROI'
+                | 'relationships'
+                | 'bidRequests'
+                | 'bidLists'
+                | 'repeatClients';
+              /**
+               * Custom label for this metric (e.g., "Pipeline Generated")
+               */
+              label: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  backgroundColor?: ('white' | 'offwhite') | null;
+  /**
+   * Top padding of the section
+   */
+  paddingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Bottom padding of the section
+   */
+  paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'caseStudyPreviewBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CaseStudyCarouselBlock".
+ */
+export interface CaseStudyCarouselBlock {
+  /**
+   * Section headline
+   */
+  headline?: string | null;
+  /**
+   * Section subhead
+   */
+  subhead?: string | null;
+  caseStudies?:
+    | {
+        caseStudy: string | CaseStudy;
+        /**
+         * Choose which side to display the metrics vs testimonial
+         */
+        layout?: ('metricsLeft' | 'metricsRight') | null;
+        /**
+         * Select up to 4 metrics to display for this case study
+         */
+        displayMetrics?:
+          | {
+              metricKey:
+                | 'pipelineValue'
+                | 'closedRevenue'
+                | 'pipelineROI'
+                | 'realizedROI'
+                | 'relationships'
+                | 'bidRequests'
+                | 'bidLists'
+                | 'repeatClients';
+              /**
+               * Custom label for this metric (e.g., "Pipeline Generated")
+               */
+              label: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  backgroundColor?: ('white' | 'offwhite') | null;
+  /**
+   * Top padding of the section
+   */
+  paddingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Bottom padding of the section
+   */
+  paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'caseStudyCarouselBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ServiceSummaryBlock".
+ */
+export interface ServiceSummaryBlock {
+  service: string | Service;
+  displayStyle?: ('card' | 'inline' | 'detailed') | null;
+  backgroundColor?: ('white' | 'offwhite') | null;
+  /**
+   * Top padding of the section
+   */
+  paddingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Bottom padding of the section
+   */
+  paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'serviceSummaryBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "ServicesCollectionBlock".
  */
 export interface ServicesCollectionBlock {
@@ -920,6 +1020,14 @@ export interface ServicesCollectionBlock {
     | null;
   columns?: ('2' | '3' | '4') | null;
   backgroundColor?: ('white' | 'offwhite') | null;
+  /**
+   * Top padding of the section
+   */
+  paddingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Bottom padding of the section
+   */
+  paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'servicesCollectionBlock';
@@ -944,6 +1052,14 @@ export interface GalleryBlock {
    */
   height: 'full' | 'half';
   backgroundColor?: ('white' | 'offwhite') | null;
+  /**
+   * Top padding of the section
+   */
+  paddingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Bottom padding of the section
+   */
+  paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'galleryBlock';
@@ -962,6 +1078,14 @@ export interface ImageBlock {
   labelAlignment?: ('left' | 'right') | null;
   position: '4-left' | '5-left' | '6-left' | '6-right' | '5-right' | '4-right';
   backgroundColor?: ('white' | 'offwhite') | null;
+  /**
+   * Top padding of the section
+   */
+  paddingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Bottom padding of the section
+   */
+  paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'imageBlock';
@@ -982,6 +1106,14 @@ export interface SplitBlock {
   subhead?: string | null;
   imagePosition: 'left' | 'right';
   backgroundColor?: ('white' | 'offwhite') | null;
+  /**
+   * Top padding of the section
+   */
+  paddingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Bottom padding of the section
+   */
+  paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'splitBlock';
@@ -1003,6 +1135,14 @@ export interface CarouselBlock {
   }[];
   height: 'full' | 'half';
   backgroundColor?: ('white' | 'offwhite') | null;
+  /**
+   * Top padding of the section
+   */
+  paddingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Bottom padding of the section
+   */
+  paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'carouselBlock';
@@ -1090,6 +1230,14 @@ export interface ContentBlock {
       }[]
     | null;
   backgroundColor?: ('white' | 'offwhite') | null;
+  /**
+   * Top padding of the section
+   */
+  paddingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Bottom padding of the section
+   */
+  paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'content';
@@ -1163,6 +1311,14 @@ export interface FormBlock {
     [k: string]: unknown;
   } | null;
   backgroundColor?: ('white' | 'offwhite') | null;
+  /**
+   * Top padding of the section
+   */
+  paddingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Bottom padding of the section
+   */
+  paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'formBlock';
@@ -1355,6 +1511,14 @@ export interface CalendlyBlock {
    * Minimum height in pixels
    */
   minHeight?: number | null;
+  /**
+   * Top padding of the section
+   */
+  paddingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Bottom padding of the section
+   */
+  paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'calendlyBlock';
@@ -1708,9 +1872,13 @@ export interface HeroBlockSelect<T extends boolean = true> {
   proofBadge?: T;
   image?: T;
   backgroundImage?: T;
+  heroImage?: T;
+  services?: T;
   overlayOpacity?: T;
   objectPosition?: T;
   backgroundColor?: T;
+  paddingTop?: T;
+  paddingBottom?: T;
   id?: T;
   blockName?: T;
 }
@@ -1727,6 +1895,8 @@ export interface StatsRowBlockSelect<T extends boolean = true> {
         id?: T;
       };
   backgroundColor?: T;
+  paddingTop?: T;
+  paddingBottom?: T;
   id?: T;
   blockName?: T;
 }
@@ -1742,6 +1912,8 @@ export interface TestimonialBlockSelect<T extends boolean = true> {
   authorImage?: T;
   position?: T;
   backgroundColor?: T;
+  paddingTop?: T;
+  paddingBottom?: T;
   id?: T;
   blockName?: T;
 }
@@ -1760,6 +1932,8 @@ export interface StatementBlockSelect<T extends boolean = true> {
         url?: T;
       };
   backgroundColor?: T;
+  paddingTop?: T;
+  paddingBottom?: T;
   id?: T;
   blockName?: T;
 }
@@ -1773,13 +1947,15 @@ export interface FeatureGridBlockSelect<T extends boolean = true> {
   features?:
     | T
     | {
+        image?: T;
         title?: T;
         description?: T;
-        icon?: T;
         id?: T;
       };
   columns?: T;
   backgroundColor?: T;
+  paddingTop?: T;
+  paddingBottom?: T;
   id?: T;
   blockName?: T;
 }
@@ -1799,6 +1975,8 @@ export interface ProcessBlockSelect<T extends boolean = true> {
         id?: T;
       };
   backgroundColor?: T;
+  paddingTop?: T;
+  paddingBottom?: T;
   id?: T;
   blockName?: T;
 }
@@ -1816,6 +1994,8 @@ export interface LogoStripBlockSelect<T extends boolean = true> {
         id?: T;
       };
   backgroundColor?: T;
+  paddingTop?: T;
+  paddingBottom?: T;
   id?: T;
   blockName?: T;
 }
@@ -1833,6 +2013,8 @@ export interface CaseStudySummaryBlockSelect<T extends boolean = true> {
         id?: T;
       };
   backgroundColor?: T;
+  paddingTop?: T;
+  paddingBottom?: T;
   id?: T;
   blockName?: T;
 }
@@ -1858,6 +2040,8 @@ export interface CaseStudyPreviewBlockSelect<T extends boolean = true> {
         id?: T;
       };
   backgroundColor?: T;
+  paddingTop?: T;
+  paddingBottom?: T;
   id?: T;
   blockName?: T;
 }
@@ -1883,6 +2067,8 @@ export interface CaseStudyCarouselBlockSelect<T extends boolean = true> {
         id?: T;
       };
   backgroundColor?: T;
+  paddingTop?: T;
+  paddingBottom?: T;
   id?: T;
   blockName?: T;
 }
@@ -1894,6 +2080,8 @@ export interface ServiceSummaryBlockSelect<T extends boolean = true> {
   service?: T;
   displayStyle?: T;
   backgroundColor?: T;
+  paddingTop?: T;
+  paddingBottom?: T;
   id?: T;
   blockName?: T;
 }
@@ -1913,6 +2101,8 @@ export interface ServicesCollectionBlockSelect<T extends boolean = true> {
       };
   columns?: T;
   backgroundColor?: T;
+  paddingTop?: T;
+  paddingBottom?: T;
   id?: T;
   blockName?: T;
 }
@@ -1932,6 +2122,8 @@ export interface GalleryBlockSelect<T extends boolean = true> {
       };
   height?: T;
   backgroundColor?: T;
+  paddingTop?: T;
+  paddingBottom?: T;
   id?: T;
   blockName?: T;
 }
@@ -1946,6 +2138,8 @@ export interface ImageBlockSelect<T extends boolean = true> {
   labelAlignment?: T;
   position?: T;
   backgroundColor?: T;
+  paddingTop?: T;
+  paddingBottom?: T;
   id?: T;
   blockName?: T;
 }
@@ -1962,6 +2156,8 @@ export interface SplitBlockSelect<T extends boolean = true> {
   subhead?: T;
   imagePosition?: T;
   backgroundColor?: T;
+  paddingTop?: T;
+  paddingBottom?: T;
   id?: T;
   blockName?: T;
 }
@@ -1981,6 +2177,8 @@ export interface CarouselBlockSelect<T extends boolean = true> {
       };
   height?: T;
   backgroundColor?: T;
+  paddingTop?: T;
+  paddingBottom?: T;
   id?: T;
   blockName?: T;
 }
@@ -2034,6 +2232,8 @@ export interface ContentBlockSelect<T extends boolean = true> {
         id?: T;
       };
   backgroundColor?: T;
+  paddingTop?: T;
+  paddingBottom?: T;
   id?: T;
   blockName?: T;
 }
@@ -2071,6 +2271,8 @@ export interface FormBlockSelect<T extends boolean = true> {
   enableIntro?: T;
   introContent?: T;
   backgroundColor?: T;
+  paddingTop?: T;
+  paddingBottom?: T;
   id?: T;
   blockName?: T;
 }
@@ -2082,6 +2284,8 @@ export interface CalendlyBlockSelect<T extends boolean = true> {
   calendlyUrl?: T;
   backgroundColor?: T;
   minHeight?: T;
+  paddingTop?: T;
+  paddingBottom?: T;
   id?: T;
   blockName?: T;
 }
@@ -2210,6 +2414,7 @@ export interface CaseStudiesSelect<T extends boolean = true> {
         authorImage?: T;
         logo?: T;
       };
+  services?: T;
   content?:
     | T
     | {

@@ -12,13 +12,18 @@ export const SplitBlockComponent: React.FC<SplitBlockType> = ({
   subhead,
   imagePosition = 'left',
   backgroundColor = 'white',
+  paddingTop,
+  paddingBottom,
 }) => {
   const imageResource = typeof image === 'object' ? image : null
 
   if (!imageResource) return null
 
   const imageSection = (
-    <Column span={{ mobile: 4, desktop: 6 }}>
+    <Column
+      span={{ mobile: 4, desktop: 6 }}
+      start={{ desktop: imagePosition === 'left' ? 1 : 7 }}
+    >
       <div>
         <div className="aspect-square relative overflow-hidden rounded-[5px] w-full">
           <Media resource={imageResource} alt={alt || ''} fill imgClassName="object-cover" />
@@ -35,7 +40,10 @@ export const SplitBlockComponent: React.FC<SplitBlockType> = ({
   )
 
   const textSection = (
-    <Column span={{ mobile: 4, desktop: 6 }}>
+    <Column
+      span={{ mobile: 4, desktop: 5 }}
+      start={{ desktop: imagePosition === 'left' ? 8 : 1 }}
+    >
       <div className="flex flex-col justify-center h-full">
         <h2 className="mb-4">{headline}</h2>
         {subhead && <p className="body-1">{subhead}</p>}
@@ -44,7 +52,7 @@ export const SplitBlockComponent: React.FC<SplitBlockType> = ({
   )
 
   return (
-    <Section backgroundColor={backgroundColor}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
       <Container>
         <Grid cols={12} gap="standard">
           {imagePosition === 'left' ? (

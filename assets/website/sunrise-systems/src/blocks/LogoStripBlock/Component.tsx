@@ -8,11 +8,13 @@ export const LogoStripBlockComponent: React.FC<LogoStripBlockType> = ({
   headline,
   logos,
   backgroundColor = 'white',
+  paddingTop,
+  paddingBottom,
 }) => {
   if (!logos || logos.length === 0) return null
 
   return (
-    <Section backgroundColor={backgroundColor}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
       <Container>
         {headline && (
           <h3 className="mb-8 text-center accent">
@@ -33,7 +35,7 @@ export const LogoStripBlockComponent: React.FC<LogoStripBlockType> = ({
                 alt={logo.altText}
                 width={200}
                 height={48}
-                className="h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition"
+                className="h-12 object-contain"
               />
             ) : null
           })}

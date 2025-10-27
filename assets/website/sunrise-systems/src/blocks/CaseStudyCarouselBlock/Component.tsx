@@ -44,6 +44,8 @@ export const CaseStudyCarouselBlockComponent: React.FC<CaseStudyCarouselBlockTyp
   subhead,
   caseStudies,
   backgroundColor = 'white',
+  paddingTop,
+  paddingBottom,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
@@ -68,7 +70,7 @@ export const CaseStudyCarouselBlockComponent: React.FC<CaseStudyCarouselBlockTyp
 
   const metricsSection = (
     <div className="w-full md:w-1/2 p-8 bg-[#F5F5F5] rounded-[5px] md:rounded-none flex flex-col">
-      {caseStudy.headline && <h3 className="mb-4">{caseStudy.headline}</h3>}
+      {caseStudy.headline && <h2 className="mb-4">{caseStudy.headline}</h2>}
       {caseStudy.subheadline && <p className="mb-8">{caseStudy.subheadline}</p>}
 
       {currentItem.displayMetrics && currentItem.displayMetrics.length > 0 && (
@@ -139,7 +141,7 @@ export const CaseStudyCarouselBlockComponent: React.FC<CaseStudyCarouselBlockTyp
   )
 
   return (
-    <Section backgroundColor={backgroundColor}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
       <Container>
         {headline && <h2 className="mb-4 text-center">{headline}</h2>}
         {subhead && <p className="mb-12 text-center body-1 max-w-3xl mx-auto">{subhead}</p>}

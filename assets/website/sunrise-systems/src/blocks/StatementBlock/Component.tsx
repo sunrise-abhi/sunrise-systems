@@ -9,6 +9,8 @@ export const StatementBlockComponent: React.FC<StatementBlockType> = ({
   alignment = 'left',
   ctaButton,
   backgroundColor = 'white',
+  paddingTop,
+  paddingBottom,
 }) => {
   // Alignment configurations
   const alignmentConfig: Record<string, { span: number; start: number; textAlign: string }> = {
@@ -21,7 +23,7 @@ export const StatementBlockComponent: React.FC<StatementBlockType> = ({
   const { span, start, textAlign } = config
 
   return (
-    <Section backgroundColor={backgroundColor}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
       <Container>
         <Grid cols={12}>
           <Column span={{ mobile: 4, desktop: span }} start={{ desktop: start }}>

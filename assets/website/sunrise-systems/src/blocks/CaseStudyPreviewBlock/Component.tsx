@@ -41,16 +41,18 @@ export const CaseStudyPreviewBlockComponent: React.FC<CaseStudyPreviewBlockType>
   subhead,
   caseStudies,
   backgroundColor = 'white',
+  paddingTop,
+  paddingBottom,
 }) => {
   if (!caseStudies || caseStudies.length === 0) return null
 
   return (
-    <Section backgroundColor={backgroundColor}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
       <Container>
         {headline && <h2 className="mb-4 text-center">{headline}</h2>}
-        {subhead && <p className="mb-12 text-center body-1 max-w-3xl mx-auto">{subhead}</p>}
+        {subhead && <p className="mb-16 text-center body-1 max-w-3xl mx-auto">{subhead}</p>}
 
-        <Grid cols={12} gap="standard">
+        <Grid cols={12} gap="wide" className="gap-y-12">
           {caseStudies.map((item, index) => {
             const caseStudy =
               typeof item?.caseStudy === 'object' ? (item.caseStudy as CaseStudy) : null
@@ -62,7 +64,7 @@ export const CaseStudyPreviewBlockComponent: React.FC<CaseStudyPreviewBlockType>
             const metricsSection = (
               <div className="w-full md:w-1/2 p-8 flex flex-col justify-between">
                 <div>
-                  {caseStudy.headline && <h3 className="mb-4">{caseStudy.headline}</h3>}
+                  {caseStudy.headline && <h2 className="mb-4">{caseStudy.headline}</h2>}
                   {caseStudy.subheadline && <p className="mb-8">{caseStudy.subheadline}</p>}
 
                   {item.displayMetrics && item.displayMetrics.length > 0 && caseStudy.keyMetrics && (

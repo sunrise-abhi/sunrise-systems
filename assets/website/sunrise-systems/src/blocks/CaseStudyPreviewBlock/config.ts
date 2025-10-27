@@ -49,9 +49,9 @@ export const CaseStudyPreviewBlock: Block = {
           name: 'displayMetrics',
           type: 'array',
           label: 'Display Metrics',
-          maxRows: 2,
+          maxRows: 4,
           admin: {
-            description: 'Select up to 2 metrics to display for this case study',
+            description: 'Select up to 4 metrics to display for this case study',
           },
           fields: [
             {
@@ -89,6 +89,40 @@ export const CaseStudyPreviewBlock: Block = {
         { label: 'White', value: 'white' },
         { label: 'Off-white', value: 'offwhite' },
       ],
+    },
+    {
+      name: 'paddingTop',
+      type: 'select',
+      defaultValue: 'md',
+      options: [
+        { label: 'None (0px)', value: 'none' },
+        { label: 'XS (32px)', value: 'xs' },
+        { label: 'SM (48px)', value: 'sm' },
+        { label: 'MD (64px)', value: 'md' },
+        { label: 'LG (96px)', value: 'lg' },
+        { label: 'XL (128px)', value: 'xl' },
+        { label: 'XXL (160px)', value: 'xxl' },
+      ],
+      admin: {
+        description: 'Top padding of the section',
+      },
+    },
+    {
+      name: 'paddingBottom',
+      type: 'select',
+      defaultValue: 'md',
+      options: [
+        { label: 'None (0px)', value: 'none' },
+        { label: 'XS (32px)', value: 'xs' },
+        { label: 'SM (48px)', value: 'sm' },
+        { label: 'MD (64px)', value: 'md' },
+        { label: 'LG (96px)', value: 'lg' },
+        { label: 'XL (128px)', value: 'xl' },
+        { label: 'XXL (160px)', value: 'xxl' },
+      ],
+      admin: {
+        description: 'Bottom padding of the section',
+      },
     },
   ],
 }

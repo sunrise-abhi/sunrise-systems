@@ -19,7 +19,10 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
     "test": "pnpm run test:int && pnpm run test:e2e",
     "test:e2e": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" pnpm exec playwright test --config=playwright.config.ts",
-    "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts"
+    "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts",
+    "backup": "bash backup-restore/backup.sh",
+    "backup:restore": "bash backup-restore/restore.sh",
+    "seed:case-studies": "cross-env NODE_OPTIONS=--no-deprecation node scripts/seed-case-studies.mjs"
   },
   "dependencies": {
     "@payloadcms/admin-bar": "3.61.0",
@@ -38,6 +41,7 @@
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.2",
+    "bcryptjs": "^3.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cross-env": "^7.0.3",
@@ -45,6 +49,7 @@
     "geist": "^1.3.0",
     "graphql": "^16.8.2",
     "lucide-react": "^0.378.0",
+    "mongodb": "^6.20.0",
     "next": "15.4.4",
     "next-sitemap": "^4.2.3",
     "payload": "3.61.0",
@@ -76,6 +81,7 @@
     "postcss": "^8.4.38",
     "prettier": "^3.4.2",
     "tailwindcss": "^3.4.3",
+    "tsx": "^4.20.6",
     "typescript": "5.7.3",
     "vite-tsconfig-paths": "5.1.4",
     "vitest": "3.2.3"

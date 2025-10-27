@@ -15,6 +15,14 @@ const config = {
   // Spacing follows 8px baseline rhythm
   // Use space-2, 4, 6, 8, 12, 16, 24, 32, 40 for consistent vertical rhythm
   safelist: [
+    // Section spacing classes (8px baseline rhythm)
+    'pt-0', 'pb-0',
+    'pt-8', 'pb-8',
+    'pt-12', 'pb-12',
+    'pt-16', 'pb-16',
+    'pt-24', 'pb-24',
+    'pt-32', 'pb-32',
+    'pt-40', 'pb-40',
     // Grid column spans - mobile (base)
     'col-span-1',
     'col-span-2',

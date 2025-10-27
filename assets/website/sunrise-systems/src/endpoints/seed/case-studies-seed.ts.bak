@@ -58,6 +58,7 @@ export const caseStudiesSeedData: Omit<CaseStudy, 'id' | 'createdAt' | 'updatedA
             children: [
               {
                 type: 'heading',
+                version: 1,
                 tag: 'h3',
                 children: [
                   {
@@ -165,6 +166,7 @@ export const caseStudiesSeedData: Omit<CaseStudy, 'id' | 'createdAt' | 'updatedA
             children: [
               {
                 type: 'heading',
+                version: 1,
                 tag: 'h3',
                 children: [
                   {

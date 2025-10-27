@@ -7,11 +7,13 @@ export const ProcessBlockComponent: React.FC<ProcessBlockType> = ({
   subhead,
   steps,
   backgroundColor = 'white',
+  paddingTop,
+  paddingBottom,
 }) => {
   if (!steps || steps.length === 0) return null
 
   return (
-    <Section backgroundColor={backgroundColor}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
       <Container>
         <Grid cols={12} gap="standard">
           {/* Left column: Headline & Subhead */}
