@@ -22,8 +22,8 @@ This document outlines the complete typography system for the Sunrise Systems Pa
 
 | Element | Size | Line Height | Usage |
 |---------|------|-------------|-------|
-| H1 | 4rem (64px) | 1.25 (80px = 10×8) | Page titles, hero headlines |
-| H2 | 3rem (48px) | 1.333 (64px = 8×8) | Section titles |
+| H1 | 4.5rem (72px) | 1.111 (80px = 10×8) | Page titles, hero headlines |
+| H2 | 3.5rem (56px) | 1.143 (64px = 8×8) | Section titles |
 | H3 | 2.5rem (40px) | 1.2 (48px = 6×8) | Sub-section titles, case study card headlines |
 | H4 | 2rem (32px) | 1.5 (48px = 6×8) | Metric values, smaller headings |
 
@@ -37,13 +37,15 @@ This document outlines the complete typography system for the Sunrise Systems Pa
 
 ### Body Styles
 
+**Simplified 2-Size System**: All body copy uses either 24px (primary content) or 16px (labels/accents only), aligned to 8px baseline grid.
+
 #### Body 1
 **Font**: Inter Medium (500 weight)
-**Size**: 24px
+**Size**: 24px (1.5rem)
 **Color**: `#111111`
-**Line Height**: 1.5
+**Line Height**: 1.5 (36px = 4.5×8 baseline)
 
-**Usage**: Primary body copy, large paragraphs, featured content, **block subheadlines**
+**Usage**: All primary body content including subheadlines, card descriptions, paragraph copy, feature descriptions
 
 **Common Pattern - Block Subheadlines**:
 ```tsx
@@ -62,50 +64,50 @@ This document outlines the complete typography system for the Sunrise Systems Pa
 
 #### Body 2
 **Font**: Inter Regular (400 weight)
-**Size**: 16px
+**Size**: 24px (1.5rem)
 **Color**: `#999999` (light gray)
-**Line Height**: 1.5
+**Line Height**: 1.5 (36px = 4.5×8 baseline)
 
-**Usage**: Secondary text, de-emphasized descriptions, subtle captions
+**Usage**: Testimonial quotes only - larger size increases impact while gray color keeps them subtle and believable
 
 ```tsx
-<p className="body-2">This is secondary/de-emphasized text</p>
+<blockquote className="body-2">"{testimonial.quote}"</blockquote>
 ```
 
 #### Default Paragraph (No Class)
 **Font**: Inter Medium (500 weight)
-**Size**: 16px
+**Size**: 24px (1.5rem)
 **Color**: `#111111` (dark)
-**Line Height**: 1.5
+**Line Height**: 1.5 (36px = 4.5×8 baseline)
 
-**Usage**: Standard body copy in cards, feature descriptions, process steps, service excerpts, benefits
+**Usage**: All standard body copy - same as Body 1
 
-**When to use plain `<p>` vs `body-2`:**
-- Use plain `<p>` for primary readable content (darker, more prominent)
-- Use `body-2` only when you want lighter, de-emphasized text
+**When to use plain `<p>` vs `body-1` vs `body-2`:**
+- Plain `<p>` and `body-1` are identical (24px dark) - use interchangeably
+- Use `body-2` only for testimonial quotes (24px gray)
 
 ```tsx
-{/* Darker, primary 16px copy */}
+{/* Primary body copy - both are equivalent */}
 <p className="mb-4">{description}</p>
+<p className="body-1 mb-4">{description}</p>
 
-{/* Lighter, secondary 16px copy */}
-<p className="body-2">{caption}</p>
+{/* Testimonial quotes only */}
+<blockquote className="body-2">"{quote}"</blockquote>
 ```
-
-**Used in**: ServicesCollectionBlock (excerpt & benefits), FeatureGridBlock (descriptions), ProcessBlock (step descriptions), CaseStudyPreviewBlock (subheadlines)
 
 ### Accent Text
 **Font**: IBM Plex Mono (400 weight)
-**Size**: 12px
+**Size**: 16px (1rem)
 **Color**: `#111111`
-**Line Height**: 1.5
+**Line Height**: 1.5 (24px = 3×8 baseline)
 **Letter Spacing**: 0.05em
 **Text Transform**: Uppercase
 
-**Usage**: Labels, tags, eyebrows, small indicators
+**Usage**: Labels, tags, eyebrows, metric labels (e.g., "PIPELINE", "BID INVITES"), author titles
 
 ```tsx
-<p className="accent">Featured Label</p>
+<p className="accent">Pipeline</p>
+<p className="accent text-sm">Author Title</p>
 ```
 
 ## Button Typography
@@ -148,15 +150,21 @@ const ibmPlexMono = IBM_Plex_Mono({ weight: ['400', '500', '600'], ... })
 ## Design Guidelines
 
 ### Hierarchy
-1. Use H1 (64px) for page/hero headlines (1 per page)
-2. Use H2 (48px) for major section titles
-3. Use H3 (40px) for subsection titles and case study card headlines
-4. Use H4 (32px) for metric values and smaller headings
-5. Use Body 1 (24px) for primary content and block subheadlines
-6. Use Body 2 (16px) for supporting/secondary content
-7. Use Accent (16px) for labels and tags
 
-**Note:** All heading sizes and line-heights align to the 8px baseline grid for consistent vertical rhythm.
+**Simplified Type Scale (6 Styles Total):**
+
+1. **H1 (72px)**: Page/hero headlines (1 per page)
+2. **H2 (56px)**: Major section titles
+3. **H3 (40px)**: Subsection titles, case study card headlines
+4. **H4 (32px)**: Metric values, smaller headings
+5. **Body (24px)**: All body copy - subheadlines, descriptions, paragraphs
+   - Body 1: Dark (#111) for primary content
+   - Body 2: Gray (#999) for testimonial quotes only
+6. **Accent (16px)**: Labels, tags, eyebrows (uppercase, monospace)
+
+**Visual Differentiation:** Color (dark vs gray), weight (medium vs regular), and position create hierarchy - not size alone.
+
+**Note:** All type sizes and line-heights align to the 8px baseline grid for consistent vertical rhythm.
 
 ### Color Usage
 - **#111111**: Default for headings, primary body text, accent text
@@ -164,12 +172,13 @@ const ibmPlexMono = IBM_Plex_Mono({ weight: ['400', '500', '600'], ... })
 - **#FF6000**: Buttons, links, and interactive elements
 
 ### Consistency Rules
-- Never use gray text colors except Body 2 (#999999)
-- Never use white text on white backgrounds
-- All headings must use DM Sans
-- All body copy must use Inter
-- All buttons and labels must use IBM Plex Mono
-- Maintain consistent spacing (mb-4, mb-6, mb-8, mb-12)
+- **Body copy is always 24px** - no 16px or 20px body text (except accent labels)
+- Use gray (#999999) only for testimonial quotes (body-2)
+- All headings must use DM Sans (72px, 56px, 40px, 32px)
+- All body copy must use Inter (24px)
+- All labels and accents must use IBM Plex Mono (16px, uppercase)
+- Maintain 8px baseline spacing (mb-4, mb-8, mb-12, py-16, etc.)
+- Never use arbitrary spacing values that break the 8px grid
 
 ## Block Component Usage
 
@@ -233,11 +242,11 @@ const ibmPlexMono = IBM_Plex_Mono({ weight: ['400', '500', '600'], ... })
 ```
 
 **Heading Hierarchy for Case Study Blocks:**
-- **H2 (48px)**: Section-level headline (e.g., "Our Work", "Case Studies")
+- **H2 (56px)**: Section-level headline (e.g., "Our Work", "Case Studies")
 - **H3 (40px)**: Individual case study headline within each card
 - **H4 (32px)**: Key metric values (pipeline generated, ROI, relationships, etc.)
 
-This maintains proper semantic hierarchy (48px → 40px → 32px) where the block's main headline is H2, each case study card uses H3, and metrics within cards use H4. All sizes align to the 8px baseline grid.
+This maintains proper semantic hierarchy (56px → 40px → 32px) where the block's main headline is H2, each case study card uses H3, and metrics within cards use H4. All sizes align to the 8px baseline grid.
 
 ## Migration Notes
 
