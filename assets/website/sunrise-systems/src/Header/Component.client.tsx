@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react'
 import type { Header } from '@/payload-types'
 
 import { Logo } from '@/components/Logo/Logo'
+import { Media } from '@/components/Media'
 import { HeaderNav } from './Nav'
 import { useHeaderBackground } from './useHeaderBackground'
 
@@ -31,6 +32,8 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [headerTheme])
 
+  const logoResource = typeof data?.logo === 'object' ? data.logo : null
+
   return (
     <header 
       className={`sticky top-0 z-50 ${isNavigating ? '' : 'transition-colors duration-300'}`}
@@ -40,7 +43,15 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
       <div className="container">
         <div className="py-4 flex justify-between items-center">
           <Link href="/">
-            <Logo loading="eager" priority="high" />
+            {logoResource ? (
+              <Media 
+                resource={logoResource} 
+                imgClassName="w-auto h-[60px]"
+                priority
+              />
+            ) : (
+              <Logo loading="eager" priority="high" />
+            )}
           </Link>
           <HeaderNav data={data} />
         </div>
