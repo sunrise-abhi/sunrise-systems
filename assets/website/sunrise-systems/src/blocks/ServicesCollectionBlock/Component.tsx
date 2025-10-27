@@ -47,7 +47,7 @@ export const ServicesCollectionBlockComponent: React.FC<ServicesCollectionBlockT
             return (
               <Column key={index} span={columnSpan}>
                 <div className="bg-[#F5F5F5] rounded-[5px] p-8 flex flex-col h-full">
-                  <h3 className="mb-4">{service.title}</h3>
+                  <h4 className="mb-4">{service.title}</h4>
 
                   {image && typeof image === 'object' && (
                     <Media resource={image} className="mb-4 rounded-[5px] w-full" />
