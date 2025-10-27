@@ -21,20 +21,20 @@ export const LogoStripBlockComponent: React.FC<LogoStripBlockType> = ({
           </h3>
         )}
         
-        <div className="overflow-hidden">
-          <div className="flex items-center gap-16 animate-scroll">
-            {/* Render logos twice for seamless loop */}
-            {[...logos, ...logos].map((logo, index) => {
+        <div className="overflow-hidden relative">
+          <div className="flex items-center animate-scroll">
+            {/* Render logos multiple times for seamless infinite loop */}
+            {[...logos, ...logos, ...logos].map((logo, index) => {
               const imageResource = typeof logo.image === 'object' && logo.image !== null
                 ? logo.image
                 : null
 
               return imageResource ? (
-                <div key={index} className="h-12 flex-shrink-0 min-w-[200px] flex justify-center">
+                <div key={index} className="h-12 flex-shrink-0 px-8">
                   <Media
                     resource={imageResource}
                     alt={logo.altText}
-                    imgClassName="h-12 w-auto object-contain"
+                    imgClassName="h-12 w-auto object-contain max-w-[200px]"
                   />
                 </div>
               ) : null
