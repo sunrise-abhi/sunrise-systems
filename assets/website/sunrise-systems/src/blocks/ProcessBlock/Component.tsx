@@ -17,7 +17,7 @@ export const ProcessBlockComponent: React.FC<ProcessBlockType> = ({
       <Container>
         <Grid cols={12} gap="standard">
           {/* Left column: Headline & Subhead */}
-          <Column span={{ mobile: 4, desktop: 6 }}>
+          <Column span={{ mobile: 4, desktop: 5 }}>
             {headline && (
               <h2 className="mb-4">
                 {headline}
@@ -27,12 +27,12 @@ export const ProcessBlockComponent: React.FC<ProcessBlockType> = ({
           </Column>
           
           {/* Right column: Process steps */}
-          <Column span={{ mobile: 4, desktop: 6 }}>
+          <Column span={{ mobile: 4, desktop: 6 }} start={{ desktop: 7 }}>
             <div className="space-y-8">
               {steps.map((step, index) => (
                 <div key={index} className="flex gap-8">
                   {step.number && (
-                    <div className="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-mono">
+                    <div className="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-[5px] flex items-center justify-center font-mono text-2xl leading-none">
                       {step.number}
                     </div>
                   )}
