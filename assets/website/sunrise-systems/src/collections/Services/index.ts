@@ -27,7 +27,7 @@ import { CarouselBlock } from '../../blocks/CarouselBlock/config'
 import { slugField } from 'payload'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
-import { revalidateDelete, revalidatePage } from '../Pages/hooks/revalidatePage'
+import { revalidateService, revalidateServiceDelete } from './hooks/revalidateService'
 
 import {
   MetaDescriptionField,
@@ -203,9 +203,9 @@ export const Services: CollectionConfig<'services'> = {
     slugField(),
   ],
   hooks: {
-    afterChange: [revalidatePage],
+    afterChange: [revalidateService],
     beforeChange: [populatePublishedAt],
-    afterDelete: [revalidateDelete],
+    afterDelete: [revalidateServiceDelete],
   },
   versions: {
     drafts: {

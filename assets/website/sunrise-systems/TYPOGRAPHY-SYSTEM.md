@@ -1,7 +1,10 @@
-# Typography System Documentation
+# Typography System - Complete Reference
+
+**Last Updated:** October 28, 2025  
+**Status:** Production-ready  
 
 ## Overview
-This document outlines the complete typography system for the Sunrise Systems Payload site.
+This is the complete typography, color, and styling system for the Sunrise Systems website. This single document consolidates all typography-related specifications, button styles, header/footer configuration, and implementation guidelines.
 
 ## Color System
 
@@ -295,6 +298,181 @@ const ibmPlexMono = IBM_Plex_Mono({ weight: ['400', '500', '600'], ... })
 
 This maintains proper semantic hierarchy (56px → 40px → 32px) where the block's main headline is H2, each case study card uses H3, and metrics within cards use H4. All sizes align to the 8px baseline grid.
 
+---
+
+## Button System
+
+### Primary Button (Call-to-Action)
+**Visual Specs:**
+- **Font**: IBM Plex Mono
+- **Size**: 16pt (1rem / text-base)
+- **Background**: #FF6000
+- **Text**: White (#FFFFFF)
+- **Border Radius**: 5px
+- **Style**: UPPERCASE
+- **Hover**: Background lightens (90% opacity)
+
+**Usage:**
+- Direct CTAs: "TRY IT RISK-FREE", "SCHEDULE A CALL"
+- Form submit buttons
+- Important primary actions
+
+**Code:**
+```tsx
+<Button variant="default">TRY IT RISK-FREE</Button>
+// or
+className="inline-flex items-center justify-center h-10 px-6 py-3 rounded-[5px] text-base bg-primary text-white hover:bg-primary/90 font-mono uppercase transition-colors"
+```
+
+### Secondary Button (Outline/Navigation)
+**Visual Specs:**
+- **Font**: IBM Plex Mono
+- **Size**: 16pt (1rem / text-base)
+- **Border**: 1px solid #FF6000
+- **Background**: Transparent
+- **Text**: #FF6000
+- **Border Radius**: 5px
+- **Style**: UPPERCASE
+- **Hover**: Fill with #FF6000, text becomes white
+
+**Usage:**
+- Navigation actions: "READ FULL CASE STUDY", "LEARN MORE"
+- Supporting/secondary actions
+- Less prominent CTAs
+
+**Code:**
+```tsx
+<Button variant="outline">LEARN MORE</Button>
+// or
+className="inline-flex items-center justify-center h-10 px-6 py-3 rounded-[5px] text-base border border-primary bg-transparent text-primary hover:bg-primary hover:text-white font-mono uppercase transition-colors"
+```
+
+### Block Button Usage Patterns
+
+**Primary Buttons (CTAs):**
+- HeroBlock - Hero CTA button
+- StatementBlock - Statement CTA button
+- FormBlock - Submit buttons
+
+**Secondary Buttons (Navigation):**
+- CaseStudySummaryBlock - "Read full case study"
+- ServiceSummaryBlock - "Learn more about..." (both detailed and card styles)
+
+---
+
+## Header & Footer Configuration
+
+### Header Structure
+
+**Layout:**
+- **Position**: Sticky (stays visible while scrolling)
+- **Background**: Semi-transparent white with blur (`bg-white/80 backdrop-blur-md`)
+- **Border**: Subtle bottom border (`border-b border-border/20`)
+- **Z-index**: 50 (stays above page content)
+
+**Navigation Items:**
+1. Services - Regular link (hover: text changes to orange)
+2. Case Studies - Regular link (hover: text changes to orange)
+3. About - Regular link (hover: text changes to orange)
+4. **TRY IT RISK-FREE** - Primary button
+
+**Spacing:** `gap-6` between nav items
+
+**CSS Classes:**
+```tsx
+// Header
+className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-border/20"
+
+// Nav container
+className="flex gap-6 items-center"
+
+// Regular links
+className="hover:text-primary transition-colors"
+```
+
+### Footer Structure
+
+**Layout:**
+- **Background**: White (`bg-white`)
+- **Border**: Top border (`border-t border-border`)
+- **Padding**: `py-8`
+
+**Navigation Links:**
+1. Services - Regular link
+2. Case Studies - Regular link
+3. About - Regular link
+4. Try it risk-free - Regular link (lowercase in footer)
+
+**Spacing:** `gap-4` between items
+
+**Removed Features:**
+- ❌ Theme selector component
+- ❌ Dark mode toggle
+- ❌ Admin/Source Code/Payload links
+
+**Responsive Behavior:**
+- Mobile: Logo and nav stacked vertically (`flex-col`)
+- Desktop: Logo left, nav right (`md:flex-row md:justify-between`)
+
+---
+
+## Logo Configuration
+
+### Sunrise Systems Logo
+- **File**: `sunrisesystemsstackedlogo.svg`
+- **Location**: `/public/media/`
+- **Alt text**: "Sunrise Systems"
+- **Dimensions**: 150x60
+- **Usage**: Both header and footer
+- **Note**: No dark mode invert classes applied
+
+**Component:**
+```tsx
+<Logo />
+// Located at: src/components/Logo/Logo.tsx
+```
+
+---
+
+## Calendly Integration
+
+### Contact Page Implementation
+- **Block Used**: CalendlyBlock
+- **URL**: `https://calendly.com/jason-sunrisesystems/meet-and-greet`
+- **Min Height**: 700px
+- **Background**: Selectable (white/off-white)
+- **Purpose**: Replaces traditional contact form
+
+**Files:**
+- `src/blocks/CalendlyBlock/config.ts` - Block configuration
+- `src/blocks/CalendlyBlock/Component.tsx` - Embed component
+- Registered in `RenderBlocks.tsx` and `Pages/index.ts`
+
+---
+
+## Implementation Files Reference
+
+### Core Configuration (3 files)
+1. `src/app/(frontend)/layout.tsx` - Font imports (DM Sans, Inter, IBM Plex Mono)
+2. `src/app/(frontend)/globals.css` - Typography system, colors, page background
+3. `tailwind.config.mjs` - Font families, colors, typography plugin
+
+### Components (5 files)
+4. `src/components/ui/button.tsx` - Primary/secondary button styles
+5. `src/components/Link/index.tsx` - Link rendering logic
+6. `src/components/Logo/Logo.tsx` - Sunrise Systems logo
+7. `src/Header/Component.client.tsx` - Sticky header with transparency
+8. `src/Header/Nav/index.tsx` - Navigation gap spacing
+9. `src/Footer/Component.tsx` - Footer without theme selector
+
+### Block Configs (17 files)
+All block config files have `backgroundColor` field supporting white/off-white selection
+
+### Block Components (17 files)
+All block component files apply typography system and background colors consistently
+
+---
+
 ## Migration Notes
 
 All blocks have been updated to use this typography system:
@@ -307,10 +485,14 @@ All blocks have been updated to use this typography system:
 - ✅ LogoStripBlock
 - ✅ CaseStudySummaryBlock
 - ✅ ServiceSummaryBlock
-- ✅ All other blocks
+- ✅ CalendlyBlock
+- ✅ All other blocks (16 total with background color support)
+
+---
 
 ## Testing Checklist
 
+### Typography Tests
 - [ ] Verify white page background (#FFFFFF)
 - [ ] Check all headings are #111111 (72px, 56px, 40px, 32px)
 - [ ] Confirm Body 1 (24px, #111) for primary content
@@ -318,10 +500,98 @@ All blocks have been updated to use this typography system:
 - [ ] Confirm Body 3 (20px, #111) for supporting copy
 - [ ] Verify Accent text (16px, uppercase, mono) for labels
 - [ ] Test author titles use accent with #999 gray
-- [ ] Test button styling (orange bg, white text, IBM Plex Mono)
-- [ ] Check responsive behavior
 - [ ] Verify font loading (DM Sans, Inter, IBM Plex Mono)
 - [ ] Verify all line-heights align to 8px baseline grid
+
+### Button Tests
+- [ ] Primary buttons: Orange background, white uppercase text, 16pt
+- [ ] Secondary buttons: Orange border, orange uppercase text, 16pt
+- [ ] Hover states work correctly for both variants
+- [ ] Border radius is 5px on all buttons
+- [ ] CTAs use primary style, navigation uses secondary style
+
+### Header Tests
+- [ ] Sticky behavior on scroll
+- [ ] Transparent background with blur effect
+- [ ] 3 regular links + 1 primary button
+- [ ] Button says "TRY IT RISK-FREE"
+- [ ] Links hover to orange color
+- [ ] Logo displays correctly (150x60)
+- [ ] Gap spacing is consistent (gap-6)
+
+### Footer Tests
+- [ ] 4 navigation links present
+- [ ] No theme selector visible
+- [ ] Links match header structure
+- [ ] Logo displays correctly
+- [ ] Responsive layout works (stacked mobile, horizontal desktop)
+
+### Block Tests
+- [ ] All blocks use standard typography classes only
+- [ ] Background colors selectable (white/off-white)
+- [ ] No custom text sizes outside typography system
+- [ ] Consistent spacing throughout (8px multiples)
+- [ ] Calendly embed loads correctly on contact page
+
+### Browser Tests
+- [ ] Chrome (latest)
+- [ ] Firefox (latest)
+- [ ] Safari (latest)
+- [ ] Mobile Safari
+- [ ] Mobile Chrome
+
+---
+
+## Quick Reference Summary
+
+### Typography Classes
+```tsx
+<h1>Main Headline</h1>                    // 4rem, DM Sans, #111111
+<h2>Section Title</h2>                    // 3rem, DM Sans, #111111
+<h3>Subsection</h3>                       // 2.5rem, DM Sans, #111111
+<h4>Card Title</h4>                       // 2rem, DM Sans, #111111
+<p className="body-1">Primary text</p>    // 1.5rem, Inter, #111111
+<p className="body-2">Testimonial</p>     // 1.5rem, Inter, #666666
+<p className="body-3">Supporting</p>      // 1.25rem, Inter, #111111
+<p className="accent">LABEL</p>           // 1rem, IBM Plex Mono, UPPERCASE
+```
+
+### Button Usage
+```tsx
+// Primary CTA
+<Button variant="default">TRY IT RISK-FREE</Button>
+
+// Secondary Navigation
+<Button variant="outline">LEARN MORE</Button>
+```
+
+### Background Classes
+```tsx
+<Section backgroundColor="white">...</Section>
+<Section backgroundColor="offwhite">...</Section>
+```
+
+---
+
+## Design System Compliance
+
+✅ **Typography**: DM Sans (headings), Inter (body), IBM Plex Mono (buttons/accent)  
+✅ **Colors**: #FF6000 (primary), #111111 (text), #999999/#666666 (secondary)  
+✅ **Backgrounds**: White pages, white/off-white sections  
+✅ **Buttons**: Primary (orange fill) and Secondary (orange outline) with uppercase labels  
+✅ **Header**: Sticky, transparent, 3 links + 1 button  
+✅ **Footer**: Matches header, no theme selector  
+✅ **Logo**: Sunrise Systems stacked logo (150x60)  
+✅ **Contact**: Calendly embed  
+✅ **Border Radius**: 5px throughout  
+✅ **Spacing**: 8px baseline grid throughout  
+✅ **Dark Mode**: Removed (light theme only)
+
+---
+
+**Last Updated:** October 28, 2025  
+**Maintained By:** Sunrise Systems Development Team  
+**Status:** Production-ready - All components fully implemented
 
 
 

@@ -1,12 +1,40 @@
 import type { GlobalAfterChangeHook } from 'payload'
 
-import { revalidateTag } from 'next/cache'
+const revalidateViaAPI = async (tag: string) => {
+  const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
+  const secret = process.env.REVALIDATION_SECRET
+  
+  if (!secret) {
+    console.error('[revalidateHeader] REVALIDATION_SECRET not set')
+    return
+  }
 
-export const revalidateHeader: GlobalAfterChangeHook = ({ doc, req: { payload, context } }) => {
+  try {
+    const response = await fetch(`${serverUrl}/api/revalidate`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-revalidate-secret': secret,
+      },
+      body: JSON.stringify({ tag }),
+    })
+
+    if (!response.ok) {
+      const text = await response.text()
+      console.error('[revalidateHeader] Revalidation failed:', response.status, text)
+    } else {
+      console.log('[revalidateHeader] Revalidation successful:', { tag })
+    }
+  } catch (error) {
+    console.error('[revalidateHeader] Error calling revalidation API:', error)
+  }
+}
+
+export const revalidateHeader: GlobalAfterChangeHook = async ({ doc, req: { payload, context } }) => {
   if (!context.disableRevalidate) {
     payload.logger.info(`Revalidating header`)
 
-    revalidateTag('global_header')
+    await revalidateViaAPI('global_header')
   }
 
   return doc
