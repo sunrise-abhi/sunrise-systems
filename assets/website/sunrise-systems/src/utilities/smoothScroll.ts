@@ -29,8 +29,8 @@ export function smoothScrollToElement(targetId: string, offset: number = 80): vo
  * @param e - The click event
  * @param href - The href value of the link
  */
-export function handleAnchorClick(e: React.MouseEvent, href: string): void {
-  if (isAnchorLink(href)) {
+export function handleAnchorClick(e: React.MouseEvent, href: string | null | undefined): void {
+  if (href && isAnchorLink(href)) {
     e.preventDefault()
     const targetId = href.substring(1) // Remove the # symbol
     smoothScrollToElement(targetId)
