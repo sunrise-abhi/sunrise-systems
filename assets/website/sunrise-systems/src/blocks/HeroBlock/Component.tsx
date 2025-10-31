@@ -269,20 +269,9 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
                   </p>
                 )}
                 
-                <h1 className="mb-8">
+                <h1 className="mb-0">
                   {headline}
                 </h1>
-                
-                {ctaButton?.label && ctaButton?.url && (
-                  <Button variant="primary" asChild>
-                    <a 
-                      href={ctaButton.url}
-                      onClick={(e) => handleAnchorClick(e, ctaButton.url)}
-                    >
-                      {ctaButton.label}
-                    </a>
-                  </Button>
-                )}
               </Column>
               
               <Column span={{ mobile: 4, desktop: 5 }} start={{ desktop: 8 }}>
@@ -290,6 +279,19 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
                   <p className={`body-1 whitespace-pre-line ${eyebrow ? 'mt-[calc(1em+1rem)]' : ''}`}>
                     {subheadline}
                   </p>
+                )}
+                
+                {ctaButton?.label && ctaButton?.url && (
+                  <div className="mt-8">
+                    <Button variant="primary" asChild>
+                      <a 
+                        href={ctaButton.url}
+                        onClick={(e) => handleAnchorClick(e, ctaButton.url)}
+                      >
+                        {ctaButton.label}
+                      </a>
+                    </Button>
+                  </div>
                 )}
                 
                 {servicesList.length > 0 && (
