@@ -1,9 +1,12 @@
 'use client'
 
 import { useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import Lenis from 'lenis'
 
 export function SmoothScroll() {
+  const pathname = usePathname()
+  
   useEffect(() => {
     // Check if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -45,6 +48,19 @@ export function SmoothScroll() {
       lenis.destroy()
     }
   }, [])
+
+  // Reset scroll position on route change
+  useEffect(() => {
+    const lenis = (window as typeof window & { lenis?: Lenis }).lenis
+    
+    if (lenis) {
+      // Scroll to top on route change
+      lenis.scrollTo(0, { immediate: true })
+    } else {
+      // Fallback for when Lenis isn't active
+      window.scrollTo(0, 0)
+    }
+  }, [pathname])
 
   return null
 }
