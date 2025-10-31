@@ -2,7 +2,7 @@
 
 import React from 'react'
 import type { FeatureGridBlock as FeatureGridBlockType } from '@/payload-types'
-import { Section, Container, Grid, Column , AnimatedSection } from '@/components/layout'
+import { Section, Container, Grid, Column, AnimatedSection } from '@/components/layout'
 import { Media } from '@/components/Media'
 
 export const FeatureGridBlockComponent: React.FC<FeatureGridBlockType> = ({
@@ -35,12 +35,14 @@ export const FeatureGridBlockComponent: React.FC<FeatureGridBlockType> = ({
   return (
     <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
       <Container>
-        {headline && (
-          <h2 className="mb-4 text-center">
-            {headline}
-          </h2>
-        )}
-        {subhead && <p className="mb-12 text-center body-1 max-w-3xl mx-auto whitespace-pre-line">{subhead}</p>}
+        <AnimatedSection>
+          {headline && (
+            <h2 className="mb-4 text-center">
+              {headline}
+            </h2>
+          )}
+          {subhead && <p className="mb-12 text-center body-1 max-w-3xl mx-auto whitespace-pre-line">{subhead}</p>}
+        </AnimatedSection>
         
         <Grid cols={12} gap="standard">
           {features.map((feature, index) => {

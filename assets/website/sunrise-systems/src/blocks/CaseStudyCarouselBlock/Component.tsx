@@ -50,6 +50,17 @@ export const CaseStudyCarouselBlockComponent: React.FC<CaseStudyCarouselBlockTyp
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
+  // Auto-scroll every 5 seconds
+  useEffect(() => {
+    if (!caseStudies || caseStudies.length <= 1) return
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev === caseStudies.length - 1 ? 0 : prev + 1))
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [caseStudies])
+
   if (!caseStudies || caseStudies.length === 0) return null
 
   const handlePrevious = () => {
@@ -59,17 +70,6 @@ export const CaseStudyCarouselBlockComponent: React.FC<CaseStudyCarouselBlockTyp
   const handleNext = () => {
     setCurrentIndex((prev) => (prev === caseStudies.length - 1 ? 0 : prev + 1))
   }
-
-  // Auto-scroll every 5 seconds
-  useEffect(() => {
-    if (caseStudies.length <= 1) return
-
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev === caseStudies.length - 1 ? 0 : prev + 1))
-    }, 5000)
-
-    return () => clearInterval(interval)
-  }, [caseStudies.length])
 
   const currentItem = caseStudies[currentIndex]
   const caseStudy =

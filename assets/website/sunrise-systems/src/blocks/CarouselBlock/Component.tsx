@@ -75,21 +75,21 @@ export const CarouselBlockComponent: React.FC<CarouselBlockType> = ({
             )}
           </div>
 
-          {/* Dots Indicator */}
-          {images.length > 1 && (
-            <div className="flex justify-center gap-2 mt-8">
-              {images.map((_: any, index: number) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    index === currentIndex ? 'bg-primary w-6' : 'bg-gray-300'
-                  }`}
-                  aria-label={`Go to image ${index + 1}`}
-                />
-              ))}
-            </div>
-          )}
+        {/* Dots Indicator */}
+        {images.length > 1 && (
+          <div className="flex justify-center gap-2 mt-8">
+            {images.map((_, index: number) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  index === currentIndex ? 'bg-primary w-6' : 'bg-gray-300'
+                }`}
+                aria-label={`Go to image ${index + 1}`}
+              />
+            ))}
+          </div>
+        )}
         </AnimatedSection>
       </Container>
     </Section>

@@ -27,7 +27,7 @@ export const MediaBlock: React.FC<Props> = (props) => {
     imgClassName,
     media,
     staticImage,
-    disableInnerContainer,
+    disableInnerContainer: _disableInnerContainer,
     backgroundColor = 'white',
   } = props
 

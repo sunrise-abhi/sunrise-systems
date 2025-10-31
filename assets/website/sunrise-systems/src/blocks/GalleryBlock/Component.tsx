@@ -39,7 +39,7 @@ export const GalleryBlockComponent: React.FC<GalleryBlockType> = ({
       <Container>
         <AnimatedSection>
           <Grid cols={12} gap="standard">
-            {images.map((item: any, index: number) => {
+            {images.map((item, index: number) => {
               const imageResource = typeof item.image === 'object' ? item.image : null
               if (!imageResource) return null
 
