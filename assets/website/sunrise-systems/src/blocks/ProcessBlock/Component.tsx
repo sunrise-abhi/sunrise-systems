@@ -1,6 +1,8 @@
+'use client'
+
 import React from 'react'
 import type { ProcessBlock as ProcessBlockType } from '@/payload-types'
-import { Section, Container, Grid, Column } from '@/components/layout'
+import { Section, Container, Grid, Column , AnimatedSection } from '@/components/layout'
 
 export const ProcessBlockComponent: React.FC<ProcessBlockType> = ({
   headline,
@@ -23,7 +25,7 @@ export const ProcessBlockComponent: React.FC<ProcessBlockType> = ({
                 {headline}
               </h2>
             )}
-            {subhead && <p className="body-1 mb-8">{subhead}</p>}
+            {subhead && <p className="body-1 mb-8 whitespace-pre-line">{subhead}</p>}
           </Column>
           
           {/* Right column: Process steps */}

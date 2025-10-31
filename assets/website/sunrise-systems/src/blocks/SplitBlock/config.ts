@@ -15,11 +15,6 @@ export const SplitBlock: Block = {
       required: true,
     },
     {
-      name: 'alt',
-      type: 'text',
-      required: true,
-    },
-    {
       name: 'label',
       type: 'text',
       admin: {
@@ -40,7 +35,7 @@ export const SplitBlock: Block = {
     },
     {
       name: 'headline',
-      type: 'text',
+      type: 'textarea',
       required: true,
     },
     {

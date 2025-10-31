@@ -1,7 +1,9 @@
+'use client'
+
 import React from 'react'
 import type { TestimonialBlock as TestimonialBlockType } from '@/payload-types'
 import type { Media as MediaType } from '@/payload-types'
-import { Section, Container, Grid, Column } from '@/components/layout'
+import { Section, Container, Grid, Column, AnimatedSection } from '@/components/layout'
 import { Media } from '@/components/Media'
 
 export const TestimonialBlockComponent: React.FC<TestimonialBlockType> = ({
@@ -31,34 +33,36 @@ export const TestimonialBlockComponent: React.FC<TestimonialBlockType> = ({
   return (
     <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
       <Container>
-        <Grid cols={12}>
-          <Column span={{ mobile: 4, desktop: span }} start={{ desktop: start }}>
-            <blockquote className="body-2 mb-8">
-              &ldquo;{quote}&rdquo;
-            </blockquote>
-            
-            <div className="flex items-center gap-4">
-              {imageResource && (
-                <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 relative">
-                  <Media
-                    resource={imageResource}
-                    alt={authorName}
-                    fill
-                    imgClassName="object-cover"
-                  />
-                </div>
-              )}
+        <AnimatedSection>
+          <Grid cols={12}>
+            <Column span={{ mobile: 4, desktop: span }} start={{ desktop: start }}>
+              <blockquote className="body-2 mb-8">
+                &ldquo;{quote}&rdquo;
+              </blockquote>
               
-              <div>
-                <p className="body-3 font-semibold">{authorName}</p>
-                <p className="accent text-[#999999]">
-                  {authorTitle}
-                  {companyName && `, ${companyName}`}
-                </p>
+              <div className="flex items-center gap-4">
+                {imageResource && (
+                  <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 relative">
+                    <Media
+                      resource={imageResource}
+                      alt={authorName}
+                      fill
+                      imgClassName="object-cover"
+                    />
+                  </div>
+                )}
+                
+                <div>
+                  <p className="body-3 font-semibold">{authorName}</p>
+                  <p className="accent text-[#999999]">
+                    {authorTitle}
+                    {companyName && `, ${companyName}`}
+                  </p>
+                </div>
               </div>
-            </div>
-          </Column>
-        </Grid>
+            </Column>
+          </Grid>
+        </AnimatedSection>
       </Container>
     </Section>
   )

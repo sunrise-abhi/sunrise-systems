@@ -30,6 +30,18 @@ export const LogoStripBlock: Block = {
       ],
     },
     {
+      name: 'direction',
+      type: 'select',
+      defaultValue: 'left',
+      options: [
+        { label: 'Scroll Left', value: 'left' },
+        { label: 'Scroll Right', value: 'right' },
+      ],
+      admin: {
+        description: 'Direction of logo animation',
+      },
+    },
+    {
       name: 'backgroundColor',
       type: 'select',
       defaultValue: 'white',

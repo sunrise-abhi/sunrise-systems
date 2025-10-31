@@ -1,17 +1,20 @@
+'use client'
+
 import React from 'react'
 
 import type { CallToActionBlock as CTABlockProps } from '@/payload-types'
 
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { Section, Container, Grid, Column } from '@/components/layout'
+import { Section, Container, Grid, Column, AnimatedSection } from '@/components/layout'
 
 export const CallToActionBlock: React.FC<CTABlockProps> = ({ links, headline, subhead, backgroundColor = 'white' }) => {
   return (
     <Section backgroundColor={backgroundColor}>
       <Container>
-        <div className="rounded bg-[#FF6000] pt-64 pb-8 lg:pb-12 px-8 lg:px-12">
-          <Grid cols={12} gap="standard" className="items-end">
+        <AnimatedSection className="h-full">
+          <div className="rounded bg-[#FF6000] pt-64 pb-8 lg:pb-12 px-8 lg:px-12 hover-shine">
+            <Grid cols={12} gap="standard" className="items-end">
             <Column span={{ mobile: 4, desktop: 6 }}>
               <div className="flex flex-col gap-4">
                 {headline && (
@@ -20,7 +23,7 @@ export const CallToActionBlock: React.FC<CTABlockProps> = ({ links, headline, su
                   </h2>
                 )}
                 {subhead && (
-                  <p className="text-[1.5rem] leading-[1.5] text-white">
+                  <p className="text-[1.5rem] leading-[1.5] text-white whitespace-pre-line">
                     {subhead}
                   </p>
                 )}
@@ -42,7 +45,7 @@ export const CallToActionBlock: React.FC<CTABlockProps> = ({ links, headline, su
                       key={i} 
                       asChild 
                       variant="arrow-button-cta"
-                      className="h-20 md:h-32 w-full text-[2rem]"
+                      className="h-20 md:h-32 w-full text-[4rem]"
                     >
                       <Link href={href} {...newTabProps}>
                         →
@@ -53,7 +56,8 @@ export const CallToActionBlock: React.FC<CTABlockProps> = ({ links, headline, su
               </div>
             </Column>
           </Grid>
-        </div>
+          </div>
+        </AnimatedSection>
       </Container>
     </Section>
   )

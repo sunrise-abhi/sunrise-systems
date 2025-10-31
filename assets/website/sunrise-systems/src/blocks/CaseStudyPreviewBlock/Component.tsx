@@ -1,9 +1,12 @@
+'use client'
+
 import React from 'react'
 import Link from 'next/link'
 import type { CaseStudyPreviewBlock as CaseStudyPreviewBlockType } from '@/payload-types'
 import type { CaseStudy } from '@/payload-types'
 import { Media } from '@/components/Media'
-import { Section, Container, Grid, Column } from '@/components/layout'
+import { Section, Container, Grid, Column, AnimatedSection } from '@/components/layout'
+import { Button } from '@/components/ui/button'
 
 function formatMetricValue(metricKey: string, value: number | null | undefined): string {
   if (!value && value !== 0) return 'N/A'
@@ -49,8 +52,10 @@ export const CaseStudyPreviewBlockComponent: React.FC<CaseStudyPreviewBlockType>
   return (
     <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
       <Container>
-        {headline && <h2 className="mb-4 text-center">{headline}</h2>}
-        {subhead && <p className="mb-16 text-center body-1 max-w-3xl mx-auto">{subhead}</p>}
+        <AnimatedSection>
+          {headline && <h2 className="mb-4 text-center">{headline}</h2>}
+          {subhead && <p className="mb-16 text-center body-1 max-w-3xl mx-auto whitespace-pre-line">{subhead}</p>}
+        </AnimatedSection>
 
         <Grid cols={12} gap="wide" className="!gap-y-16">
           {caseStudies.map((item, index) => {
@@ -65,7 +70,7 @@ export const CaseStudyPreviewBlockComponent: React.FC<CaseStudyPreviewBlockType>
               <div className="w-full md:w-1/2 p-8 flex flex-col justify-between">
                 <div>
                   {caseStudy.headline && <h3 className="mb-4">{caseStudy.headline}</h3>}
-                  {caseStudy.subheadline && <p className="mb-8">{caseStudy.subheadline}</p>}
+                  {caseStudy.subheadline && <p className="mb-8 body-3">{caseStudy.subheadline}</p>}
 
                   {item.displayMetrics && item.displayMetrics.length > 0 && caseStudy.keyMetrics && (
                     <div className="grid grid-cols-2 gap-8 mb-8">
@@ -86,12 +91,15 @@ export const CaseStudyPreviewBlockComponent: React.FC<CaseStudyPreviewBlockType>
                   )}
                 </div>
 
-                <Link
-                  href={`/case-studies/${caseStudy.slug}`}
-                  className="mt-auto inline-flex items-center justify-center h-10 px-3 py-3 rounded-[5px] text-base border border-primary bg-transparent text-primary hover:bg-primary hover:text-white font-mono uppercase transition-colors w-fit"
+                <Button
+                  asChild
+                  variant="primary"
+                  className="mt-auto w-full"
                 >
-                  Read the case study
-                </Link>
+                  <Link href={`/case-studies/${caseStudy.slug}`}>
+                    Read the case study
+                  </Link>
+                </Button>
               </div>
             )
 
@@ -104,7 +112,7 @@ export const CaseStudyPreviewBlockComponent: React.FC<CaseStudyPreviewBlockType>
                     </div>
                   )}
                   {caseStudy.testimonial?.quote && (
-                    <blockquote className="body-2 mb-8">
+                    <blockquote className="body-3 mb-8">
                       &ldquo;{caseStudy.testimonial.quote}&rdquo;
                     </blockquote>
                   )}
@@ -139,19 +147,23 @@ export const CaseStudyPreviewBlockComponent: React.FC<CaseStudyPreviewBlockType>
 
             return (
               <Column key={index} span={{ mobile: 4, desktop: 12 }}>
-                <div className="w-full bg-[#F5F5F5] rounded-[5px] flex flex-col md:flex-row overflow-hidden">
-                  {metricsFirst ? (
-                    <>
-                      {metricsSection}
-                      {testimonialSection}
-                    </>
-                  ) : (
-                    <>
-                      {testimonialSection}
-                      {metricsSection}
-                    </>
-                  )}
-                </div>
+                <AnimatedSection className="h-full">
+                  <div className="w-full h-full bg-[#F5F5F5] rounded-[5px] flex flex-col md:flex-row hover-shine">
+                    <div className="flex flex-col md:flex-row w-full h-full overflow-hidden rounded-[5px]">
+                      {metricsFirst ? (
+                        <>
+                          {metricsSection}
+                          {testimonialSection}
+                        </>
+                      ) : (
+                        <>
+                          {testimonialSection}
+                          {metricsSection}
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </AnimatedSection>
               </Column>
             )
           })}

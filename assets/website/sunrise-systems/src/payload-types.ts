@@ -452,6 +452,10 @@ export interface HeroBlock {
    * Small text above headline (optional)
    */
   eyebrow?: string | null;
+  /**
+   * Make eyebrow text orange
+   */
+  eyebrowOrange?: boolean | null;
   headline: string;
   subheadline?: string | null;
   ctaButton?: {
@@ -749,6 +753,10 @@ export interface LogoStripBlock {
         id?: string | null;
       }[]
     | null;
+  /**
+   * Direction of logo animation
+   */
+  direction?: ('left' | 'right') | null;
   backgroundColor?: ('white' | 'offwhite') | null;
   /**
    * Top padding of the section
@@ -1053,7 +1061,6 @@ export interface ServicesCollectionBlock {
 export interface GalleryBlock {
   images: {
     image: string | Media;
-    alt: string;
     /**
      * Optional label displayed below image in monospace style
      */
@@ -1084,7 +1091,6 @@ export interface GalleryBlock {
  */
 export interface ImageBlock {
   image: string | Media;
-  alt: string;
   /**
    * Optional label displayed below image in monospace style
    */
@@ -1110,7 +1116,6 @@ export interface ImageBlock {
  */
 export interface SplitBlock {
   image: string | Media;
-  alt: string;
   /**
    * Optional label displayed below image in monospace style
    */
@@ -1139,7 +1144,6 @@ export interface SplitBlock {
 export interface CarouselBlock {
   images: {
     image: string | Media;
-    alt: string;
     /**
      * Optional label displayed below image in monospace style
      */
@@ -1879,6 +1883,7 @@ export interface PagesSelect<T extends boolean = true> {
 export interface HeroBlockSelect<T extends boolean = true> {
   variant?: T;
   eyebrow?: T;
+  eyebrowOrange?: T;
   headline?: T;
   subheadline?: T;
   ctaButton?:
@@ -2011,6 +2016,7 @@ export interface LogoStripBlockSelect<T extends boolean = true> {
         altText?: T;
         id?: T;
       };
+  direction?: T;
   backgroundColor?: T;
   paddingTop?: T;
   paddingBottom?: T;
@@ -2133,7 +2139,6 @@ export interface GalleryBlockSelect<T extends boolean = true> {
     | T
     | {
         image?: T;
-        alt?: T;
         label?: T;
         labelAlignment?: T;
         id?: T;
@@ -2151,7 +2156,6 @@ export interface GalleryBlockSelect<T extends boolean = true> {
  */
 export interface ImageBlockSelect<T extends boolean = true> {
   image?: T;
-  alt?: T;
   label?: T;
   labelAlignment?: T;
   position?: T;
@@ -2167,7 +2171,6 @@ export interface ImageBlockSelect<T extends boolean = true> {
  */
 export interface SplitBlockSelect<T extends boolean = true> {
   image?: T;
-  alt?: T;
   label?: T;
   labelAlignment?: T;
   headline?: T;
@@ -2188,7 +2191,6 @@ export interface CarouselBlockSelect<T extends boolean = true> {
     | T
     | {
         image?: T;
-        alt?: T;
         label?: T;
         labelAlignment?: T;
         id?: T;
@@ -2922,7 +2924,31 @@ export interface Footer {
    * Upload your logo here. Recommended: SVG format for best quality at any size.
    */
   logo?: (string | null) | Media;
+  /**
+   * Text displayed beneath the logo
+   */
+  logoText?: string | null;
   navItems?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?:
+            | ({
+                relationTo: 'pages';
+                value: string | Page;
+              } | null)
+            | ({
+                relationTo: 'posts';
+                value: string | Post;
+              } | null);
+          url?: string | null;
+          label: string;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  navItemsColumn2?:
     | {
         link: {
           type?: ('reference' | 'custom') | null;
@@ -2976,7 +3002,22 @@ export interface HeaderSelect<T extends boolean = true> {
  */
 export interface FooterSelect<T extends boolean = true> {
   logo?: T;
+  logoText?: T;
   navItems?:
+    | T
+    | {
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+            };
+        id?: T;
+      };
+  navItemsColumn2?:
     | T
     | {
         link?:

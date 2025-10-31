@@ -1,7 +1,9 @@
+'use client'
+
 import React from 'react'
 import type { StatementBlock as StatementBlockType } from '@/payload-types'
 import RichText from '@/components/RichText'
-import { Section, Container, Grid, Column } from '@/components/layout'
+import { Section, Container, Grid, Column, AnimatedSection } from '@/components/layout'
 
 export const StatementBlockComponent: React.FC<StatementBlockType> = ({
   headline,
@@ -25,30 +27,32 @@ export const StatementBlockComponent: React.FC<StatementBlockType> = ({
   return (
     <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
       <Container>
-        <Grid cols={12}>
-          <Column span={{ mobile: 4, desktop: span }} start={{ desktop: start }}>
-            <div className={textAlign}>
-              <h2 className="mb-8">
-                {headline}
-              </h2>
-              
-              {content && (
-                <div className="mb-8">
-                  <RichText className="[&_p]:text-[1.5rem] [&_p]:leading-[1.5] [&_p]:font-medium" data={content} enableGutter={false} />
-                </div>
-              )}
-              
-              {ctaButton?.label && ctaButton?.url && (
-                <a
-                  href={ctaButton.url}
-                  className="inline-flex items-center justify-center h-10 px-3 py-3 rounded-[5px] text-base bg-primary text-white hover:bg-primary/90 font-mono uppercase transition-colors"
-                >
-                  {ctaButton.label}
-                </a>
-              )}
-            </div>
-          </Column>
-        </Grid>
+        <AnimatedSection>
+          <Grid cols={12}>
+            <Column span={{ mobile: 4, desktop: span }} start={{ desktop: start }}>
+              <div className={textAlign}>
+                <h2 className="mb-8">
+                  {headline}
+                </h2>
+                
+                {content && (
+                  <div className="mb-8">
+                    <RichText className="[&_p]:text-[1.5rem] [&_p]:leading-[1.5] [&_p]:font-medium" data={content} enableGutter={false} />
+                  </div>
+                )}
+                
+                {ctaButton?.label && ctaButton?.url && (
+                  <a
+                    href={ctaButton.url}
+                    className="inline-flex items-center justify-center h-10 px-3 py-3 rounded-[5px] text-base bg-primary text-white hover:bg-primary/90 font-mono uppercase transition-colors"
+                  >
+                    {ctaButton.label}
+                  </a>
+                )}
+              </div>
+            </Column>
+          </Grid>
+        </AnimatedSection>
       </Container>
     </Section>
   )

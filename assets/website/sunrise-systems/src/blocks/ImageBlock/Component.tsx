@@ -1,11 +1,12 @@
+'use client'
+
 import React from 'react'
 import type { ImageBlock as ImageBlockType } from '@/payload-types'
-import { Section, Container, Grid, Column } from '@/components/layout'
+import { Section, Container, Grid, Column, AnimatedSection } from '@/components/layout'
 import { Media } from '@/components/Media'
 
 export const ImageBlockComponent: React.FC<ImageBlockType> = ({
   image,
-  alt,
   label,
   labelAlignment = 'left',
   position,
@@ -33,22 +34,24 @@ export const ImageBlockComponent: React.FC<ImageBlockType> = ({
   return (
     <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
       <Container>
-        <Grid cols={12}>
-          <Column span={{ mobile: 4, desktop: span }} start={{ desktop: start }}>
-            <div>
-              <div className="aspect-square relative overflow-hidden rounded-[5px] w-full">
-                <Media resource={imageResource} alt={alt || ''} fill imgClassName="object-cover" />
+        <AnimatedSection>
+          <Grid cols={12}>
+            <Column span={{ mobile: 4, desktop: span }} start={{ desktop: start }}>
+              <div>
+                <div className="aspect-square relative overflow-hidden rounded-[5px] w-full">
+                  <Media resource={imageResource} fill imgClassName="object-cover" />
+                </div>
+                {label && (
+                  <p
+                    className={`accent text-sm mt-2 ${labelAlignment === 'right' ? 'text-right' : 'text-left'}`}
+                  >
+                    {label}
+                  </p>
+                )}
               </div>
-              {label && (
-                <p
-                  className={`accent text-sm mt-2 ${labelAlignment === 'right' ? 'text-right' : 'text-left'}`}
-                >
-                  {label}
-                </p>
-              )}
-            </div>
-          </Column>
-        </Grid>
+            </Column>
+          </Grid>
+        </AnimatedSection>
       </Container>
     </Section>
   )

@@ -1,8 +1,10 @@
+'use client'
+
 import React from 'react'
 import Link from 'next/link'
 import type { CaseStudySummaryBlock as CaseStudySummaryBlockType } from '@/payload-types'
 import type { CaseStudy } from '@/payload-types'
-import { Section, Container, Grid, Column } from '@/components/layout'
+import { Section, Container, Grid, Column , AnimatedSection } from '@/components/layout'
 
 export const CaseStudySummaryBlockComponent: React.FC<CaseStudySummaryBlockType> = ({
   caseStudy,

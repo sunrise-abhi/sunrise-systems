@@ -15,11 +15,6 @@ export const ImageBlock: Block = {
       required: true,
     },
     {
-      name: 'alt',
-      type: 'text',
-      required: true,
-    },
-    {
       name: 'label',
       type: 'text',
       admin: {

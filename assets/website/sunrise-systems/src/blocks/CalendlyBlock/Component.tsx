@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import type { CalendlyBlock as CalendlyBlockType } from '@/payload-types'
 

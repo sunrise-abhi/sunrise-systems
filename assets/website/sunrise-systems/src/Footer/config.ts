@@ -20,8 +20,34 @@ export const Footer: GlobalConfig = {
       },
     },
     {
+      name: 'logoText',
+      type: 'text',
+      label: 'Logo Text',
+      required: false,
+      admin: {
+        description: 'Text displayed beneath the logo',
+      },
+    },
+    {
       name: 'navItems',
       type: 'array',
+      fields: [
+        link({
+          appearances: false,
+        }),
+      ],
+      maxRows: 6,
+      admin: {
+        initCollapsed: true,
+        components: {
+          RowLabel: '@/Footer/RowLabel#RowLabel',
+        },
+      },
+    },
+    {
+      name: 'navItemsColumn2',
+      type: 'array',
+      label: 'Navigation Items - Column 2',
       fields: [
         link({
           appearances: false,

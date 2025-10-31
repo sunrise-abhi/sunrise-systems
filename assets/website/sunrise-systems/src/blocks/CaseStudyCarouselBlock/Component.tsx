@@ -1,12 +1,13 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import type { CaseStudyCarouselBlock as CaseStudyCarouselBlockType } from '@/payload-types'
 import type { CaseStudy } from '@/payload-types'
 import { Media } from '@/components/Media'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { Section, Container } from '@/components/layout'
+import { Section, Container, AnimatedSection } from '@/components/layout'
+import { Button } from '@/components/ui/button'
 
 function formatMetricValue(metricKey: string, value: number | null | undefined): string {
   if (!value && value !== 0) return 'N/A'
@@ -59,6 +60,17 @@ export const CaseStudyCarouselBlockComponent: React.FC<CaseStudyCarouselBlockTyp
     setCurrentIndex((prev) => (prev === caseStudies.length - 1 ? 0 : prev + 1))
   }
 
+  // Auto-scroll every 5 seconds
+  useEffect(() => {
+    if (caseStudies.length <= 1) return
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev === caseStudies.length - 1 ? 0 : prev + 1))
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [caseStudies.length])
+
   const currentItem = caseStudies[currentIndex]
   const caseStudy =
     typeof currentItem?.caseStudy === 'object' ? (currentItem.caseStudy as CaseStudy) : null
@@ -71,7 +83,7 @@ export const CaseStudyCarouselBlockComponent: React.FC<CaseStudyCarouselBlockTyp
   const metricsSection = (
     <div className="w-full md:w-1/2 p-8 bg-[#F5F5F5] rounded-[5px] md:rounded-none flex flex-col">
       {caseStudy.headline && <h3 className="mb-4">{caseStudy.headline}</h3>}
-      {caseStudy.subheadline && <p className="mb-8">{caseStudy.subheadline}</p>}
+      {caseStudy.subheadline && <p className="mb-8 body-3">{caseStudy.subheadline}</p>}
 
       {currentItem.displayMetrics && currentItem.displayMetrics.length > 0 && (
         <div className="grid grid-cols-2 gap-8 flex-grow mb-8">
@@ -91,12 +103,15 @@ export const CaseStudyCarouselBlockComponent: React.FC<CaseStudyCarouselBlockTyp
         </div>
       )}
 
-      <Link
-        href={`/case-studies/${caseStudy.slug}`}
-        className="mt-auto inline-flex items-center justify-center h-10 px-3 py-3 rounded-[5px] text-base border border-primary bg-transparent text-primary hover:bg-primary hover:text-white font-mono uppercase transition-colors w-fit"
+      <Button
+        asChild
+        variant="primary"
+        className="mt-auto w-full"
       >
-        View full case study
-      </Link>
+        <Link href={`/case-studies/${caseStudy.slug}`}>
+          View full case study
+        </Link>
+      </Button>
     </div>
   )
 
@@ -109,7 +124,7 @@ export const CaseStudyCarouselBlockComponent: React.FC<CaseStudyCarouselBlockTyp
           </div>
         )}
         {caseStudy.testimonial && caseStudy.testimonial.quote && (
-          <blockquote className="body-2 mb-8">
+          <blockquote className="body-3 mb-8">
             &ldquo;{caseStudy.testimonial.quote}&rdquo;
           </blockquote>
         )}
@@ -143,61 +158,67 @@ export const CaseStudyCarouselBlockComponent: React.FC<CaseStudyCarouselBlockTyp
   return (
     <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
       <Container>
-        {headline && <h2 className="mb-4 text-center">{headline}</h2>}
-        {subhead && <p className="mb-12 text-center body-1 max-w-3xl mx-auto">{subhead}</p>}
+        <AnimatedSection>
+          {headline && <h2 className="mb-4 text-center">{headline}</h2>}
+          {subhead && <p className="mb-12 text-center body-1 max-w-3xl mx-auto whitespace-pre-line">{subhead}</p>}
+        </AnimatedSection>
 
-        <div className="relative">
-          {/* Carousel Content */}
-          <div className="w-full bg-[#F5F5F5] rounded-[5px] flex flex-col md:flex-row overflow-hidden transition-all duration-300">
-            {metricsFirst ? (
+        <AnimatedSection>
+          <div className="relative">
+            {/* Carousel Content */}
+            <div className="w-full bg-[#F5F5F5] rounded-[5px] flex flex-col md:flex-row hover-shine">
+              <div className="flex flex-col md:flex-row w-full h-full overflow-hidden rounded-[5px]">
+                {metricsFirst ? (
+                  <>
+                    {metricsSection}
+                    {testimonialSection}
+                  </>
+                ) : (
+                  <>
+                    {testimonialSection}
+                    {metricsSection}
+                  </>
+                )}
+              </div>
+            </div>
+
+            {/* Navigation Chevrons */}
+            {caseStudies.length > 1 && (
               <>
-                {metricsSection}
-                {testimonialSection}
-              </>
-            ) : (
-              <>
-                {testimonialSection}
-                {metricsSection}
+                <button
+                  onClick={handlePrevious}
+                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 lg:-translate-x-16 w-12 h-12 flex items-center justify-center transition-all text-primary hover:text-primary/70"
+                  aria-label="Previous case study"
+                >
+                  <ChevronLeft className="w-8 h-8" />
+                </button>
+                <button
+                  onClick={handleNext}
+                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 lg:translate-x-16 w-12 h-12 flex items-center justify-center transition-all text-primary hover:text-primary/70"
+                  aria-label="Next case study"
+                >
+                  <ChevronRight className="w-8 h-8" />
+                </button>
               </>
             )}
           </div>
 
-          {/* Navigation Chevrons */}
+          {/* Dots Indicator */}
           {caseStudies.length > 1 && (
-            <>
-              <button
-                onClick={handlePrevious}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 lg:-translate-x-16 w-12 h-12 flex items-center justify-center bg-white rounded-full shadow-lg hover:shadow-xl transition-all text-primary hover:bg-primary hover:text-white"
-                aria-label="Previous case study"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-              <button
-                onClick={handleNext}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 lg:translate-x-16 w-12 h-12 flex items-center justify-center bg-white rounded-full shadow-lg hover:shadow-xl transition-all text-primary hover:bg-primary hover:text-white"
-                aria-label="Next case study"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
-            </>
+            <div className="flex justify-center gap-2 mt-8">
+              {caseStudies.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    index === currentIndex ? 'bg-primary w-6' : 'bg-gray-300'
+                  }`}
+                  aria-label={`Go to case study ${index + 1}`}
+                />
+              ))}
+            </div>
           )}
-        </div>
-
-        {/* Dots Indicator */}
-        {caseStudies.length > 1 && (
-          <div className="flex justify-center gap-2 mt-8">
-            {caseStudies.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  index === currentIndex ? 'bg-primary w-6' : 'bg-gray-300'
-                }`}
-                aria-label={`Go to case study ${index + 1}`}
-              />
-            ))}
-          </div>
-        )}
+        </AnimatedSection>
       </Container>
     </Section>
   )

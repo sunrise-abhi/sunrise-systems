@@ -14,7 +14,7 @@ export const CallToAction: Block = {
     },
     {
       name: 'subhead',
-      type: 'text',
+      type: 'textarea',
       label: 'Subhead',
       required: false,
     },

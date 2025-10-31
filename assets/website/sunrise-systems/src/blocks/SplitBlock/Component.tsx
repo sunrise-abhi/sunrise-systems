@@ -1,11 +1,12 @@
+'use client'
+
 import React from 'react'
 import type { SplitBlock as SplitBlockType } from '@/payload-types'
-import { Section, Container, Grid, Column } from '@/components/layout'
+import { Section, Container, Grid, Column, AnimatedSection } from '@/components/layout'
 import { Media } from '@/components/Media'
 
 export const SplitBlockComponent: React.FC<SplitBlockType> = ({
   image,
-  alt,
   label,
   labelAlignment = 'left',
   headline,
@@ -26,7 +27,7 @@ export const SplitBlockComponent: React.FC<SplitBlockType> = ({
     >
       <div>
         <div className="aspect-square relative overflow-hidden rounded-[5px] w-full">
-          <Media resource={imageResource} alt={alt || ''} fill imgClassName="object-cover" />
+          <Media resource={imageResource} fill imgClassName="object-cover" />
         </div>
         {label && (
           <p
@@ -45,8 +46,8 @@ export const SplitBlockComponent: React.FC<SplitBlockType> = ({
       start={{ desktop: imagePosition === 'left' ? 8 : 1 }}
     >
       <div className="flex flex-col justify-center h-full">
-        <h2 className="mb-4">{headline}</h2>
-        {subhead && <p className="body-1">{subhead}</p>}
+        <h2 className="mb-4 whitespace-pre-line">{headline}</h2>
+        {subhead && <p className="body-1 whitespace-pre-line">{subhead}</p>}
       </div>
     </Column>
   )
@@ -54,19 +55,21 @@ export const SplitBlockComponent: React.FC<SplitBlockType> = ({
   return (
     <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
       <Container>
-        <Grid cols={12} gap="standard">
-          {imagePosition === 'left' ? (
-            <>
-              {imageSection}
-              {textSection}
-            </>
-          ) : (
-            <>
-              {textSection}
-              {imageSection}
-            </>
-          )}
-        </Grid>
+        <AnimatedSection>
+          <Grid cols={12} gap="standard">
+            {imagePosition === 'left' ? (
+              <>
+                {imageSection}
+                {textSection}
+              </>
+            ) : (
+              <>
+                {textSection}
+                {imageSection}
+              </>
+            )}
+          </Grid>
+        </AnimatedSection>
       </Container>
     </Section>
   )

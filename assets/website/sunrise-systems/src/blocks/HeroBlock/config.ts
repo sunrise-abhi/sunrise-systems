@@ -28,6 +28,14 @@ export const HeroBlock: Block = {
       },
     },
     {
+      name: 'eyebrowOrange',
+      type: 'checkbox',
+      defaultValue: false,
+      admin: {
+        description: 'Make eyebrow text orange',
+      },
+    },
+    {
       name: 'headline',
       type: 'text',
       required: true,

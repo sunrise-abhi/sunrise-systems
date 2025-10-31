@@ -22,11 +22,6 @@ export const GalleryBlock: Block = {
           required: true,
         },
         {
-          name: 'alt',
-          type: 'text',
-          required: true,
-        },
-        {
           name: 'label',
           type: 'text',
           admin: {

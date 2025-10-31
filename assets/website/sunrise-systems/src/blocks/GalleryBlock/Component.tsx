@@ -1,6 +1,8 @@
+'use client'
+
 import React from 'react'
 import type { GalleryBlock as GalleryBlockType } from '@/payload-types'
-import { Section, Container, Grid, Column } from '@/components/layout'
+import { Section, Container, Grid, Column, AnimatedSection } from '@/components/layout'
 import { Media } from '@/components/Media'
 
 export const GalleryBlockComponent: React.FC<GalleryBlockType> = ({
@@ -35,29 +37,31 @@ export const GalleryBlockComponent: React.FC<GalleryBlockType> = ({
   return (
     <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
       <Container>
-        <Grid cols={12} gap="standard">
-          {images.map((item: any, index: number) => {
-            const imageResource = typeof item.image === 'object' ? item.image : null
-            if (!imageResource) return null
+        <AnimatedSection>
+          <Grid cols={12} gap="standard">
+            {images.map((item: any, index: number) => {
+              const imageResource = typeof item.image === 'object' ? item.image : null
+              if (!imageResource) return null
 
-            return (
-              <Column key={index} span={columnSpan}>
-                <div>
-                  <div className={`${aspectRatioClass} relative overflow-hidden rounded-[5px] w-full`}>
-                    <Media resource={imageResource} alt={item.alt || ''} fill imgClassName="object-cover" />
+              return (
+                <Column key={index} span={columnSpan}>
+                  <div>
+                    <div className={`${aspectRatioClass} relative overflow-hidden rounded-[5px] w-full`}>
+                      <Media resource={imageResource} fill imgClassName="object-cover" />
+                    </div>
+                    {item.label && (
+                      <p
+                        className={`accent text-sm mt-2 ${item.labelAlignment === 'right' ? 'text-right' : 'text-left'}`}
+                      >
+                        {item.label}
+                      </p>
+                    )}
                   </div>
-                  {item.label && (
-                    <p
-                      className={`accent text-sm mt-2 ${item.labelAlignment === 'right' ? 'text-right' : 'text-left'}`}
-                    >
-                      {item.label}
-                    </p>
-                  )}
-                </div>
-              </Column>
-            )
-          })}
-        </Grid>
+                </Column>
+              )
+            })}
+          </Grid>
+        </AnimatedSection>
       </Container>
     </Section>
   )

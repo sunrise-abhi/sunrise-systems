@@ -1,9 +1,12 @@
+'use client'
+
 import React from 'react'
 import Link from 'next/link'
 import type { ServicesCollectionBlock as ServicesCollectionBlockType } from '@/payload-types'
 import type { Service } from '@/payload-types'
-import { Section, Container, Grid, Column } from '@/components/layout'
+import { Section, Container, Grid, Column, AnimatedSection } from '@/components/layout'
 import { Media } from '@/components/Media'
+import { Button } from '@/components/ui/button'
 
 export const ServicesCollectionBlockComponent: React.FC<ServicesCollectionBlockType> = ({
   headline,
@@ -35,8 +38,10 @@ export const ServicesCollectionBlockComponent: React.FC<ServicesCollectionBlockT
   return (
     <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
       <Container>
-        {headline && <h2 className="mb-4 text-center">{headline}</h2>}
-        {subhead && <p className="mb-12 text-center body-1 max-w-3xl mx-auto">{subhead}</p>}
+        <AnimatedSection>
+          {headline && <h2 className="mb-4 text-center">{headline}</h2>}
+          {subhead && <p className="mb-12 text-center body-1 max-w-3xl mx-auto whitespace-pre-line">{subhead}</p>}
+        </AnimatedSection>
 
         <Grid cols={12} gap="standard">
           {services.map((item, index) => {
@@ -46,14 +51,17 @@ export const ServicesCollectionBlockComponent: React.FC<ServicesCollectionBlockT
 
             return (
               <Column key={index} span={columnSpan}>
-                <div className="bg-[#F5F5F5] rounded-[5px] p-8 flex flex-col h-full">
-                  <h4 className="mb-4">{service.title}</h4>
+                <AnimatedSection className="h-full">
+                  <div className="bg-[#F5F5F5] rounded-[5px] p-8 flex flex-col h-full hover-shine">
+                    <h4 className="mb-4">{service.title}</h4>
 
-                  {image && typeof image === 'object' && (
-                    <Media resource={image} className="mb-4 rounded-[5px] w-full" />
-                  )}
+                    {image && typeof image === 'object' && (
+                      <div className="aspect-square relative overflow-hidden rounded-[5px] w-full mb-4">
+                        <Media resource={image} fill imgClassName="object-cover" />
+                      </div>
+                    )}
 
-                  {service.excerpt && <p className="mb-4">{service.excerpt}</p>}
+                    {service.excerpt && <p className="mb-4 body-3">{service.excerpt}</p>}
 
                   {service.benefits && service.benefits.length > 0 && (
                     <ul className="space-y-2 mb-6">
@@ -66,13 +74,17 @@ export const ServicesCollectionBlockComponent: React.FC<ServicesCollectionBlockT
                     </ul>
                   )}
 
-                  <Link 
-                    href={`/services/${service.slug}`}
-                    className="inline-flex items-center justify-center h-10 px-3 py-3 rounded-[5px] text-base border border-primary bg-transparent text-primary hover:bg-primary hover:text-white font-mono uppercase transition-colors w-full mt-auto"
-                  >
-                    explore
-                  </Link>
-                </div>
+                    <Button
+                      asChild
+                      variant="primary"
+                      className="w-full mt-auto z-10 relative"
+                    >
+                      <Link href={`/services/${service.slug}`}>
+                        explore
+                      </Link>
+                    </Button>
+                  </div>
+                </AnimatedSection>
               </Column>
             )
           })}

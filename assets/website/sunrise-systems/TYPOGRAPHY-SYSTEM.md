@@ -24,12 +24,12 @@ This is the complete typography, color, and styling system for the Sunrise Syste
 **Font**: DM Sans Semibold (600 weight)
 **Color**: `#111111`
 
-| Element | Size | Line Height | Usage |
-|---------|------|-------------|-------|
-| H1 | 4.5rem (72px) | 1.111 (80px = 10×8) | Page titles, hero headlines |
-| H2 | 3.5rem (56px) | 1.143 (64px = 8×8) | Section titles |
-| H3 | 2.5rem (40px) | 1.2 (48px = 6×8) | Sub-section titles, case study card headlines |
-| H4 | 2rem (32px) | 1.5 (48px = 6×8) | Metric values, smaller headings |
+| Element | Size | Line Height | Letter Spacing | Usage |
+|---------|------|-------------|----------------|-------|
+| H1 | 4.5rem (72px) | 1.111 (80px = 10×8) | -2px | Page titles, hero headlines |
+| H2 | 3.5rem (56px) | 1.143 (64px = 8×8) | -2px | Section titles |
+| H3 | 2.5rem (40px) | 1.2 (48px = 6×8) | -1px | Sub-section titles, case study card headlines |
+| H4 | 2rem (32px) | 1.5 (48px = 6×8) | -0.5px | Metric values, smaller headings |
 
 **Usage in Code**:
 ```tsx
@@ -44,7 +44,7 @@ This is the complete typography, color, and styling system for the Sunrise Syste
 **3-Tier Body System**: Body copy uses 24px (primary), 20px (supporting), or 16px (labels only), all aligned to 8px baseline grid.
 
 #### Body 1
-**Font**: Inter Medium (500 weight)
+**Font**: Inter Regular (400 weight)
 **Size**: 24px (1.5rem)
 **Color**: `#111111`
 **Line Height**: 1.5 (36px = 4.5×8 baseline)
@@ -79,7 +79,7 @@ This is the complete typography, color, and styling system for the Sunrise Syste
 ```
 
 #### Body 3
-**Font**: Inter Medium (500 weight)
+**Font**: Inter Regular (400 weight)
 **Size**: 20px (1.25rem)
 **Color**: `#111111`
 **Line Height**: 1.6 (32px = 4×8 baseline)
@@ -94,7 +94,7 @@ This is the complete typography, color, and styling system for the Sunrise Syste
 ```
 
 #### Default Paragraph (No Class)
-**Font**: Inter Medium (500 weight)
+**Font**: Inter Regular (400 weight)
 **Size**: 24px (1.5rem)
 **Color**: `#111111` (dark)
 **Line Height**: 1.5 (36px = 4.5×8 baseline)
@@ -180,12 +180,12 @@ const ibmPlexMono = IBM_Plex_Mono({ weight: ['400', '500', '600'], ... })
 2. **H2 (56px)**: Major section titles
 3. **H3 (40px)**: Subsection titles, case study card headlines
 4. **H4 (32px)**: Metric values, smaller headings
-5. **Body 1 (24px)**: Primary content - subheadlines, descriptions, paragraphs (dark #111, medium weight)
+5. **Body 1 (24px)**: Primary content - subheadlines, descriptions, paragraphs (dark #111, regular weight)
 6. **Body 2 (24px)**: Testimonial quotes only (medium gray #666, regular weight)
-7. **Body 3 (20px)**: Supporting copy - author names, bullets, benefits (dark #111, medium weight)
+7. **Body 3 (20px)**: Supporting copy - author names, bullets, benefits (dark #111, regular weight)
 8. **Accent (16px)**: Labels, tags, eyebrows (dark #111 or gray #999, uppercase, monospace)
 
-**Visual Differentiation:** Size, color (dark vs medium gray vs light gray), weight (medium vs regular), and position create hierarchy.
+**Visual Differentiation:** Size, color (dark vs medium gray vs light gray), and position create hierarchy. All body text uses regular (400) weight for a clean, readable appearance.
 
 **Note:** All type sizes and line-heights align to the 8px baseline grid for consistent vertical rhythm.
 

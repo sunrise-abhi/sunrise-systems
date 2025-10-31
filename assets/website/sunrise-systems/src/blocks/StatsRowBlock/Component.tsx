@@ -1,6 +1,8 @@
+'use client'
+
 import React from 'react'
 import type { StatsRowBlock as StatsRowBlockType } from '@/payload-types'
-import { Section, Container, Grid, Column } from '@/components/layout'
+import { Section, Container, Grid, Column, AnimatedSection } from '@/components/layout'
 
 export const StatsRowBlockComponent: React.FC<StatsRowBlockType> = ({ stats, backgroundColor = 'white', paddingTop, paddingBottom }) => {
   if (!stats || stats.length === 0) return null
@@ -24,20 +26,22 @@ export const StatsRowBlockComponent: React.FC<StatsRowBlockType> = ({ stats, bac
   return (
     <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
       <Container>
-        <Grid cols={12} gap="standard">
-          {stats.map((stat, index) => (
-            <Column key={index} span={columnSpan}>
-              <div className="text-center">
-                <h2 className="mb-2">
-                  {stat.value}
-                </h2>
-                <p className="accent">
-                  {stat.label}
-                </p>
-              </div>
-            </Column>
-          ))}
-        </Grid>
+        <AnimatedSection>
+          <Grid cols={12} gap="standard">
+            {stats.map((stat, index) => (
+              <Column key={index} span={columnSpan}>
+                <div className="text-center">
+                  <h2 className="mb-2">
+                    {stat.value}
+                  </h2>
+                  <p className="accent">
+                    {stat.label}
+                  </p>
+                </div>
+              </Column>
+            ))}
+          </Grid>
+        </AnimatedSection>
       </Container>
     </Section>
   )
