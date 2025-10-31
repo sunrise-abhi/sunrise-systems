@@ -11,7 +11,7 @@ type Props = {
 
 export const BannerBlock: React.FC<Props> = ({ className, content, style, backgroundColor = 'white', blockId }) => {
   return (
-    <Section backgroundColor={backgroundColor} blockId={blockId}>
+    <Section backgroundColor={backgroundColor} blockId={blockId || undefined}>
       <Container>
         <div className={cn('', className)}>
           <div

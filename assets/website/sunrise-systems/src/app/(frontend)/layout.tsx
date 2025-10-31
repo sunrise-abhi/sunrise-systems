@@ -31,6 +31,7 @@ import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { draftMode } from 'next/headers'
 import { GridDebug } from '@/components/layout/GridDebug'
 import { BaselineDebug } from '@/components/layout/BaselineDebug'
+import { SmoothScroll } from '@/components/SmoothScroll'
 
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
@@ -46,6 +47,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
       </head>
       <body>
+        <SmoothScroll />
         <Providers>
           <AdminBar
             adminBarProps={{
