@@ -25,6 +25,22 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
   paddingTop,
   paddingBottom,
 }) => {
+  // Hooks must be at the top level - carousel state
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const images = Array.isArray(carouselImages) 
+    ? carouselImages.map(item => typeof item.image === 'object' ? item.image : null).filter(Boolean)
+    : []
+  
+  useEffect(() => {
+    if (variant !== 'imageRightCarousel' || images.length <= 1) return
+    
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
+    }, 5000)
+    
+    return () => clearInterval(interval)
+  }, [variant, images.length])
+
   // Background Image Variant
   if (variant === 'backgroundImage') {
     const bgImageResource = typeof backgroundImage === 'object' ? backgroundImage : null
@@ -155,21 +171,7 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
 
   // Image Right Carousel Variant
   if (variant === 'imageRightCarousel') {
-    const [currentImageIndex, setCurrentImageIndex] = useState(0)
-    const images = Array.isArray(carouselImages) 
-      ? carouselImages.map(item => typeof item.image === 'object' ? item.image : null).filter(Boolean)
-      : []
     const eyebrowClass = eyebrowOrange ? 'accent mb-4 text-primary' : 'accent mb-4'
-    
-    useEffect(() => {
-      if (images.length <= 1) return
-      
-      const interval = setInterval(() => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
-      }, 5000)
-      
-      return () => clearInterval(interval)
-    }, [images.length])
     
     return (
       <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} className="relative">
