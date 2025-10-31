@@ -118,5 +118,13 @@ export const Content: Block = {
         description: 'Bottom padding of the section',
       },
     },
+    {
+      name: 'hideOnMobile',
+      type: 'checkbox',
+      defaultValue: false,
+      admin: {
+        description: 'Hide this block on mobile devices',
+      },
+    },
   ],
 }

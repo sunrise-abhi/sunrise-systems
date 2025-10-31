@@ -36,17 +36,17 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
 
   return (
     <header 
-      className={`sticky top-0 z-50 ${isNavigating ? '' : 'transition-colors duration-300'}`}
+      className={`sticky top-0 z-50 relative ${isNavigating ? '' : 'transition-colors duration-300'}`}
       style={{ backgroundColor: headerBg }}
       {...(theme ? { 'data-theme': theme } : {})}
     >
       <div className="container">
         <div className="py-4 flex justify-between items-center">
-          <Link href="/">
+          <Link href="/" className="z-10 relative">
             {logoResource ? (
               <Media 
                 resource={logoResource} 
-                imgClassName="w-auto h-[60px]"
+                imgClassName="w-auto h-[60px] max-md:h-[48px]"
                 priority
               />
             ) : (

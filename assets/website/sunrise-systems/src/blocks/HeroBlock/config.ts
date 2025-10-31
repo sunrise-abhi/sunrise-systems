@@ -16,6 +16,7 @@ export const HeroBlock: Block = {
       options: [
         { label: 'Default', value: 'default' },
         { label: 'Image Right', value: 'imageRight' },
+        { label: 'Image Right Carousel', value: 'imageRightCarousel' },
         { label: 'Background Image', value: 'backgroundImage' },
         { label: 'Case Study Hero', value: 'caseStudyHero' },
       ],
@@ -73,6 +74,23 @@ export const HeroBlock: Block = {
         condition: (_, blockData) => blockData?.variant === 'imageRight',
         description: 'Image displayed on the right side',
       },
+    },
+    {
+      name: 'carouselImages',
+      type: 'array',
+      admin: {
+        condition: (_, blockData) => blockData?.variant === 'imageRightCarousel',
+        description: 'Multiple images that will animate and swap every 5 seconds',
+      },
+      fields: [
+        {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
+          required: true,
+        },
+      ],
+      minRows: 2,
     },
     {
       name: 'backgroundImage',
@@ -173,6 +191,14 @@ export const HeroBlock: Block = {
       ],
       admin: {
         description: 'Bottom padding of the section',
+      },
+    },
+    {
+      name: 'hideOnMobile',
+      type: 'checkbox',
+      defaultValue: false,
+      admin: {
+        description: 'Hide this block on mobile devices',
       },
     },
   ],

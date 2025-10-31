@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import type { HeroBlock as HeroBlockType } from '@/payload-types'
 import { Section, Container, Grid, Column, AnimatedSection } from '@/components/layout'
 import { Media } from '@/components/Media'
@@ -15,6 +15,7 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
   ctaButton,
   proofBadge,
   image,
+  carouselImages,
   backgroundImage,
   heroImage,
   services,
@@ -142,6 +143,91 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
                       imgClassName="object-cover"
                       priority
                     />
+                  </div>
+                </Column>
+              )}
+            </Grid>
+          </AnimatedSection>
+        </Container>
+      </Section>
+    )
+  }
+
+  // Image Right Carousel Variant
+  if (variant === 'imageRightCarousel') {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0)
+    const images = Array.isArray(carouselImages) 
+      ? carouselImages.map(item => typeof item.image === 'object' ? item.image : null).filter(Boolean)
+      : []
+    const eyebrowClass = eyebrowOrange ? 'accent mb-4 text-primary' : 'accent mb-4'
+    
+    useEffect(() => {
+      if (images.length <= 1) return
+      
+      const interval = setInterval(() => {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
+      }, 5000)
+      
+      return () => clearInterval(interval)
+    }, [images.length])
+    
+    return (
+      <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} className="relative">
+        <Container>
+          <AnimatedSection>
+            <Grid cols={12}>
+              <Column span={{ mobile: 4, desktop: 5 }}>
+                {eyebrow && (
+                  <p className={eyebrowClass}>
+                    {eyebrow}
+                  </p>
+                )}
+                
+                <h1 className="mb-8">
+                  {headline}
+                </h1>
+                
+                {subheadline && (
+                  <p className="body-1 mb-8 whitespace-pre-line">
+                    {subheadline}
+                  </p>
+                )}
+                
+                {ctaButton?.label && ctaButton?.url && (
+                  <Button variant="primary" asChild>
+                    <a href={ctaButton.url}>
+                      {ctaButton.label}
+                    </a>
+                  </Button>
+                )}
+                
+                {proofBadge && (
+                  <p className="mt-8 body-2">
+                    {proofBadge}
+                  </p>
+                )}
+              </Column>
+              
+              {images.length > 0 && (
+                <Column span={{ mobile: 4, desktop: 6 }} start={{ desktop: 7 }}>
+                  <div className="relative overflow-hidden rounded-[5px] w-full h-full">
+                    {images.map((imageResource, index) => (
+                      <div
+                        key={index}
+                        className="absolute inset-0 transition-opacity duration-1000"
+                        style={{
+                          opacity: currentImageIndex === index ? 1 : 0,
+                          pointerEvents: currentImageIndex === index ? 'auto' : 'none',
+                        }}
+                      >
+                        <Media 
+                          resource={imageResource} 
+                          fill 
+                          imgClassName="object-cover"
+                          priority={index === 0}
+                        />
+                      </div>
+                    ))}
                   </div>
                 </Column>
               )}

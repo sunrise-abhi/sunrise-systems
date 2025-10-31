@@ -33,6 +33,14 @@ export const CallToAction: Block = {
         { label: 'Off-white', value: 'offwhite' },
       ],
     },
+    {
+      name: 'hideOnMobile',
+      type: 'checkbox',
+      defaultValue: false,
+      admin: {
+        description: 'Hide this block on mobile devices',
+      },
+    },
   ],
   labels: {
     plural: 'Calls to Action',
