@@ -41,7 +41,7 @@ export const FeatureGridBlockComponent: React.FC<FeatureGridBlockType> = ({
               {headline}
             </h2>
           )}
-          {subhead && <p className="mb-12 text-center body-1 max-w-3xl mx-auto whitespace-pre-line">{subhead}</p>}
+          {subhead && <p className="mb-24 text-center body-1 max-w-3xl mx-auto whitespace-pre-line">{subhead}</p>}
         </AnimatedSection>
         
         <Grid cols={12} gap="standard">
@@ -50,7 +50,7 @@ export const FeatureGridBlockComponent: React.FC<FeatureGridBlockType> = ({
             
             return (
               <Column key={index} span={columnSpan}>
-                <div className="bg-[#F5F5F5] rounded-[5px] p-8">
+                <div className="bg-[#F5F5F5] rounded-[5px] p-8 h-full flex flex-col">
                   {imageResource && (
                     <div className="mb-4 relative w-full aspect-square overflow-hidden rounded-[5px]">
                       <Media 

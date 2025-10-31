@@ -160,7 +160,7 @@ export const CaseStudyCarouselBlockComponent: React.FC<CaseStudyCarouselBlockTyp
       <Container>
         <AnimatedSection>
           {headline && <h2 className="mb-4 text-center">{headline}</h2>}
-          {subhead && <p className="mb-12 text-center body-1 max-w-3xl mx-auto whitespace-pre-line">{subhead}</p>}
+          {subhead && <p className="mb-24 text-center body-1 max-w-3xl mx-auto whitespace-pre-line">{subhead}</p>}
         </AnimatedSection>
 
         <AnimatedSection>

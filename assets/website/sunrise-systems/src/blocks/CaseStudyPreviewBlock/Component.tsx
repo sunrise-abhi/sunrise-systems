@@ -54,7 +54,7 @@ export const CaseStudyPreviewBlockComponent: React.FC<CaseStudyPreviewBlockType>
       <Container>
         <AnimatedSection>
           {headline && <h2 className="mb-4 text-center">{headline}</h2>}
-          {subhead && <p className="mb-16 text-center body-1 max-w-3xl mx-auto whitespace-pre-line">{subhead}</p>}
+          {subhead && <p className="mb-32 text-center body-1 max-w-3xl mx-auto whitespace-pre-line">{subhead}</p>}
         </AnimatedSection>
 
         <Grid cols={12} gap="wide" className="!gap-y-16">
