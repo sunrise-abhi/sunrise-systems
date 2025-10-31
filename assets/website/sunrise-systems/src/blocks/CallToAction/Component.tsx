@@ -11,7 +11,7 @@ import { handleAnchorClick, isAnchorLink } from '@/utilities/smoothScroll'
 
 export const CallToActionBlock: React.FC<CTABlockProps> = ({ links, headline, subhead, backgroundColor = 'white', blockId }) => {
   return (
-    <Section backgroundColor={backgroundColor} blockId={blockId}>
+    <Section backgroundColor={backgroundColor} blockId={blockId || undefined}>
       <Container>
         <AnimatedSection className="h-full">
           <div className="rounded bg-[#FF6000] pt-64 pb-8 lg:pb-12 px-8 lg:px-12 hover-shine">

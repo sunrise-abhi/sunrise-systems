@@ -36,7 +36,7 @@ export const MediaBlock: React.FC<Props> = (props) => {
   if (media && typeof media === 'object') caption = media.caption
 
   return (
-    <Section backgroundColor={backgroundColor} blockId={blockId}>
+    <Section backgroundColor={backgroundColor} blockId={blockId || undefined}>
       {enableGutter ? (
         <Container>
           <div className={cn('', className)}>

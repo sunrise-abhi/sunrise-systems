@@ -37,7 +37,7 @@ export const ServicesCollectionBlockComponent: React.FC<ServicesCollectionBlockT
   const columnSpan = getColumnSpan(columns || '3')
 
   return (
-    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId || undefined}>
       <Container>
         <AnimatedSection>
           {headline && <h2 className="mb-4 text-center">{headline}</h2>}

@@ -50,7 +50,7 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
     const eyebrowClass = eyebrowOrange ? 'accent mb-4 text-primary' : 'accent mb-4 text-white'
     
     return (
-      <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor="transparent" blockId={blockId} className="relative min-h-[600px] lg:min-h-[700px] flex items-center">
+      <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor="transparent" blockId={blockId || undefined} className="relative min-h-[600px] lg:min-h-[700px] flex items-center">
         {bgImageResource && (
           <>
             <div className="absolute inset-0 z-0">
@@ -119,7 +119,7 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
     const eyebrowClass = eyebrowOrange ? 'accent mb-4 text-primary' : 'accent mb-4'
     
     return (
-      <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId} className="relative">
+      <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId || undefined} className="relative">
         <Container>
           <AnimatedSection>
             <Grid cols={12}>
@@ -182,7 +182,7 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
     const eyebrowClass = eyebrowOrange ? 'accent mb-4 text-primary' : 'accent mb-4'
     
     return (
-      <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId} className="relative">
+      <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId || undefined} className="relative">
         <Container>
           <AnimatedSection>
             <Grid cols={12}>
@@ -258,7 +258,7 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
     const eyebrowClass = eyebrowOrange ? 'accent mb-4 text-primary' : 'accent mb-4'
     
     return (
-      <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId} className="relative">
+      <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId || undefined} className="relative">
         <Container>
           <AnimatedSection>
             <Grid cols={12}>
@@ -325,7 +325,7 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
   const eyebrowClass = eyebrowOrange ? 'accent mb-4 text-primary' : 'accent mb-4'
   
   return (
-    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId} className="relative">
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId || undefined} className="relative">
       <Container>
         <AnimatedSection>
           <Grid cols={12}>

@@ -34,7 +34,7 @@ export const FeatureGridBlockComponent: React.FC<FeatureGridBlockType> = ({
   const columnSpan = getColumnSpan(columns || '3')
 
   return (
-    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId || undefined}>
       <Container>
         <AnimatedSection>
           {headline && (

@@ -27,7 +27,7 @@ export const StatementBlockComponent: React.FC<StatementBlockType> = ({
   const { span, start, textAlign } = config
 
   return (
-    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId || undefined}>
       <Container>
         <AnimatedSection>
           <Grid cols={12}>

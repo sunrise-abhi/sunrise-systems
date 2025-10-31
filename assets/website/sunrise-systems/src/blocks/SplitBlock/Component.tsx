@@ -54,7 +54,7 @@ export const SplitBlockComponent: React.FC<SplitBlockType> = ({
   )
 
   return (
-    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId || undefined}>
       <Container>
         <AnimatedSection>
           <Grid cols={12} gap="standard">

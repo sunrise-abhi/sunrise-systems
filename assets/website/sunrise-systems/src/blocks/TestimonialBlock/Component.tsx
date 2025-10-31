@@ -32,7 +32,7 @@ export const TestimonialBlockComponent: React.FC<TestimonialBlockType> = ({
   const { span, start } = positionConfig[position ?? 'center'] || positionConfig.center
 
   return (
-    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId || undefined}>
       <Container>
         <AnimatedSection>
           <Grid cols={12}>
