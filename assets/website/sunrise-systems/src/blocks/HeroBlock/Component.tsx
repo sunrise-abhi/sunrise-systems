@@ -269,9 +269,20 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
                   </p>
                 )}
                 
-                <h1 className="mb-0">
+                <h1 className="mb-8">
                   {headline}
                 </h1>
+                
+                {ctaButton?.label && ctaButton?.url && (
+                  <Button variant="primary" asChild>
+                    <a 
+                      href={ctaButton.url}
+                      onClick={(e) => handleAnchorClick(e, ctaButton.url)}
+                    >
+                      {ctaButton.label}
+                    </a>
+                  </Button>
+                )}
               </Column>
               
               <Column span={{ mobile: 4, desktop: 5 }} start={{ desktop: 8 }}>
