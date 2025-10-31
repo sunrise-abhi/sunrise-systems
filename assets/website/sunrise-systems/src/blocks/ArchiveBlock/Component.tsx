@@ -12,7 +12,7 @@ export const ArchiveBlock: React.FC<
     id?: string
   }
 > = async (props) => {
-  const { id, categories, introContent, limit: limitFromProps, populateBy, selectedDocs, backgroundColor = 'white' } = props
+  const { id, categories, introContent, limit: limitFromProps, populateBy, selectedDocs, backgroundColor = 'white', blockId } = props
   const bgClass = backgroundColor === 'offwhite' ? 'bg-offwhite' : 'bg-white'
 
   const limit = limitFromProps || 3
@@ -54,7 +54,7 @@ export const ArchiveBlock: React.FC<
   }
 
   return (
-    <div className={`${bgClass} py-16`} id={`block-${id}`}>
+    <div className={`${bgClass} py-16`} id={blockId || `block-${id}` || undefined}>
       {introContent && (
         <div className="container mb-16">
           <RichText className="ms-0 max-w-[48rem]" data={introContent} enableGutter={false} />

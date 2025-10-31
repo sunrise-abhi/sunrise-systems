@@ -28,6 +28,9 @@ export function SmoothScroll() {
       infinite: false,
     })
 
+    // Expose Lenis instance to window for smooth scroll utility
+    ;(window as typeof window & { lenis?: Lenis }).lenis = lenis
+
     // Request animation frame loop
     function raf(time: number) {
       lenis.raf(time)
@@ -38,6 +41,7 @@ export function SmoothScroll() {
 
     // Cleanup
     return () => {
+      ;(window as typeof window & { lenis?: Lenis }).lenis = undefined
       lenis.destroy()
     }
   }, [])

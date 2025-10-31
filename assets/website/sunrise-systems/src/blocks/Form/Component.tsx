@@ -18,6 +18,7 @@ export type FormBlockType = {
   form: FormType
   introContent?: DefaultTypedEditorState
   backgroundColor?: 'white' | 'offwhite' | null
+  blockId?: string | null
 }
 
 export const FormBlock: React.FC<
@@ -31,6 +32,7 @@ export const FormBlock: React.FC<
     form: { id: formID, confirmationMessage, confirmationType, redirect, submitButtonLabel } = {},
     introContent,
     backgroundColor = 'white',
+    blockId,
   } = props
   
   const bgClass = backgroundColor === 'offwhite' ? 'bg-offwhite' : 'bg-white'
@@ -118,7 +120,7 @@ export const FormBlock: React.FC<
   )
 
   return (
-    <div className={`${bgClass} py-16`}>
+    <div id={blockId || undefined} className={`${bgClass} py-16`}>
       <div className="container lg:max-w-[48rem]">
       {enableIntro && introContent && !hasSubmitted && (
         <RichText className="mb-8 lg:mb-12" data={introContent} enableGutter={false} />

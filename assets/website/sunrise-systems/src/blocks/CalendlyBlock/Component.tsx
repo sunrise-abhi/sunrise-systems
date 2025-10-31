@@ -9,6 +9,7 @@ export const CalendlyBlockComponent: React.FC<CalendlyBlockType> = ({
   minHeight = 700,
   paddingTop,
   paddingBottom,
+  blockId,
 }) => {
   // Map spacing to Tailwind classes
   const spacingMap = {
@@ -26,7 +27,7 @@ export const CalendlyBlockComponent: React.FC<CalendlyBlockType> = ({
   const bgClass = backgroundColor === 'offwhite' ? 'bg-offwhite' : 'bg-white'
 
   return (
-    <section className={`${ptClass} ${pbClass} ${bgClass}`}>
+    <section id={blockId || undefined} className={`${ptClass} ${pbClass} ${bgClass}`}>
       <div className="container mx-auto px-6">
         <div 
           className="calendly-inline-widget w-full rounded-[5px] overflow-hidden" 
