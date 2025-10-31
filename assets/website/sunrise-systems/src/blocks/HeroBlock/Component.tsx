@@ -5,6 +5,7 @@ import type { HeroBlock as HeroBlockType } from '@/payload-types'
 import { Section, Container, Grid, Column, AnimatedSection } from '@/components/layout'
 import { Media } from '@/components/Media'
 import { Button } from '@/components/ui/button'
+import { handleAnchorClick } from '@/utilities/smoothScroll'
 
 export const HeroBlockComponent: React.FC<HeroBlockType> = ({
   variant = 'default',
@@ -24,6 +25,7 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
   backgroundColor = 'white',
   paddingTop,
   paddingBottom,
+  blockId,
 }) => {
   // Hooks must be at the top level - carousel state
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
@@ -48,7 +50,7 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
     const eyebrowClass = eyebrowOrange ? 'accent mb-4 text-primary' : 'accent mb-4 text-white'
     
     return (
-      <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor="transparent" className="relative min-h-[600px] lg:min-h-[700px] flex items-center">
+      <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor="transparent" blockId={blockId} className="relative min-h-[600px] lg:min-h-[700px] flex items-center">
         {bgImageResource && (
           <>
             <div className="absolute inset-0 z-0">
@@ -80,25 +82,28 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
                     {headline}
                   </h1>
                   
-                  {subheadline && (
-                    <p className="body-subhead-light mb-8 whitespace-pre-line text-white">
-                      {subheadline}
-                    </p>
-                  )}
-                  
-                  {ctaButton?.label && ctaButton?.url && (
-                    <Button variant="primary" asChild>
-                      <a href={ctaButton.url}>
-                        {ctaButton.label}
-                      </a>
-                    </Button>
-                  )}
-                  
-                  {proofBadge && (
-                    <p className="mt-8 body-2 text-white">
-                      {proofBadge}
-                    </p>
-                  )}
+                {subheadline && (
+                  <p className="body-subhead-light mb-8 whitespace-pre-line text-white">
+                    {subheadline}
+                  </p>
+                )}
+                
+                {ctaButton?.label && ctaButton?.url && (
+                  <Button variant="primary" asChild>
+                    <a 
+                      href={ctaButton.url}
+                      onClick={(e) => handleAnchorClick(e, ctaButton.url)}
+                    >
+                      {ctaButton.label}
+                    </a>
+                  </Button>
+                )}
+                
+                {proofBadge && (
+                  <p className="mt-8 body-2 text-white">
+                    {proofBadge}
+                  </p>
+                )}
                 </div>
               </Column>
             </Grid>
@@ -114,7 +119,7 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
     const eyebrowClass = eyebrowOrange ? 'accent mb-4 text-primary' : 'accent mb-4'
     
     return (
-      <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} className="relative">
+      <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId} className="relative">
         <Container>
           <AnimatedSection>
             <Grid cols={12}>
@@ -125,33 +130,36 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
                   </p>
                 )}
                 
-                <h1 className="mb-8">
-                  {headline}
-                </h1>
-                
-                {subheadline && (
-                  <p className="body-1 mb-8 whitespace-pre-line">
-                    {subheadline}
-                  </p>
-                )}
-                
-                {ctaButton?.label && ctaButton?.url && (
-                  <Button variant="primary" asChild>
-                    <a href={ctaButton.url}>
-                      {ctaButton.label}
-                    </a>
-                  </Button>
-                )}
-                
-                {proofBadge && (
-                  <p className="mt-8 body-2">
-                    {proofBadge}
-                  </p>
-                )}
-              </Column>
+              <h1 className="mb-8">
+                {headline}
+              </h1>
               
-              {imageResource && (
-                <Column span={{ mobile: 4, desktop: 6 }} start={{ desktop: 7 }}>
+              {subheadline && (
+                <p className="body-1 mb-8 whitespace-pre-line">
+                  {subheadline}
+                </p>
+              )}
+              
+              {ctaButton?.label && ctaButton?.url && (
+                <Button variant="primary" asChild>
+                  <a 
+                    href={ctaButton.url}
+                    onClick={(e) => handleAnchorClick(e, ctaButton.url)}
+                  >
+                    {ctaButton.label}
+                  </a>
+                </Button>
+              )}
+              
+              {proofBadge && (
+                <p className="mt-8 body-2">
+                  {proofBadge}
+                </p>
+              )}
+            </Column>
+            
+            {imageResource && (
+              <Column span={{ mobile: 4, desktop: 6 }} start={{ desktop: 7 }}>
                   <div className="relative overflow-hidden rounded-[5px] w-full h-full">
                     <Media 
                       resource={imageResource} 
@@ -174,7 +182,7 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
     const eyebrowClass = eyebrowOrange ? 'accent mb-4 text-primary' : 'accent mb-4'
     
     return (
-      <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} className="relative">
+      <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId} className="relative">
         <Container>
           <AnimatedSection>
             <Grid cols={12}>
@@ -185,32 +193,35 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
                   </p>
                 )}
                 
-                <h1 className="mb-8">
-                  {headline}
-                </h1>
-                
-                {subheadline && (
-                  <p className="body-1 mb-8 whitespace-pre-line">
-                    {subheadline}
-                  </p>
-                )}
-                
-                {ctaButton?.label && ctaButton?.url && (
-                  <Button variant="primary" asChild>
-                    <a href={ctaButton.url}>
-                      {ctaButton.label}
-                    </a>
-                  </Button>
-                )}
-                
-                {proofBadge && (
-                  <p className="mt-8 body-2">
-                    {proofBadge}
-                  </p>
-                )}
-              </Column>
+              <h1 className="mb-8">
+                {headline}
+              </h1>
               
-              {images.length > 0 && (
+              {subheadline && (
+                <p className="body-1 mb-8 whitespace-pre-line">
+                  {subheadline}
+                </p>
+              )}
+              
+              {ctaButton?.label && ctaButton?.url && (
+                <Button variant="primary" asChild>
+                  <a 
+                    href={ctaButton.url}
+                    onClick={(e) => handleAnchorClick(e, ctaButton.url)}
+                  >
+                    {ctaButton.label}
+                  </a>
+                </Button>
+              )}
+              
+              {proofBadge && (
+                <p className="mt-8 body-2">
+                  {proofBadge}
+                </p>
+              )}
+            </Column>
+            
+            {images.length > 0 && (
                 <Column span={{ mobile: 4, desktop: 6 }} start={{ desktop: 7 }}>
                   <div className="relative overflow-hidden rounded-[5px] w-full h-full">
                     {images.map((imageResource, index) => (
@@ -247,7 +258,7 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
     const eyebrowClass = eyebrowOrange ? 'accent mb-4 text-primary' : 'accent mb-4'
     
     return (
-      <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} className="relative">
+      <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId} className="relative">
         <Container>
           <AnimatedSection>
             <Grid cols={12}>
@@ -314,7 +325,7 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
   const eyebrowClass = eyebrowOrange ? 'accent mb-4 text-primary' : 'accent mb-4'
   
   return (
-    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} className="relative">
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId} className="relative">
       <Container>
         <AnimatedSection>
           <Grid cols={12}>
@@ -337,7 +348,10 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
               
               {ctaButton?.label && ctaButton?.url && (
                 <Button variant="primary" asChild>
-                  <a href={ctaButton.url}>
+                  <a 
+                    href={ctaButton.url}
+                    onClick={(e) => handleAnchorClick(e, ctaButton.url)}
+                  >
                     {ctaButton.label}
                   </a>
                 </Button>

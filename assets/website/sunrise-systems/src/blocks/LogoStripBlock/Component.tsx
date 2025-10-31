@@ -12,6 +12,7 @@ export const LogoStripBlockComponent: React.FC<LogoStripBlockType> = ({
   backgroundColor = 'white',
   paddingTop,
   paddingBottom,
+  blockId,
 }) => {
   if (!logos || logos.length === 0) return null
 
@@ -19,7 +20,7 @@ export const LogoStripBlockComponent: React.FC<LogoStripBlockType> = ({
   const initialPosition = direction === 'right' ? '-translate-x-1/3' : ''
 
   return (
-    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId}>
       <Container>
         <AnimatedSection>
           {headline && (

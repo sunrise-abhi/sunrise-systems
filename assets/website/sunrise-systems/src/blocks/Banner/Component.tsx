@@ -9,9 +9,9 @@ type Props = {
   className?: string
 } & BannerBlockProps
 
-export const BannerBlock: React.FC<Props> = ({ className, content, style, backgroundColor = 'white' }) => {
+export const BannerBlock: React.FC<Props> = ({ className, content, style, backgroundColor = 'white', blockId }) => {
   return (
-    <Section backgroundColor={backgroundColor}>
+    <Section backgroundColor={backgroundColor} blockId={blockId}>
       <Container>
         <div className={cn('', className)}>
           <div

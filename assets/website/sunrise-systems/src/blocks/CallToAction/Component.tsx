@@ -7,10 +7,11 @@ import type { CallToActionBlock as CTABlockProps } from '@/payload-types'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { Section, Container, Grid, Column, AnimatedSection } from '@/components/layout'
+import { handleAnchorClick, isAnchorLink } from '@/utilities/smoothScroll'
 
-export const CallToActionBlock: React.FC<CTABlockProps> = ({ links, headline, subhead, backgroundColor = 'white' }) => {
+export const CallToActionBlock: React.FC<CTABlockProps> = ({ links, headline, subhead, backgroundColor = 'white', blockId }) => {
   return (
-    <Section backgroundColor={backgroundColor}>
+    <Section backgroundColor={backgroundColor} blockId={blockId}>
       <Container>
         <AnimatedSection className="h-full">
           <div className="rounded bg-[#FF6000] pt-64 pb-8 lg:pb-12 px-8 lg:px-12 hover-shine">
@@ -39,6 +40,7 @@ export const CallToActionBlock: React.FC<CTABlockProps> = ({ links, headline, su
                   if (!href) return null
                   
                   const newTabProps = link?.newTab ? { rel: 'noopener noreferrer', target: '_blank' } : {}
+                  const isAnchor = isAnchorLink(href)
                   
                   return (
                     <Button 
@@ -47,9 +49,18 @@ export const CallToActionBlock: React.FC<CTABlockProps> = ({ links, headline, su
                       variant="arrow-button-cta"
                       className="h-20 md:h-32 w-full text-[4rem]"
                     >
-                      <Link href={href} {...newTabProps}>
-                        →
-                      </Link>
+                      {isAnchor ? (
+                        <a 
+                          href={href} 
+                          onClick={(e) => handleAnchorClick(e, href)}
+                        >
+                          →
+                        </a>
+                      ) : (
+                        <Link href={href} {...newTabProps}>
+                          →
+                        </Link>
+                      )}
                     </Button>
                   )
                 })}

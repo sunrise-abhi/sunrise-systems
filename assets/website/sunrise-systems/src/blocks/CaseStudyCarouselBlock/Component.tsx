@@ -47,6 +47,7 @@ export const CaseStudyCarouselBlockComponent: React.FC<CaseStudyCarouselBlockTyp
   backgroundColor = 'white',
   paddingTop,
   paddingBottom,
+  blockId,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
@@ -156,7 +157,7 @@ export const CaseStudyCarouselBlockComponent: React.FC<CaseStudyCarouselBlockTyp
   )
 
   return (
-    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId}>
       <Container>
         <AnimatedSection>
           {headline && <h2 className="mb-4 text-center">{headline}</h2>}

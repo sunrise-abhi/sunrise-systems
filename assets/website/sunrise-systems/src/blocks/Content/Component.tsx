@@ -8,7 +8,7 @@ import { CMSLink } from '../../components/Link'
 import { Section, Container, Grid } from '@/components/layout'
 
 export const ContentBlock: React.FC<ContentBlockProps> = (props) => {
-  const { columns, backgroundColor = 'white', paddingTop, paddingBottom } = props
+  const { columns, backgroundColor = 'white', paddingTop, paddingBottom, blockId } = props
 
   const colsSpanClasses = {
     full: '12',
@@ -18,7 +18,7 @@ export const ContentBlock: React.FC<ContentBlockProps> = (props) => {
   }
 
   return (
-    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId}>
       <Container>
         <Grid cols={12} gap="wide">
           {columns &&

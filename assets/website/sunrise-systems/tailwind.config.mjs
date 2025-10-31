@@ -10,7 +10,17 @@ const config = {
     './src/**/*.{ts,tsx}',
   ],
   darkMode: ['selector', '[data-theme="dark"]'],
-  plugins: [tailwindcssAnimate, typography],
+  plugins: [
+    tailwindcssAnimate, 
+    typography,
+    function ({ addBase }) {
+      addBase({
+        html: {
+          scrollBehavior: 'smooth',
+        },
+      })
+    },
+  ],
   prefix: '',
   // Spacing follows 8px baseline rhythm
   // Use space-2, 4, 6, 8, 12, 16, 24, 32, 40 for consistent vertical rhythm

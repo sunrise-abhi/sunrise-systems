@@ -29,13 +29,14 @@ export const MediaBlock: React.FC<Props> = (props) => {
     staticImage,
     disableInnerContainer: _disableInnerContainer,
     backgroundColor = 'white',
+    blockId,
   } = props
 
   let caption
   if (media && typeof media === 'object') caption = media.caption
 
   return (
-    <Section backgroundColor={backgroundColor}>
+    <Section backgroundColor={backgroundColor} blockId={blockId}>
       {enableGutter ? (
         <Container>
           <div className={cn('', className)}>

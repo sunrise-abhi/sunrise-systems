@@ -509,6 +509,10 @@ export interface HeroBlock {
    */
   paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
   /**
+   * Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.
+   */
+  blockId?: string | null;
+  /**
    * Hide this block on mobile devices
    */
   hideOnMobile?: boolean | null;
@@ -626,6 +630,10 @@ export interface StatementBlock {
    */
   paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
   /**
+   * Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.
+   */
+  blockId?: string | null;
+  /**
    * Hide this block on mobile devices
    */
   hideOnMobile?: boolean | null;
@@ -661,6 +669,10 @@ export interface StatsRowBlock {
    */
   paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
   /**
+   * Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.
+   */
+  blockId?: string | null;
+  /**
    * Hide this block on mobile devices
    */
   hideOnMobile?: boolean | null;
@@ -688,6 +700,10 @@ export interface TestimonialBlock {
    * Bottom padding of the section
    */
   paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.
+   */
+  blockId?: string | null;
   /**
    * Hide this block on mobile devices
    */
@@ -728,6 +744,10 @@ export interface FeatureGridBlock {
    */
   paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
   /**
+   * Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.
+   */
+  blockId?: string | null;
+  /**
    * Hide this block on mobile devices
    */
   hideOnMobile?: boolean | null;
@@ -766,6 +786,10 @@ export interface ProcessBlock {
    */
   paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
   /**
+   * Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.
+   */
+  blockId?: string | null;
+  /**
    * Hide this block on mobile devices
    */
   hideOnMobile?: boolean | null;
@@ -800,6 +824,10 @@ export interface LogoStripBlock {
    */
   paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
   /**
+   * Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.
+   */
+  blockId?: string | null;
+  /**
    * Hide this block on mobile devices
    */
   hideOnMobile?: boolean | null;
@@ -832,6 +860,10 @@ export interface CaseStudySummaryBlock {
    * Bottom padding of the section
    */
   paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.
+   */
+  blockId?: string | null;
   /**
    * Hide this block on mobile devices
    */
@@ -978,6 +1010,10 @@ export interface CaseStudyPreviewBlock {
    */
   paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
   /**
+   * Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.
+   */
+  blockId?: string | null;
+  /**
    * Hide this block on mobile devices
    */
   hideOnMobile?: boolean | null;
@@ -1039,6 +1075,10 @@ export interface CaseStudyCarouselBlock {
    */
   paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
   /**
+   * Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.
+   */
+  blockId?: string | null;
+  /**
    * Hide this block on mobile devices
    */
   hideOnMobile?: boolean | null;
@@ -1062,6 +1102,10 @@ export interface ServiceSummaryBlock {
    * Bottom padding of the section
    */
   paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.
+   */
+  blockId?: string | null;
   /**
    * Hide this block on mobile devices
    */
@@ -1104,6 +1148,10 @@ export interface ServicesCollectionBlock {
    */
   paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
   /**
+   * Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.
+   */
+  blockId?: string | null;
+  /**
    * Hide this block on mobile devices
    */
   hideOnMobile?: boolean | null;
@@ -1139,6 +1187,10 @@ export interface GalleryBlock {
    */
   paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
   /**
+   * Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.
+   */
+  blockId?: string | null;
+  /**
    * Hide this block on mobile devices
    */
   hideOnMobile?: boolean | null;
@@ -1167,6 +1219,10 @@ export interface ImageBlock {
    * Bottom padding of the section
    */
   paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.
+   */
+  blockId?: string | null;
   /**
    * Hide this block on mobile devices
    */
@@ -1199,6 +1255,10 @@ export interface SplitBlock {
    */
   paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
   /**
+   * Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.
+   */
+  blockId?: string | null;
+  /**
    * Hide this block on mobile devices
    */
   hideOnMobile?: boolean | null;
@@ -1230,6 +1290,10 @@ export interface CarouselBlock {
    * Bottom padding of the section
    */
   paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.
+   */
+  blockId?: string | null;
   /**
    * Hide this block on mobile devices
    */
@@ -1270,6 +1334,10 @@ export interface CallToActionBlock {
       }[]
     | null;
   backgroundColor?: ('white' | 'offwhite') | null;
+  /**
+   * Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.
+   */
+  blockId?: string | null;
   /**
    * Hide this block on mobile devices
    */
@@ -1334,6 +1402,10 @@ export interface ContentBlock {
    */
   paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
   /**
+   * Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.
+   */
+  blockId?: string | null;
+  /**
    * Hide this block on mobile devices
    */
   hideOnMobile?: boolean | null;
@@ -1348,6 +1420,10 @@ export interface ContentBlock {
 export interface MediaBlock {
   media: string | Media;
   backgroundColor?: ('white' | 'offwhite') | null;
+  /**
+   * Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.
+   */
+  blockId?: string | null;
   /**
    * Hide this block on mobile devices
    */
@@ -1388,6 +1464,10 @@ export interface ArchiveBlock {
     | null;
   backgroundColor?: ('white' | 'offwhite') | null;
   /**
+   * Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.
+   */
+  blockId?: string | null;
+  /**
    * Hide this block on mobile devices
    */
   hideOnMobile?: boolean | null;
@@ -1426,6 +1506,10 @@ export interface FormBlock {
    * Bottom padding of the section
    */
   paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.
+   */
+  blockId?: string | null;
   /**
    * Hide this block on mobile devices
    */
@@ -1630,6 +1714,10 @@ export interface CalendlyBlock {
    * Bottom padding of the section
    */
   paddingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl') | null;
+  /**
+   * Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.
+   */
+  blockId?: string | null;
   /**
    * Hide this block on mobile devices
    */
@@ -2005,6 +2093,7 @@ export interface HeroBlockSelect<T extends boolean = true> {
   backgroundColor?: T;
   paddingTop?: T;
   paddingBottom?: T;
+  blockId?: T;
   hideOnMobile?: T;
   id?: T;
   blockName?: T;
@@ -2024,6 +2113,7 @@ export interface StatsRowBlockSelect<T extends boolean = true> {
   backgroundColor?: T;
   paddingTop?: T;
   paddingBottom?: T;
+  blockId?: T;
   hideOnMobile?: T;
   id?: T;
   blockName?: T;
@@ -2042,6 +2132,7 @@ export interface TestimonialBlockSelect<T extends boolean = true> {
   backgroundColor?: T;
   paddingTop?: T;
   paddingBottom?: T;
+  blockId?: T;
   hideOnMobile?: T;
   id?: T;
   blockName?: T;
@@ -2063,6 +2154,7 @@ export interface StatementBlockSelect<T extends boolean = true> {
   backgroundColor?: T;
   paddingTop?: T;
   paddingBottom?: T;
+  blockId?: T;
   hideOnMobile?: T;
   id?: T;
   blockName?: T;
@@ -2086,6 +2178,7 @@ export interface FeatureGridBlockSelect<T extends boolean = true> {
   backgroundColor?: T;
   paddingTop?: T;
   paddingBottom?: T;
+  blockId?: T;
   hideOnMobile?: T;
   id?: T;
   blockName?: T;
@@ -2108,6 +2201,7 @@ export interface ProcessBlockSelect<T extends boolean = true> {
   backgroundColor?: T;
   paddingTop?: T;
   paddingBottom?: T;
+  blockId?: T;
   hideOnMobile?: T;
   id?: T;
   blockName?: T;
@@ -2129,6 +2223,7 @@ export interface LogoStripBlockSelect<T extends boolean = true> {
   backgroundColor?: T;
   paddingTop?: T;
   paddingBottom?: T;
+  blockId?: T;
   hideOnMobile?: T;
   id?: T;
   blockName?: T;
@@ -2149,6 +2244,7 @@ export interface CaseStudySummaryBlockSelect<T extends boolean = true> {
   backgroundColor?: T;
   paddingTop?: T;
   paddingBottom?: T;
+  blockId?: T;
   hideOnMobile?: T;
   id?: T;
   blockName?: T;
@@ -2177,6 +2273,7 @@ export interface CaseStudyPreviewBlockSelect<T extends boolean = true> {
   backgroundColor?: T;
   paddingTop?: T;
   paddingBottom?: T;
+  blockId?: T;
   hideOnMobile?: T;
   id?: T;
   blockName?: T;
@@ -2205,6 +2302,7 @@ export interface CaseStudyCarouselBlockSelect<T extends boolean = true> {
   backgroundColor?: T;
   paddingTop?: T;
   paddingBottom?: T;
+  blockId?: T;
   hideOnMobile?: T;
   id?: T;
   blockName?: T;
@@ -2219,6 +2317,7 @@ export interface ServiceSummaryBlockSelect<T extends boolean = true> {
   backgroundColor?: T;
   paddingTop?: T;
   paddingBottom?: T;
+  blockId?: T;
   hideOnMobile?: T;
   id?: T;
   blockName?: T;
@@ -2241,6 +2340,7 @@ export interface ServicesCollectionBlockSelect<T extends boolean = true> {
   backgroundColor?: T;
   paddingTop?: T;
   paddingBottom?: T;
+  blockId?: T;
   hideOnMobile?: T;
   id?: T;
   blockName?: T;
@@ -2262,6 +2362,7 @@ export interface GalleryBlockSelect<T extends boolean = true> {
   backgroundColor?: T;
   paddingTop?: T;
   paddingBottom?: T;
+  blockId?: T;
   hideOnMobile?: T;
   id?: T;
   blockName?: T;
@@ -2278,6 +2379,7 @@ export interface ImageBlockSelect<T extends boolean = true> {
   backgroundColor?: T;
   paddingTop?: T;
   paddingBottom?: T;
+  blockId?: T;
   hideOnMobile?: T;
   id?: T;
   blockName?: T;
@@ -2296,6 +2398,7 @@ export interface SplitBlockSelect<T extends boolean = true> {
   backgroundColor?: T;
   paddingTop?: T;
   paddingBottom?: T;
+  blockId?: T;
   hideOnMobile?: T;
   id?: T;
   blockName?: T;
@@ -2317,6 +2420,7 @@ export interface CarouselBlockSelect<T extends boolean = true> {
   backgroundColor?: T;
   paddingTop?: T;
   paddingBottom?: T;
+  blockId?: T;
   hideOnMobile?: T;
   id?: T;
   blockName?: T;
@@ -2344,6 +2448,7 @@ export interface CallToActionBlockSelect<T extends boolean = true> {
         id?: T;
       };
   backgroundColor?: T;
+  blockId?: T;
   hideOnMobile?: T;
   id?: T;
   blockName?: T;
@@ -2374,6 +2479,7 @@ export interface ContentBlockSelect<T extends boolean = true> {
   backgroundColor?: T;
   paddingTop?: T;
   paddingBottom?: T;
+  blockId?: T;
   hideOnMobile?: T;
   id?: T;
   blockName?: T;
@@ -2385,6 +2491,7 @@ export interface ContentBlockSelect<T extends boolean = true> {
 export interface MediaBlockSelect<T extends boolean = true> {
   media?: T;
   backgroundColor?: T;
+  blockId?: T;
   hideOnMobile?: T;
   id?: T;
   blockName?: T;
@@ -2401,6 +2508,7 @@ export interface ArchiveBlockSelect<T extends boolean = true> {
   limit?: T;
   selectedDocs?: T;
   backgroundColor?: T;
+  blockId?: T;
   hideOnMobile?: T;
   id?: T;
   blockName?: T;
@@ -2416,6 +2524,7 @@ export interface FormBlockSelect<T extends boolean = true> {
   backgroundColor?: T;
   paddingTop?: T;
   paddingBottom?: T;
+  blockId?: T;
   hideOnMobile?: T;
   id?: T;
   blockName?: T;
@@ -2430,6 +2539,7 @@ export interface CalendlyBlockSelect<T extends boolean = true> {
   minHeight?: T;
   paddingTop?: T;
   paddingBottom?: T;
+  blockId?: T;
   hideOnMobile?: T;
   id?: T;
   blockName?: T;
@@ -3213,6 +3323,10 @@ export interface BannerBlock {
   };
   backgroundColor?: ('white' | 'offwhite') | null;
   /**
+   * Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.
+   */
+  blockId?: string | null;
+  /**
    * Hide this block on mobile devices
    */
   hideOnMobile?: boolean | null;
@@ -3228,6 +3342,10 @@ export interface CodeBlock {
   language?: ('typescript' | 'javascript' | 'css') | null;
   code: string;
   backgroundColor?: ('white' | 'offwhite') | null;
+  /**
+   * Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.
+   */
+  blockId?: string | null;
   /**
    * Hide this block on mobile devices
    */

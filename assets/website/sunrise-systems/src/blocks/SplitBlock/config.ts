@@ -96,6 +96,13 @@ export const SplitBlock: Block = {
       },
     },
     {
+      name: 'blockId',
+      type: 'text',
+      admin: {
+        description: 'Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.',
+      },
+    },
+    {
       name: 'hideOnMobile',
       type: 'checkbox',
       defaultValue: false,

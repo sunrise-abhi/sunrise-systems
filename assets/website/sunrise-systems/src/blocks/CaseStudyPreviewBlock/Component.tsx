@@ -46,11 +46,12 @@ export const CaseStudyPreviewBlockComponent: React.FC<CaseStudyPreviewBlockType>
   backgroundColor = 'white',
   paddingTop,
   paddingBottom,
+  blockId,
 }) => {
   if (!caseStudies || caseStudies.length === 0) return null
 
   return (
-    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId}>
       <Container>
         <AnimatedSection>
           {headline && <h2 className="mb-4 text-center">{headline}</h2>}

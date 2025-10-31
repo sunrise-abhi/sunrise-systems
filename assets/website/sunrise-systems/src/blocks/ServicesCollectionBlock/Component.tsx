@@ -15,6 +15,7 @@ export const ServicesCollectionBlockComponent: React.FC<ServicesCollectionBlockT
   columns,
   backgroundColor = 'white',
   paddingTop,
+  blockId,
   paddingBottom,
 }) => {
   if (!services || services.length === 0) return null
@@ -36,7 +37,7 @@ export const ServicesCollectionBlockComponent: React.FC<ServicesCollectionBlockT
   const columnSpan = getColumnSpan(columns || '3')
 
   return (
-    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId}>
       <Container>
         <AnimatedSection>
           {headline && <h2 className="mb-4 text-center">{headline}</h2>}

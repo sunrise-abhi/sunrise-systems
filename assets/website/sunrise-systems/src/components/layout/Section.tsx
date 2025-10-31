@@ -10,6 +10,7 @@ interface SectionProps {
   spacing?: 'standard' | 'large' | 'hero'
   backgroundColor?: 'white' | 'offwhite' | 'transparent' | null
   className?: string
+  blockId?: string
 }
 
 export function Section({ 
@@ -18,7 +19,8 @@ export function Section({
   paddingBottom,
   spacing,
   backgroundColor = 'white',
-  className = '' 
+  className = '',
+  blockId
 }: SectionProps) {
   // Map spacing values to Tailwind classes (8px baseline rhythm)
   const spacingMap: Record<SpacingValue, string> = {
@@ -70,6 +72,7 @@ export function Section({
   
   return (
     <section 
+      id={blockId}
       className={`${bgClass} ${paddingClass} ${className}`} 
       data-bg-color={bgColorHex}
       data-section-bg={sectionBg}

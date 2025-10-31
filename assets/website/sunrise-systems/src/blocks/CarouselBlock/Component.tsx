@@ -12,6 +12,7 @@ export const CarouselBlockComponent: React.FC<CarouselBlockType> = ({
   backgroundColor = 'white',
   paddingTop,
   paddingBottom,
+  blockId,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
@@ -32,7 +33,7 @@ export const CarouselBlockComponent: React.FC<CarouselBlockType> = ({
   if (!imageResource) return null
 
   return (
-    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId}>
       <Container>
         <AnimatedSection>
           <div className="relative">

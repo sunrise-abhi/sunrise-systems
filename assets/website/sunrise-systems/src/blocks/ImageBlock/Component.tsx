@@ -12,6 +12,7 @@ export const ImageBlockComponent: React.FC<ImageBlockType> = ({
   position,
   backgroundColor = 'white',
   paddingTop,
+  blockId,
   paddingBottom,
 }) => {
   const getPositionConfig = (pos: string) => {
@@ -32,7 +33,7 @@ export const ImageBlockComponent: React.FC<ImageBlockType> = ({
   if (!imageResource) return null
 
   return (
-    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId}>
       <Container>
         <AnimatedSection>
           <Grid cols={12}>

@@ -34,22 +34,22 @@ export function useHeaderBackground() {
         const rect = section.getBoundingClientRect()
         if (rect.top <= 80 && rect.bottom > 0) {
           const sectionBg = section.getAttribute('data-section-bg')
-          if (sectionBg === 'transparent') {
-            currentColor = 'transparent'
-          } else {
+          // Skip transparent sections to maintain current header color
+          if (sectionBg !== 'transparent') {
             const color = section.getAttribute('data-bg-color')
             if (color) currentColor = color
           }
         }
       })
       
-      // If no section found behind header, use first section
+      // If no section found behind header, use first non-transparent section
       if (!currentColor && sections.length > 0) {
-        const firstSectionBg = sections[0].getAttribute('data-section-bg')
-        if (firstSectionBg === 'transparent') {
-          currentColor = 'transparent'
-        } else {
-          currentColor = sections[0].getAttribute('data-bg-color')
+        for (const section of sections) {
+          const sectionBg = section.getAttribute('data-section-bg')
+          if (sectionBg !== 'transparent') {
+            currentColor = section.getAttribute('data-bg-color')
+            break
+          }
         }
       }
       

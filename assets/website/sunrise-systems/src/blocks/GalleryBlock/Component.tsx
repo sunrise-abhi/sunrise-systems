@@ -11,6 +11,7 @@ export const GalleryBlockComponent: React.FC<GalleryBlockType> = ({
   backgroundColor = 'white',
   paddingTop,
   paddingBottom,
+  blockId,
 }) => {
   // Validate: 4 images only with full height
   if (images && images.length === 4 && height !== 'full') return null
@@ -35,7 +36,7 @@ export const GalleryBlockComponent: React.FC<GalleryBlockType> = ({
   const columnSpan = getColumnSpan(images.length)
 
   return (
-    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId}>
       <Container>
         <AnimatedSection>
           <Grid cols={12} gap="standard">

@@ -15,7 +15,12 @@ const nextConfig = {
   output: 'standalone',
   images: {
     remotePatterns: [
-      // Allow images from the same domain (for Payload-served media)
+      // Allow images from the custom domain
+      {
+        protocol: 'https',
+        hostname: 'sunrisesystems.co',
+      },
+      // Allow images from the Railway domain (for Payload-served media)
       {
         protocol: 'https',
         hostname: new URL(NEXT_PUBLIC_SERVER_URL).hostname,

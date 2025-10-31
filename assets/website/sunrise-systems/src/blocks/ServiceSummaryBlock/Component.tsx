@@ -12,6 +12,7 @@ export const ServiceSummaryBlockComponent: React.FC<ServiceSummaryBlockType> = (
   backgroundColor = 'white',
   paddingTop,
   paddingBottom,
+  blockId,
 }) => {
   if (!service || typeof service === 'string') return null
 
@@ -19,7 +20,7 @@ export const ServiceSummaryBlockComponent: React.FC<ServiceSummaryBlockType> = (
 
   if (displayStyle === 'detailed') {
     return (
-      <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
+      <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId}>
         <Container>
           <AnimatedSection>
             <Grid cols={12}>

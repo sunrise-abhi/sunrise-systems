@@ -16,6 +16,7 @@ export const TestimonialBlockComponent: React.FC<TestimonialBlockType> = ({
   backgroundColor = 'white',
   paddingTop,
   paddingBottom,
+  blockId,
 }) => {
   const imageResource = typeof authorImage === 'object' && authorImage !== null 
     ? authorImage as MediaType
@@ -31,7 +32,7 @@ export const TestimonialBlockComponent: React.FC<TestimonialBlockType> = ({
   const { span, start } = positionConfig[position ?? 'center'] || positionConfig.center
 
   return (
-    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId}>
       <Container>
         <AnimatedSection>
           <Grid cols={12}>

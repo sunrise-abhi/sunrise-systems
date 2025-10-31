@@ -4,7 +4,7 @@ import React from 'react'
 import type { StatsRowBlock as StatsRowBlockType } from '@/payload-types'
 import { Section, Container, Grid, Column, AnimatedSection } from '@/components/layout'
 
-export const StatsRowBlockComponent: React.FC<StatsRowBlockType> = ({ stats, backgroundColor = 'white', paddingTop, paddingBottom }) => {
+export const StatsRowBlockComponent: React.FC<StatsRowBlockType> = ({ stats, backgroundColor = 'white', paddingTop, paddingBottom, blockId }) => {
   if (!stats || stats.length === 0) return null
 
   // Map stat count to column spans
@@ -24,7 +24,7 @@ export const StatsRowBlockComponent: React.FC<StatsRowBlockType> = ({ stats, bac
   const columnSpan = getColumnSpan(stats.length)
 
   return (
-    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId}>
       <Container>
         <AnimatedSection>
           <Grid cols={12} gap="standard">

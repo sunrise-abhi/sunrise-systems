@@ -11,13 +11,14 @@ export const CaseStudySummaryBlockComponent: React.FC<CaseStudySummaryBlockType>
   backgroundColor = 'white',
   paddingTop,
   paddingBottom,
+  blockId,
 }) => {
   if (!caseStudy || typeof caseStudy === 'string') return null
 
   const caseStudyData = caseStudy as CaseStudy
 
   return (
-    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor}>
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId}>
       <Container>
         <AnimatedSection>
           <Grid cols={12}>
