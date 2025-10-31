@@ -43,6 +43,11 @@ This is the complete typography, color, and styling system for the Sunrise Syste
 
 **3-Tier Body System**: Body copy uses 24px (primary), 20px (supporting), or 16px (labels only), all aligned to 8px baseline grid.
 
+**Standardized Colors (3 shades):**
+- **#111111** (Almost Black) - Primary content, descriptions, subheads
+- **#666666** (Medium Gray) - Testimonial quotes only
+- **#999999** (Light Gray) - Labels, subtle metadata
+
 #### Body 1
 **Font**: Inter Regular (400 weight)
 **Size**: 24px (1.5rem)

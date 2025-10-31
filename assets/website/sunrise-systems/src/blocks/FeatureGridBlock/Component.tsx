@@ -52,7 +52,7 @@ export const FeatureGridBlockComponent: React.FC<FeatureGridBlockType> = ({
               <Column key={index} span={columnSpan}>
                 <div className="bg-[#F5F5F5] rounded-[5px] p-8">
                   {imageResource && (
-                    <div className="mb-4 relative w-full aspect-video overflow-hidden rounded-[5px]">
+                    <div className="mb-4 relative w-full aspect-square overflow-hidden rounded-[5px]">
                       <Media 
                         resource={imageResource} 
                         fill 
@@ -62,7 +62,7 @@ export const FeatureGridBlockComponent: React.FC<FeatureGridBlockType> = ({
                   )}
                   <h4 className="mb-2">{feature.title}</h4>
                   {feature.description && (
-                    <p>{feature.description}</p>
+                    <p className="body-3">{feature.description}</p>
                   )}
                 </div>
               </Column>

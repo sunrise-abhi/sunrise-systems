@@ -35,11 +35,11 @@ export const StatementBlockComponent: React.FC<StatementBlockType> = ({
                   {headline}
                 </h2>
                 
-                {content && (
-                  <div className="mb-8">
-                    <RichText className="[&_p]:text-[1.5rem] [&_p]:leading-[1.5] [&_p]:font-medium" data={content} enableGutter={false} />
-                  </div>
-                )}
+              {content && (
+                <div className="mb-8">
+                  <RichText className="[&_p]:text-[1.5rem] [&_p]:leading-[1.5] [&_p]:font-normal" data={content} enableGutter={false} />
+                </div>
+              )}
                 
                 {ctaButton?.label && ctaButton?.url && (
                   <a
