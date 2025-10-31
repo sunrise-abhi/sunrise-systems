@@ -19,6 +19,7 @@ export const HeroBlock: Block = {
         { label: 'Image Right Carousel', value: 'imageRightCarousel' },
         { label: 'Background Image', value: 'backgroundImage' },
         { label: 'Case Study Hero', value: 'caseStudyHero' },
+        { label: 'Conference Hero', value: 'conferenceHero' },
       ],
     },
     {
@@ -106,7 +107,7 @@ export const HeroBlock: Block = {
       type: 'upload',
       relationTo: 'media',
       admin: {
-        condition: (_, blockData) => blockData?.variant === 'caseStudyHero',
+        condition: (_, blockData) => blockData?.variant === 'caseStudyHero' || blockData?.variant === 'conferenceHero',
         description: 'Large full-width image displayed below headline and subhead',
       },
     },
@@ -116,9 +117,31 @@ export const HeroBlock: Block = {
       relationTo: 'services',
       hasMany: true,
       admin: {
-        condition: (_, blockData) => blockData?.variant === 'caseStudyHero',
+        condition: (_, blockData) => blockData?.variant === 'caseStudyHero' || blockData?.variant === 'conferenceHero',
         description: 'Services to display as tags in the hero',
       },
+    },
+    {
+      name: 'logos',
+      type: 'array',
+      admin: {
+        condition: (_, blockData) => blockData?.variant === 'conferenceHero',
+        description: 'Logos for infinite scroll strip (appears under headline)',
+      },
+      fields: [
+        {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
+          required: true,
+        },
+        {
+          name: 'altText',
+          type: 'text',
+          required: false,
+        },
+      ],
+      minRows: 3,
     },
     {
       name: 'overlayOpacity',

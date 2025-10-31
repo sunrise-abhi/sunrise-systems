@@ -20,6 +20,7 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
   backgroundImage,
   heroImage,
   services,
+  logos,
   overlayOpacity = 50,
   objectPosition = 'center',
   backgroundColor = 'white',
@@ -272,6 +273,113 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
                 <h1 className="mb-0">
                   {headline}
                 </h1>
+              </Column>
+              
+              <Column span={{ mobile: 4, desktop: 5 }} start={{ desktop: 8 }}>
+                {subheadline && (
+                  <p className={`body-1 whitespace-pre-line ${eyebrow ? 'mt-[calc(1em+1rem)]' : ''}`}>
+                    {subheadline}
+                  </p>
+                )}
+                
+                {ctaButton?.label && ctaButton?.url && (
+                  <div className="mt-8">
+                    <Button variant="primary" asChild>
+                      <a 
+                        href={ctaButton.url}
+                        onClick={(e) => handleAnchorClick(e, ctaButton.url)}
+                      >
+                        {ctaButton.label}
+                      </a>
+                    </Button>
+                  </div>
+                )}
+                
+                {servicesList.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {servicesList.map((service) => {
+                      const serviceData = typeof service === 'object' ? service : null
+                      if (!serviceData) return null
+                      
+                      return (
+                        <span
+                          key={serviceData.id}
+                          className="accent inline-block px-3 py-1 rounded-[5px] bg-primary/10"
+                        >
+                          {serviceData.title}
+                        </span>
+                      )
+                    })}
+                  </div>
+                )}
+              </Column>
+            </Grid>
+
+            {heroImageResource && (
+              <Grid cols={12} className="mt-12">
+                <Column span={{ mobile: 4, desktop: 12 }}>
+                  <div className="relative w-full aspect-[16/9] overflow-hidden rounded-[5px]">
+                    <Media 
+                      resource={heroImageResource} 
+                      fill 
+                      imgClassName="object-cover"
+                      priority
+                    />
+                  </div>
+                </Column>
+              </Grid>
+            )}
+          </AnimatedSection>
+        </Container>
+      </Section>
+    )
+  }
+
+  // Conference Hero Variant
+  if (variant === 'conferenceHero') {
+    const heroImageResource = typeof heroImage === 'object' ? heroImage : null
+    const servicesList = Array.isArray(services) ? services : []
+    const logosList = Array.isArray(logos) ? logos : []
+    const eyebrowClass = eyebrowOrange ? 'accent mb-4 text-primary' : 'accent mb-4'
+    
+    return (
+      <Section paddingTop={paddingTop} paddingBottom={paddingBottom} backgroundColor={backgroundColor} blockId={blockId || undefined} className="relative">
+        <Container>
+          <AnimatedSection>
+            <Grid cols={12}>
+              <Column span={{ mobile: 4, desktop: 5 }}>
+                {eyebrow && (
+                  <p className={eyebrowClass}>
+                    {eyebrow}
+                  </p>
+                )}
+                
+                <h1 className="mb-8">
+                  {headline}
+                </h1>
+
+                {/* Mini Logo Strip */}
+                {logosList.length > 0 && (
+                  <div className="overflow-hidden relative mb-8">
+                    <div className="flex items-center animate-scroll">
+                      {[...logosList, ...logosList, ...logosList].map((logo, index) => {
+                        const imageResource = typeof logo.image === 'object' && logo.image !== null
+                          ? logo.image
+                          : null
+
+                        return imageResource ? (
+                          <div key={index} className="h-8 flex-shrink-0 px-6">
+                            <Media
+                              resource={imageResource}
+                              alt={logo.altText || undefined}
+                              imgClassName="h-8 w-auto object-contain max-w-[120px]"
+                            />
+                          </div>
+                        ) : null
+                      })}
+                    </div>
+                  </div>
+                )}
               </Column>
               
               <Column span={{ mobile: 4, desktop: 5 }} start={{ desktop: 8 }}>

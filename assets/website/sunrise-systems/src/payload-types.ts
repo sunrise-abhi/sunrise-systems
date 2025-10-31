@@ -447,7 +447,7 @@ export interface User {
  * via the `definition` "HeroBlock".
  */
 export interface HeroBlock {
-  variant: 'default' | 'imageRight' | 'imageRightCarousel' | 'backgroundImage' | 'caseStudyHero';
+  variant: 'default' | 'imageRight' | 'imageRightCarousel' | 'backgroundImage' | 'caseStudyHero' | 'conferenceHero';
   /**
    * Small text above headline (optional)
    */
@@ -491,6 +491,16 @@ export interface HeroBlock {
    * Services to display as tags in the hero
    */
   services?: (string | Service)[] | null;
+  /**
+   * Logos for infinite scroll strip (appears under headline)
+   */
+  logos?:
+    | {
+        image: string | Media;
+        altText?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   /**
    * Dark overlay opacity (0-100)
    */
@@ -2088,6 +2098,13 @@ export interface HeroBlockSelect<T extends boolean = true> {
   backgroundImage?: T;
   heroImage?: T;
   services?: T;
+  logos?:
+    | T
+    | {
+        image?: T;
+        altText?: T;
+        id?: T;
+      };
   overlayOpacity?: T;
   objectPosition?: T;
   backgroundColor?: T;
