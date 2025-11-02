@@ -39,7 +39,7 @@ export function smoothScrollToElement(targetId: string, offset: number = 80): vo
     // Use Lenis for smooth scrolling with ease-in-out
     lenis.scrollTo(element, {
       offset: -offset,
-      duration: 2.5,
+      duration: 1.8,
       easing: (t: number) => -(Math.cos(Math.PI * t) - 1) / 2, // Smooth ease-in-out
     })
   } else {

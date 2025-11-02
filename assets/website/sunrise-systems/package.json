@@ -23,7 +23,8 @@
     "backup": "bash backup-restore/backup.sh",
     "backup:restore": "bash backup-restore/restore.sh",
     "seed:case-studies": "cross-env NODE_OPTIONS=--no-deprecation node scripts/seed-case-studies.mjs",
-    "upload:media": "cross-env NODE_OPTIONS=--no-deprecation node scripts/upload-media-to-production.mjs"
+    "upload:media": "cross-env NODE_OPTIONS=--no-deprecation node scripts/upload-media-to-production.mjs",
+    "analyze:images": "node scripts/analyze-images.mjs"
   },
   "dependencies": {
     "@payloadcms/admin-bar": "3.61.0",

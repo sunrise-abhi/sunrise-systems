@@ -21,13 +21,25 @@ This site uses [Lenis](https://lenis.darkroom.engineering/) for buttery-smooth s
 
 ## Configuration
 
-The smooth scroll is configured in `src/components/SmoothScroll/index.tsx`:
+The smooth scroll is configured in two places:
+
+### General Page Scrolling
+`src/components/SmoothScroll/index.tsx`:
 
 ```typescript
-duration: 1.2,           // Scroll duration
+duration: 1.0,           // Scroll duration (was 1.2, reduced for snappier feel)
 easing: (t) => ...,      // Custom easing function
 smoothWheel: true,       // Smooth mouse wheel scrolling
-smoothTouch: false,      // Disabled for touch (mobile)
+wheelMultiplier: 1,      // Mouse wheel sensitivity
+```
+
+### Anchor Link Scrolling
+`src/utilities/smoothScroll.ts`:
+
+```typescript
+duration: 1.8,           // Anchor scroll duration (was 2.5, reduced for faster navigation)
+offset: -80,             // Offset for fixed header
+easing: (t) => ...,      // Ease-in-out function
 ```
 
 ## How It Works
