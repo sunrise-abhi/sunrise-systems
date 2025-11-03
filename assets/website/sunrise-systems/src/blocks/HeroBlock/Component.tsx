@@ -6,6 +6,7 @@ import { Section, Container, Grid, Column, AnimatedSection } from '@/components/
 import { Media } from '@/components/Media'
 import { Button } from '@/components/ui/button'
 import { handleAnchorClick } from '@/utilities/smoothScroll'
+import { Video } from '@/components/Video'
 
 export const HeroBlockComponent: React.FC<HeroBlockType> = ({
   variant = 'default',
@@ -16,9 +17,11 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
   ctaButton,
   proofBadge,
   image,
+  videoUrl,
   carouselImages,
   backgroundImage,
   heroImage,
+  heroVideoUrl,
   services,
   logos,
   overlayOpacity = 50,
@@ -117,6 +120,7 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
   // Image Right Variant
   if (variant === 'imageRight') {
     const imageResource = typeof image === 'object' ? image : null
+    const hasVideo = videoUrl || (imageResource && imageResource.mimeType?.startsWith('video/'))
     const eyebrowClass = eyebrowOrange ? 'accent mb-4 text-primary' : 'accent mb-4'
     
     return (
@@ -159,24 +163,36 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
               )}
             </Column>
             
-            {imageResource && (
+            {(imageResource || videoUrl) && (
               <Column span={{ mobile: 4, desktop: 6 }} start={{ desktop: 7 }}>
-                  <div className="relative overflow-hidden rounded-[5px] w-full h-full">
+                <div className="relative overflow-hidden rounded-[5px] w-full aspect-[4/3]">
+                  {hasVideo ? (
+                    <Video 
+                      media={imageResource}
+                      videoUrl={videoUrl}
+                      autoPlay={true}
+                      muted={true}
+                      loop={true}
+                      controls={false}
+                      className="absolute inset-0"
+                    />
+                  ) : (
                     <Media 
                       resource={imageResource} 
                       fill 
                       imgClassName="object-cover"
                       priority
                     />
-                  </div>
-                </Column>
-              )}
-            </Grid>
-          </AnimatedSection>
-        </Container>
-      </Section>
-    )
-  }
+                  )}
+                </div>
+              </Column>
+            )}
+          </Grid>
+        </AnimatedSection>
+      </Container>
+    </Section>
+  )
+}
 
   // Image Right Carousel Variant
   if (variant === 'imageRightCarousel') {
@@ -256,6 +272,7 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
   if (variant === 'caseStudyHero') {
     const heroImageResource = typeof heroImage === 'object' ? heroImage : null
     const servicesList = Array.isArray(services) ? services : []
+    const hasHeroVideo = heroVideoUrl || (heroImageResource && heroImageResource.mimeType?.startsWith('video/'))
     const eyebrowClass = eyebrowOrange ? 'accent mb-4 text-primary' : 'accent mb-4'
     
     return (
@@ -315,16 +332,28 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
               </Column>
             </Grid>
 
-            {heroImageResource && (
+            {(heroImageResource || heroVideoUrl) && (
               <Grid cols={12} className="mt-12">
                 <Column span={{ mobile: 4, desktop: 12 }}>
                   <div className="relative w-full aspect-[16/9] overflow-hidden rounded-[5px]">
-                    <Media 
-                      resource={heroImageResource} 
-                      fill 
-                      imgClassName="object-cover"
-                      priority
-                    />
+                    {hasHeroVideo ? (
+                      <Video 
+                        media={heroImageResource}
+                        videoUrl={heroVideoUrl}
+                        autoPlay={true}
+                        muted={true}
+                        loop={true}
+                        controls={false}
+                        className="absolute inset-0"
+                      />
+                    ) : (
+                      <Media 
+                        resource={heroImageResource} 
+                        fill 
+                        imgClassName="object-cover"
+                        priority
+                      />
+                    )}
                   </div>
                 </Column>
               </Grid>
@@ -340,6 +369,7 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
     const heroImageResource = typeof heroImage === 'object' ? heroImage : null
     const servicesList = Array.isArray(services) ? services : []
     const logosList = Array.isArray(logos) ? logos : []
+    const hasHeroVideo = heroVideoUrl || (heroImageResource && heroImageResource.mimeType?.startsWith('video/'))
     const eyebrowClass = eyebrowOrange ? 'accent mb-4 text-primary' : 'accent mb-4'
     
     return (
@@ -422,16 +452,28 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
               </Column>
             </Grid>
 
-            {heroImageResource && (
+            {(heroImageResource || heroVideoUrl) && (
               <Grid cols={12} className="mt-12">
                 <Column span={{ mobile: 4, desktop: 12 }}>
                   <div className="relative w-full aspect-[16/9] overflow-hidden rounded-[5px]">
-                    <Media 
-                      resource={heroImageResource} 
-                      fill 
-                      imgClassName="object-cover"
-                      priority
-                    />
+                    {hasHeroVideo ? (
+                      <Video 
+                        media={heroImageResource}
+                        videoUrl={heroVideoUrl}
+                        autoPlay={true}
+                        muted={true}
+                        loop={true}
+                        controls={false}
+                        className="absolute inset-0"
+                      />
+                    ) : (
+                      <Media 
+                        resource={heroImageResource} 
+                        fill 
+                        imgClassName="object-cover"
+                        priority
+                      />
+                    )}
                   </div>
                 </Column>
               </Grid>

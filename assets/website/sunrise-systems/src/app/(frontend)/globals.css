@@ -246,6 +246,27 @@
   .hover-shine:hover::before {
     opacity: 1;
   }
+
+  /* Always-on shine effect for highlighted stats */
+  .shine-always {
+    position: relative;
+    transition: all 500ms ease;
+  }
+  
+  .shine-always::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 7px;
+    padding: 2px;
+    background: conic-gradient(from var(--angle), transparent 0deg, transparent 60deg, #FF6000 120deg, transparent 180deg, transparent 360deg);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 1;
+    pointer-events: none;
+    animation: rotate-glow 3s linear infinite;
+  }
   
   @keyframes rotate-glow {
     0% {

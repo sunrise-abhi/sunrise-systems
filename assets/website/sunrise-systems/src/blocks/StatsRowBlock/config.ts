@@ -30,6 +30,14 @@ export const StatsRowBlock: Block = {
             description: 'e.g., "total pipeline generated"',
           },
         },
+        {
+          name: 'highlight',
+          type: 'checkbox',
+          defaultValue: false,
+          admin: {
+            description: 'Add subtle rotating glow effect to this statistic',
+          },
+        },
       ],
     },
     {

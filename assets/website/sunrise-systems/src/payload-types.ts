@@ -467,9 +467,13 @@ export interface HeroBlock {
    */
   proofBadge?: string | null;
   /**
-   * Image displayed on the right side
+   * Image or video displayed on the right side
    */
   image?: (string | null) | Media;
+  /**
+   * Optional: YouTube or Vimeo embed URL (overrides image if provided)
+   */
+  videoUrl?: string | null;
   /**
    * Multiple images that will animate and swap every 5 seconds
    */
@@ -484,9 +488,13 @@ export interface HeroBlock {
    */
   backgroundImage?: (string | null) | Media;
   /**
-   * Large full-width image displayed below headline and subhead
+   * Large full-width image or video displayed below headline and subhead
    */
   heroImage?: (string | null) | Media;
+  /**
+   * Optional: YouTube or Vimeo embed URL (overrides image if provided)
+   */
+  heroVideoUrl?: string | null;
   /**
    * Services to display as tags in the hero
    */
@@ -666,6 +674,10 @@ export interface StatsRowBlock {
          * e.g., "total pipeline generated"
          */
         label: string;
+        /**
+         * Add subtle rotating glow effect to this statistic
+         */
+        highlight?: boolean | null;
         id?: string | null;
       }[]
     | null;
@@ -2089,6 +2101,7 @@ export interface HeroBlockSelect<T extends boolean = true> {
       };
   proofBadge?: T;
   image?: T;
+  videoUrl?: T;
   carouselImages?:
     | T
     | {
@@ -2097,6 +2110,7 @@ export interface HeroBlockSelect<T extends boolean = true> {
       };
   backgroundImage?: T;
   heroImage?: T;
+  heroVideoUrl?: T;
   services?: T;
   logos?:
     | T
@@ -2125,6 +2139,7 @@ export interface StatsRowBlockSelect<T extends boolean = true> {
     | {
         value?: T;
         label?: T;
+        highlight?: T;
         id?: T;
       };
   backgroundColor?: T;

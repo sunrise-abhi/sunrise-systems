@@ -73,7 +73,15 @@ export const HeroBlock: Block = {
       relationTo: 'media',
       admin: {
         condition: (_, blockData) => blockData?.variant === 'imageRight',
-        description: 'Image displayed on the right side',
+        description: 'Image or video displayed on the right side',
+      },
+    },
+    {
+      name: 'videoUrl',
+      type: 'text',
+      admin: {
+        condition: (_, blockData) => blockData?.variant === 'imageRight',
+        description: 'Optional: YouTube or Vimeo embed URL (overrides image if provided)',
       },
     },
     {
@@ -108,7 +116,15 @@ export const HeroBlock: Block = {
       relationTo: 'media',
       admin: {
         condition: (_, blockData) => blockData?.variant === 'caseStudyHero' || blockData?.variant === 'conferenceHero',
-        description: 'Large full-width image displayed below headline and subhead',
+        description: 'Large full-width image or video displayed below headline and subhead',
+      },
+    },
+    {
+      name: 'heroVideoUrl',
+      type: 'text',
+      admin: {
+        condition: (_, blockData) => blockData?.variant === 'caseStudyHero' || blockData?.variant === 'conferenceHero',
+        description: 'Optional: YouTube or Vimeo embed URL (overrides image if provided)',
       },
     },
     {

@@ -30,7 +30,7 @@ export const StatsRowBlockComponent: React.FC<StatsRowBlockType> = ({ stats, bac
           <Grid cols={12} gap="standard">
             {stats.map((stat, index) => (
               <Column key={index} span={columnSpan}>
-                <div className="text-center">
+                <div className={`text-center ${stat.highlight ? 'shine-always rounded-[5px] p-8' : ''}`}>
                   <h2 className="mb-2">
                     {stat.value}
                   </h2>
