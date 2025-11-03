@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { cn } from '@/utilities/ui'
 import { DM_Sans, Inter, IBM_Plex_Mono } from 'next/font/google'
 import React from 'react'
+import Script from 'next/script'
 
 const dmSans = DM_Sans({
   weight: '600',
@@ -45,6 +46,18 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+        <Script id="rb2b-script" strategy="afterInteractive">
+          {`
+            !function(key) {
+              if (window.reb2b) return;
+              window.reb2b = {loaded: true};
+              var s = document.createElement("script");
+              s.async = true;
+              s.src = "https://b2bjsstore.s3.us-west-2.amazonaws.com/b/" + key + "/" + key + ".js.gz";
+              document.getElementsByTagName("script")[0].parentNode.insertBefore(s, document.getElementsByTagName("script")[0]);
+            }("Z6PVLHPP506R");
+          `}
+        </Script>
       </head>
       <body>
         <SmoothScroll />
