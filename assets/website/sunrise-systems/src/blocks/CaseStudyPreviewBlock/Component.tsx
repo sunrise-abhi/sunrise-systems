@@ -14,9 +14,9 @@ function formatMetricValue(metricKey: string, value: number | null | undefined):
   switch (metricKey) {
     case 'pipelineValue':
     case 'closedRevenue':
-      // Format as currency (e.g., $2.135M)
+      // Format as currency (e.g., $2.135MM)
       if (value >= 1000000) {
-        return `$${(value / 1000000).toFixed(2)}M`
+        return `$${(value / 1000000).toFixed(2)}MM`
       } else if (value >= 1000) {
         return `$${(value / 1000).toFixed(0)}K`
       }

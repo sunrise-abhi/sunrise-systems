@@ -38,11 +38,6 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
 
       {/* Mobile Navigation */}
       <div className="flex md:hidden items-center gap-4">
-        {/* Primary Button - Always Visible */}
-        {primaryButton && (
-          <CMSLink {...primaryButton.link} />
-        )}
-
         {/* Hamburger Menu Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -58,6 +53,18 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
       {mobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-b border-border/20 shadow-lg">
           <nav className="container py-6 flex flex-col gap-4">
+            {/* Primary Button - Prominent at top */}
+            {primaryButton && (
+              <div onClick={() => setMobileMenuOpen(false)}>
+                <CMSLink {...primaryButton.link} className="w-full" />
+              </div>
+            )}
+            
+            {/* Divider */}
+            {primaryButton && regularNavItems.length > 0 && (
+              <div className="border-b border-border/20" />
+            )}
+            
             {regularNavItems.map(({ link }, i) => {
               return (
                 <div key={i} onClick={() => setMobileMenuOpen(false)}>
