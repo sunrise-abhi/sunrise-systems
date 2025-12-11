@@ -27,6 +27,16 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
   const primaryButton = navItems.find(item => item.link?.appearance === 'primary')
   const regularNavItems = navItems.filter(item => item.link?.appearance !== 'primary')
 
+  const handleToggleMenu = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    setMobileMenuOpen(!mobileMenuOpen)
+  }
+
+  const handleCloseMenu = () => {
+    setMobileMenuOpen(false)
+  }
+
   return (
     <>
       {/* Desktop Navigation */}
@@ -40,8 +50,8 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
       <div className="flex md:hidden items-center gap-4">
         {/* Hamburger Menu Button */}
         <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="p-2 hover:text-primary transition-colors"
+          onClick={handleToggleMenu}
+          className="p-2 hover:text-primary transition-colors relative z-[70]"
           style={{ color: '#111111' }}
           aria-label="Toggle menu"
         >
@@ -51,29 +61,35 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
 
       {/* Mobile Dropdown Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-b border-border/20 shadow-lg">
-          <nav className="container py-6 flex flex-col gap-4">
-            {/* Primary Button - Prominent at top */}
-            {primaryButton && (
-              <div onClick={() => setMobileMenuOpen(false)}>
-                <CMSLink {...primaryButton.link} className="w-full" />
-              </div>
-            )}
-            
-            {/* Divider */}
-            {primaryButton && regularNavItems.length > 0 && (
-              <div className="border-b border-border/20" />
-            )}
-            
-            {regularNavItems.map(({ link }, i) => {
-              return (
-                <div key={i} onClick={() => setMobileMenuOpen(false)}>
-                  <CMSLink {...link} />
+        <>
+          {/* Backdrop */}
+          <div 
+            className="md:hidden fixed inset-0 bg-black/20 z-[45]" 
+            style={{ top: '80px' }}
+            onClick={handleCloseMenu}
+            aria-hidden="true"
+          />
+          
+          {/* Menu content */}
+          <div className="md:hidden fixed left-0 right-0 bg-white/95 backdrop-blur-md border-b border-border/20 shadow-lg z-[46]" style={{ top: '80px' }}>
+            <nav className="container py-6 flex flex-col gap-4">
+              {/* Primary Button - Prominent at top */}
+              {primaryButton && (
+                <div onClick={handleCloseMenu}>
+                  <CMSLink {...primaryButton.link} className="w-full" />
                 </div>
-              )
-            })}
-          </nav>
-        </div>
+              )}
+              
+              {regularNavItems.map(({ link }, i) => {
+                return (
+                  <div key={i} onClick={handleCloseMenu}>
+                    <CMSLink {...link} />
+                  </div>
+                )
+              })}
+            </nav>
+          </div>
+        </>
       )}
     </>
   )

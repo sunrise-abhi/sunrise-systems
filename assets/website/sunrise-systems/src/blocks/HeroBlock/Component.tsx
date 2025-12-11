@@ -165,25 +165,27 @@ export const HeroBlockComponent: React.FC<HeroBlockType> = ({
             
             {(imageResource || videoUrl) && (
               <Column span={{ mobile: 4, desktop: 6 }} start={{ desktop: 7 }}>
-                <div className="relative overflow-hidden rounded-[5px] w-full aspect-[4/3]">
-                  {hasVideo ? (
-                    <Video 
-                      media={imageResource}
-                      videoUrl={videoUrl}
-                      autoPlay={true}
-                      muted={true}
-                      loop={true}
-                      controls={false}
-                      className="absolute inset-0"
-                    />
-                  ) : (
-                    <Media 
-                      resource={imageResource} 
-                      fill 
-                      imgClassName="object-cover"
-                      priority
-                    />
-                  )}
+                <div className={`flex items-center ${hasVideo ? 'h-full' : ''}`}>
+                  <div className={`relative overflow-hidden rounded-[5px] w-full ${hasVideo ? 'aspect-[16/9]' : 'aspect-[4/3]'}`}>
+                    {hasVideo ? (
+                      <Video 
+                        media={imageResource}
+                        videoUrl={videoUrl}
+                        autoPlay={true}
+                        muted={true}
+                        loop={true}
+                        controls={false}
+                        className="absolute inset-0"
+                      />
+                    ) : (
+                      <Media 
+                        resource={imageResource} 
+                        fill 
+                        imgClassName="object-cover"
+                        priority
+                      />
+                    )}
+                  </div>
                 </div>
               </Column>
             )}

@@ -8,8 +8,31 @@ import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { Section, Container, Grid, Column, AnimatedSection } from '@/components/layout'
 import { handleAnchorClick, isAnchorLink } from '@/utilities/smoothScroll'
+import { CTAScarcityTag } from '@/components/ScarcityTag/CTAScarcityTag'
 
-export const CallToActionBlock: React.FC<CTABlockProps> = ({ links, headline, subhead, backgroundColor = 'white', blockId }) => {
+export const CallToActionBlock: React.FC<CTABlockProps & { scarcityData?: any }> = (props) => {
+  const { links, headline, subhead, backgroundColor = 'white', blockId, showScarcity, scarcityData } = props
+  const shouldShowScarcity = showScarcity && scarcityData?.enabled
+  
+  // Debug logging - Log ALL props to see what's being passed
+  if (typeof window === 'undefined') {
+    console.log('CTA Block - Server Side Full Props:', {
+      showScarcity,
+      showScarcityType: typeof showScarcity,
+      hasScarcityData: !!scarcityData,
+      scarcityEnabled: scarcityData?.enabled,
+      shouldShowScarcity,
+      allProps: Object.keys(props),
+      blockId,
+      headline: headline?.substring(0, 30) + '...',
+      rawShowScarcity: props.showScarcity,
+    })
+  }
+  
+  // Force show for testing - TEMPORARY
+  const forceShow = true // Set to true to test if tag renders
+  const actualShouldShow = forceShow || (showScarcity && scarcityData?.enabled)
+  
   return (
     <Section backgroundColor={backgroundColor} blockId={blockId || undefined}>
       <Container>
@@ -18,6 +41,9 @@ export const CallToActionBlock: React.FC<CTABlockProps> = ({ links, headline, su
             <Grid cols={12} gap="standard" className="items-end">
             <Column span={{ mobile: 4, desktop: 6 }}>
               <div className="flex flex-col gap-4">
+                {actualShouldShow && scarcityData && (
+                  <CTAScarcityTag scarcityData={scarcityData} />
+                )}
                 {headline && (
                   <h2 className="text-[3rem] leading-[1.333] text-white font-normal">
                     {headline}

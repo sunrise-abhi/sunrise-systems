@@ -34,6 +34,15 @@ export const CallToAction: Block = {
       ],
     },
     {
+      name: 'showScarcity',
+      type: 'checkbox',
+      label: 'Show Scarcity Tag',
+      defaultValue: false,
+      admin: {
+        description: 'Display scarcity tag above the headline (requires scarcity to be enabled globally)',
+      },
+    },
+    {
       name: 'blockId',
       type: 'text',
       admin: {

@@ -109,10 +109,12 @@ export interface Config {
   globals: {
     header: Header;
     footer: Footer;
+    scarcity: Scarcity;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
+    scarcity: ScarcitySelect<false> | ScarcitySelect<true>;
   };
   locale: null;
   user: User & {
@@ -1357,6 +1359,10 @@ export interface CallToActionBlock {
     | null;
   backgroundColor?: ('white' | 'offwhite') | null;
   /**
+   * Display scarcity tag above the headline (requires scarcity to be enabled globally)
+   */
+  showScarcity?: boolean | null;
+  /**
    * Optional ID for anchor linking (e.g., "contact", "services"). Used for smooth scroll navigation.
    */
   blockId?: string | null;
@@ -2480,6 +2486,7 @@ export interface CallToActionBlockSelect<T extends boolean = true> {
         id?: T;
       };
   backgroundColor?: T;
+  showScarcity?: T;
   blockId?: T;
   hideOnMobile?: T;
   id?: T;
@@ -3240,6 +3247,35 @@ export interface Footer {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "scarcity".
+ */
+export interface Scarcity {
+  id: string;
+  /**
+   * Toggle to show/hide scarcity tags across the site
+   */
+  enabled?: boolean | null;
+  /**
+   * Total number of available slots
+   */
+  totalSlots: number;
+  /**
+   * Current number of slots remaining
+   */
+  remainingSlots: number;
+  /**
+   * Text for the banner above header. Use {remaining} and {total} as placeholders. Leave empty for default.
+   */
+  bannerText?: string | null;
+  /**
+   * Text for CTA section tags. Use {remaining} and {total} as placeholders. Leave empty for default.
+   */
+  ctaTagText?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
@@ -3298,6 +3334,20 @@ export interface FooterSelect<T extends boolean = true> {
             };
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "scarcity_select".
+ */
+export interface ScarcitySelect<T extends boolean = true> {
+  enabled?: T;
+  totalSlots?: T;
+  remainingSlots?: T;
+  bannerText?: T;
+  ctaTagText?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

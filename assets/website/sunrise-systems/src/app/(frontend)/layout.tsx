@@ -33,12 +33,15 @@ import { draftMode } from 'next/headers'
 import { GridDebug } from '@/components/layout/GridDebug'
 import { BaselineDebug } from '@/components/layout/BaselineDebug'
 import { SmoothScroll } from '@/components/SmoothScroll'
+import { ScarcityBanner } from '@/components/ScarcityTag/ScarcityBanner'
+import { getScarcityData } from '@/components/ScarcityTag/getScarcityData'
 
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const { isEnabled } = await draftMode()
+  const scarcityData = await getScarcityData()
 
   return (
     <html className={cn(dmSans.variable, inter.variable, ibmPlexMono.variable)} lang="en" suppressHydrationWarning>
@@ -46,6 +49,22 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+        
+        {/* Google Analytics */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-Q8B741Y3QM'}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-Q8B741Y3QM'}');
+          `}
+        </Script>
+
+        {/* Reveal B2B Tracking */}
         <Script id="rb2b-script" strategy="afterInteractive">
           {`
             !function(key) {
@@ -68,6 +87,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             }}
           />
 
+          <ScarcityBanner scarcityData={scarcityData} />
           <Header />
           {children}
           <Footer />

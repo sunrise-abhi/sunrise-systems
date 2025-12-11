@@ -24,6 +24,7 @@ import { GalleryBlockComponent } from '@/blocks/GalleryBlock/Component'
 import { ImageBlockComponent } from '@/blocks/ImageBlock/Component'
 import { SplitBlockComponent } from '@/blocks/SplitBlock/Component'
 import { CarouselBlockComponent } from '@/blocks/CarouselBlock/Component'
+import { getScarcityData } from '@/components/ScarcityTag/getScarcityData'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -52,10 +53,13 @@ const blockComponents = {
 
 export const RenderBlocks: React.FC<{
   blocks: Page['layout'][0][]
-}> = (props) => {
+}> = async (props) => {
   const { blocks } = props
 
   const hasBlocks = blocks && Array.isArray(blocks) && blocks.length > 0
+
+  // Fetch scarcity data once for all blocks
+  const scarcityData = await getScarcityData()
 
   if (hasBlocks) {
     return (
@@ -68,10 +72,13 @@ export const RenderBlocks: React.FC<{
             const Block = blockComponents[blockType]
 
             if (Block) {
+              // Pass scarcity data to CTA blocks
+              const additionalProps = blockType === 'cta' ? { scarcityData } : {}
+
               return (
                 <div key={index} className={hideOnMobile ? 'hidden md:block' : ''}>
                   {/* @ts-expect-error there may be some mismatch between the expected types here */}
-                  <Block {...block} disableInnerContainer />
+                  <Block {...block} {...additionalProps} disableInnerContainer />
                 </div>
               )
             }
